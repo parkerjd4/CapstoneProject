@@ -1,8 +1,8 @@
-# Metadata Section:
+## Metadata Section:
 
-   ## Title: Game Logger
+   #### Title: Game Logger
 
-   ## Developers: Dillon Parker
+   #### Developers: Dillon Parker
 
  
 # Project Overview:
