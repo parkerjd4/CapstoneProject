@@ -15,7 +15,7 @@
    The only real experiences I have that could help would be Computer Systems because of use using C as the language. Only experiences would be using the similar software’s and using that try and improve my product.
 
 # Technology:
-   The tools that I will be using will be Visual Studio 2017 and GitHub. The languages I will be using will be C/C++, C#, visual C, and maybe PHP. This will be a Desktop application. I will create tests using the built-in plugins of Visual Studio. Visual Studio will auto format the code.
+   The tools that I will be using will be Visual Studio 2017 and GitHub. The languages I will be using will be C/C++, C#, visual C, .NET, and maybe PHP. This will be a Desktop application. I will create tests using the built-in plugins of Visual Studio. Visual Studio will auto format the code.
 
 # Risk Areas:
    The major concern that I have is that I have never used Visual Studio and created an application but I believe that I can create this kind of project. I will be watching videos and working with Visual Studio and asking my Father for advice about how to use it. 
