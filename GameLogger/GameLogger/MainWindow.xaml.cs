@@ -24,5 +24,17 @@ namespace GameLogger
         {
             InitializeComponent();
         }
+
+        private void Menu(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Menu_Click_Add(object sender, RoutedEventArgs e)
+        {
+            From1 wind = new From1();
+            wind.Show();
+
+        }
     }
 }

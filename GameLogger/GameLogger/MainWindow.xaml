@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="GameLogger" Height="350" Width="525">
     <Grid>
-        
+        <Menu x:Name="MenuBar" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100">
+            <MenuItem Header="File">
+                <MenuItem Header="Add Game" Click="Menu_Click_Add"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <DocumentViewer HorizontalAlignment="Left" Margin="785,51,-368,0" VerticalAlignment="Top" Width="100"/>
     </Grid>
 </Window>
