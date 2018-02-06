@@ -29,7 +29,12 @@ namespace GameLogger
 
         private void button1_Click(object sender, EventArgs e)
         {
-            nameOfGame = GameName.Text;
+            MainWindow mainwindow = new MainWindow();
+            mainwindow.addToFile(GameName.Text);
+            mainwindow.checkxmlFiles();
+
+
+
 
         }
 

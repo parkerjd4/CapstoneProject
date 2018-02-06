@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
+using System.Xml;
 
 namespace GameLogger
 {
@@ -23,7 +25,50 @@ namespace GameLogger
         public MainWindow()
         {
             InitializeComponent();
+            
+            var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
+            var complete = System.IO.Path.Combine(systemPath, "GameLogger");
+            var filepath = System.IO.Path.Combine(complete, "game_list.xml");
+            System.IO.Directory.CreateDirectory(complete);
+
+            if (!(File.Exists(filepath)))
+            {
+                File.Create(filepath).Close();
+                File.AppendAllText(filepath, String.Format("<GameList>" + Environment.NewLine + "</GameList>"));
+
+            }
+            LoadFile(filepath);
         }
+
+        internal void AddToFile(string text)
+        {
+            var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
+            var complete = System.IO.Path.Combine(systemPath, "GameLogger");
+            var filepath = System.IO.Path.Combine(complete, "game_list.xml");
+            XmlDocument doc = new XmlDocument();
+            doc.Load(filepath);
+            XmlNode node = doc.CreateNode(XmlNodeType.Element, "Game", null);
+            XmlNode gameName = doc.CreateElement("Game_Name");
+            gameName.InnerText = text;
+            node.AppendChild(gameName);
+            doc.DocumentElement.AppendChild(node);
+            doc.Save(filepath);
+
+            
+
+        }
+
+        private void LoadFile(string path)
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.Load(path);
+            XmlNodeList xnList = doc.SelectNodes("/GameList");
+            foreach (XmlNode xn in xnList)
+            {
+
+
+            }
+         }
 
         private void Menu(object sender, RoutedEventArgs e)
         {
@@ -34,6 +79,16 @@ namespace GameLogger
         {
             From1 wind = new From1();
             wind.Show();
+
+        }
+
+        public void checkxmlFiles()
+        {
+            var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
+            var complete = System.IO.Path.Combine(systemPath, "GameLogger");
+            var filepath = System.IO.Path.Combine(complete, "game_list.xml");
+
+
 
         }
     }
