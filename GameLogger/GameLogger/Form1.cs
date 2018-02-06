@@ -14,9 +14,7 @@ using System.Diagnostics;
 namespace GameLogger
 {
     public partial class From1: Form
-    {
-        String nameOfGame = ""; 
-
+    {   
         public From1()
         {
             InitializeComponent();
@@ -30,12 +28,8 @@ namespace GameLogger
         private void button1_Click(object sender, EventArgs e)
         {
             MainWindow mainwindow = new MainWindow();
-            mainwindow.addToFile(GameName.Text);
-            mainwindow.checkxmlFiles();
-
-
-
-
+            mainwindow.AddToFile(GameName.Text);
+            mainwindow.CheckxmlFiles();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

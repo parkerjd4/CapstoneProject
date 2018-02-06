@@ -54,7 +54,7 @@ namespace GameLogger
             doc.DocumentElement.AppendChild(node);
             doc.Save(filepath);
 
-            
+            LoadFile(filepath);
 
         }
 
@@ -65,6 +65,13 @@ namespace GameLogger
             XmlNodeList xnList = doc.SelectNodes("/GameList");
             foreach (XmlNode xn in xnList)
             {
+                
+             //string gameName = xn["Game_Name"].Value;
+             DataGrid dataGrid = new DataGrid();
+             dataGrid.AutoGenerateColumns = true;
+             this.AddVisualChild(dataGrid);
+
+
 
 
             }
@@ -82,13 +89,18 @@ namespace GameLogger
 
         }
 
-        public void checkxmlFiles()
+        public void CheckxmlFiles()
         {
             var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
             var complete = System.IO.Path.Combine(systemPath, "GameLogger");
             var filepath = System.IO.Path.Combine(complete, "game_list.xml");
 
 
+
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
         }
     }
