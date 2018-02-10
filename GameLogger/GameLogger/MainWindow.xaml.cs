@@ -12,8 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Drawing;
 using System.IO;
 using System.Xml;
+using System.Windows.Forms;
 
 namespace GameLogger
 {
@@ -27,7 +29,7 @@ namespace GameLogger
 
         public MainWindow()
         {
-            InitializeComponent();            
+            InitializeComponent();
             var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
             var complete = System.IO.Path.Combine(systemPath, "GameLogger");
             var filepath = System.IO.Path.Combine(complete, "game_list.xml");
@@ -39,6 +41,7 @@ namespace GameLogger
                 File.AppendAllText(filepath, String.Format("<GameList>" + Environment.NewLine + "</GameList>"));
 
             }
+            gameListView.AutoGenerateColumns = true;
             LoadFile(filepath);
         }
 
@@ -65,18 +68,38 @@ namespace GameLogger
             XmlDocument doc = new XmlDocument();
             doc.Load(path);
             XmlNodeList xnList = doc.SelectNodes("/GameList/Game");
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+
+            DataGridTextColumn imagecol = new DataGridTextColumn();
+            imagecol.Header = "Image";
+            imagecol.Binding = new System.Windows.Data.Binding("ImageOfGame");
+            gameListView.Columns.Add(imagecol);
+
+            DataGridTextColumn textColumn1 = new DataGridTextColumn();
+            textColumn1.Header = "Game Name" ;
+            textColumn1.Binding = new System.Windows.Data.Binding("GameName");
+            gameListView.Columns.Add(textColumn1);
             foreach (XmlNode xn in xnList)
             {
                 string gameName = xn["Game_Name"].InnerText;
-                TextAndImageColumn colName = new TextAndImageColumn();
-                colName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-                colName.DataPropertyName = gameName;
-                dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+                /*TextAndImageColumn colName = new TextAndImageColumn();
+                dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(20, 20, 20, 20);
                 colName.DefaultCellStyle = dataGridViewCellStyle1;
                 colName.FillWeight = 10F;
-                colName.HeaderText = gameName;
+                colName.HeaderText = gameName ;
+                colName.Image = System.Drawing.Image.FromFile("C:\\Users\\Dillon\\Source\\Repos\\CapstoneProject\\GameLogger\\GameLogger\\Properties\\placeholder.png");
+                colName.Name = "test";
+                colName.ReadOnly = true;
+                colName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+                colName.Width = 60;
+                */
                 
+
+                DataGridTextColumn textColumn = new DataGridTextColumn();
+                textColumn.Header = gameName;
+                textColumn.Binding = new System.Windows.Data.Binding(gameName);
+                System.Drawing.Image t = System.Drawing.Image.FromFile("C:\\Users\\Dillon\\Source\\Repos\\CapstoneProject\\GameLogger\\GameLogger\\Properties\\placeholder.png");
+                gameListView.Items.Add(new GameData() {image = t, GameName = gameName});
+
 
 
 
