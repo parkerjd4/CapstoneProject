@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GameLogger"
         mc:Ignorable="d"
-        Title="GameLogger" Height="330.839" Width="525">
-    <Grid>
+        Title="GameLogger" Height="353.78" Width="575.712">
+    <Grid x:Name="gridView">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="18*"/>
             <ColumnDefinition Width="29*"/>
@@ -16,5 +16,6 @@
                 <MenuItem Header="Add Game" Click="Menu_Click_Add"></MenuItem>
             </MenuItem>
         </Menu>
+        <DataGrid Margin="0,23,0,0" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>

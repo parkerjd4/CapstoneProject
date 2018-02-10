@@ -22,9 +22,13 @@ namespace GameLogger
     /// </summary>
     public partial class MainWindow : Window
     {
+
+
+
         public MainWindow()
         {
             InitializeComponent();
+
             
             var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
             var complete = System.IO.Path.Combine(systemPath, "GameLogger");
@@ -62,18 +66,10 @@ namespace GameLogger
         {
             XmlDocument doc = new XmlDocument();
             doc.Load(path);
-            XmlNodeList xnList = doc.SelectNodes("/GameList");
+            XmlNodeList xnList = doc.SelectNodes("/GameList/Game");
             foreach (XmlNode xn in xnList)
             {
-                
-             //string gameName = xn["Game_Name"].Value;
-             DataGrid dataGrid = new DataGrid();
-             dataGrid.AutoGenerateColumns = true;
-             this.AddVisualChild(dataGrid);
-
-
-
-
+             string gameName = xn["Game_Name"].InnerText;
             }
          }
 
