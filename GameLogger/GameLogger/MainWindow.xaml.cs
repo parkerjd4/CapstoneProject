@@ -27,9 +27,7 @@ namespace GameLogger
 
         public MainWindow()
         {
-            InitializeComponent();
-
-            
+            InitializeComponent();            
             var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
             var complete = System.IO.Path.Combine(systemPath, "GameLogger");
             var filepath = System.IO.Path.Combine(complete, "game_list.xml");
@@ -67,9 +65,21 @@ namespace GameLogger
             XmlDocument doc = new XmlDocument();
             doc.Load(path);
             XmlNodeList xnList = doc.SelectNodes("/GameList/Game");
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             foreach (XmlNode xn in xnList)
             {
-             string gameName = xn["Game_Name"].InnerText;
+                string gameName = xn["Game_Name"].InnerText;
+                TextAndImageColumn colName = new TextAndImageColumn();
+                colName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+                colName.DataPropertyName = gameName;
+                dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+                colName.DefaultCellStyle = dataGridViewCellStyle1;
+                colName.FillWeight = 10F;
+                colName.HeaderText = gameName;
+                
+
+
+
             }
          }
 

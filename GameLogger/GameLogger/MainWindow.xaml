@@ -16,6 +16,6 @@
                 <MenuItem Header="Add Game" Click="Menu_Click_Add"></MenuItem>
             </MenuItem>
         </Menu>
-        <DataGrid Margin="0,23,0,0" Grid.ColumnSpan="2"/>
+        <DataGrid x:Name="gameListView" Margin="0,23,0,0" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>
