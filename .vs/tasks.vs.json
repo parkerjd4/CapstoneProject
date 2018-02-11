@@ -1,0 +1,10 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskName": "task-placeholder",
+      "appliesTo": "GameLogger/GameLogger/Properties/placeholder.png",
+      "type": "launch"
+    }
+  ]
+}
