@@ -16,6 +16,9 @@ using System.Drawing;
 using System.IO;
 using System.Xml;
 using System.Windows.Forms;
+using Microsoft.CSharp.RuntimeBinder;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace GameLogger
 {
@@ -24,10 +27,15 @@ namespace GameLogger
     /// </summary>
     public partial class MainWindow : Window
     {
-       
+        public ObservableCollection<ImageSource> gameImg = new ObservableCollection<ImageSource>();
+        public ObservableCollection<String> gameList = new ObservableCollection<string>(); 
+
+
 
         public MainWindow()
         {
+            
+            // Loop to insert elements from tmp into MyObservableCollection
             InitializeComponent();
 
             var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
@@ -41,7 +49,7 @@ namespace GameLogger
                 File.AppendAllText(filepath, String.Format("<GameList>" + Environment.NewLine + "</GameList>"));
 
             }
-            DataGridTextColumn imagecol = new DataGridTextColumn();
+            /*DataGridTextColumn imagecol = new DataGridTextColumn();
             imagecol.Header = "Image";
             imagecol.Binding = new System.Windows.Data.Binding("ImageOfGame");
 
@@ -50,15 +58,27 @@ namespace GameLogger
             DataGridTextColumn text = new DataGridTextColumn();
             text.Header = "Game Name";
             text.Binding = new System.Windows.Data.Binding("GameName");
-            gameListView.Columns.Add(text);
+            gameListView.Columns.Add(text);*/
 
-            
+
+            gameListImg.ItemsSource = null;
+            gameListImg.ItemsSource = gameList;
+            gameList.Clear();
 
             LoadFile(filepath);
         }
 
         public void AddToFile(string text)
         {
+            gameList.Clear();
+            gameListImg.ItemsSource = null;
+            gameList.Add(text);
+            gameListImg.ItemsSource = gameList;
+            gameListImg.InvalidateArrange();
+            gameListImg.UpdateLayout();
+            ICollectionView view = CollectionViewSource.GetDefaultView(gameList);
+            view.Refresh();
+
             var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
             var complete = System.IO.Path.Combine(systemPath, "GameLogger");
             var filepath = System.IO.Path.Combine(complete, "game_list.xml");
@@ -71,11 +91,16 @@ namespace GameLogger
             doc.DocumentElement.AppendChild(node);
             doc.Save(filepath);
 
-            DataGridTextColumn textColumn = new DataGridTextColumn();
+
+            gameImg.Add(new BitmapImage(new Uri(@"C:\Users\Dillon\Source\Repos\CapstoneProject\GameLogger\GameLogger\Properties\placeholder.png")));
+
+
+
+            /**DataGridTextColumn textColumn = new DataGridTextColumn();
             textColumn.Header = text;
             textColumn.Binding = new System.Windows.Data.Binding(text);
             gameListView.Items.Add(new GameData() { GameName = text });
-            gameListView.ApplyTemplate();
+            gameListView.ApplyTemplate(); */
 
         }
 
@@ -88,6 +113,10 @@ namespace GameLogger
             foreach (XmlNode xn in xnList)
             {
                 string gameName = xn["Game_Name"].InnerText;
+                gameList.Add(gameName);
+                gameImg.Add(new BitmapImage(new Uri(@"C:\Users\Dillon\Source\Repos\CapstoneProject\GameLogger\GameLogger\Properties\placeholder.png")));
+                gameListImg.ItemsSource = gameList;
+                //gameListImg.ItemsSource = gameImg;
 
 
                 /*TextAndImageColumn colName = new TextAndImageColumn();
@@ -102,12 +131,12 @@ namespace GameLogger
                 colName.Width = 60;
                 */
 
-                
-                DataGridTextColumn textColumn = new DataGridTextColumn();
+
+                /*DataGridTextColumn textColumn = new DataGridTextColumn();
                 textColumn.Header = gameName;
                 textColumn.Binding = new System.Windows.Data.Binding(gameName);
-                gameListView.Items.Add(new GameData() {GameName = gameName});
-                
+                gameListView.Items.Add(new GameData() {GameName = gameName});*/
+
 
 
 
