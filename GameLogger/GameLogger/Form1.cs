@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Net.Http;
 using System.IO;
 using System.Diagnostics;
+using System.Windows.Controls;
+using System.Windows.Data;
 
 namespace GameLogger
 {
@@ -27,9 +29,14 @@ namespace GameLogger
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MainWindow mainwindow = new MainWindow();
-            mainwindow.AddToFile(GameName.Text);
-            mainwindow.CheckxmlFiles();
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.AddToFile(GameName.Text);
+
+
+
+
+
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

@@ -16,12 +16,13 @@ using System.IO;
 using System.Xml;
 using System.Windows.Forms;
 using System.Drawing;
+using System.ComponentModel;
 
 namespace GameLogger
 {
-    class GameData
+    class GameData 
     {
-        public System.Drawing.Image image { get; set; }
+        public BitmapSource Picture { get; set; }
         public string GameName { get; set; }
 
     }

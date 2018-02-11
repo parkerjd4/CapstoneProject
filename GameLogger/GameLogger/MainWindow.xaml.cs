@@ -24,28 +24,40 @@ namespace GameLogger
     /// </summary>
     public partial class MainWindow : Window
     {
-
-
+       
 
         public MainWindow()
         {
             InitializeComponent();
+
             var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
             var complete = System.IO.Path.Combine(systemPath, "GameLogger");
             var filepath = System.IO.Path.Combine(complete, "game_list.xml");
             System.IO.Directory.CreateDirectory(complete);
-
+            
             if (!(File.Exists(filepath)))
             {
                 File.Create(filepath).Close();
                 File.AppendAllText(filepath, String.Format("<GameList>" + Environment.NewLine + "</GameList>"));
 
             }
-            gameListView.AutoGenerateColumns = true;
+            DataGridTextColumn imagecol = new DataGridTextColumn();
+            imagecol.Header = "Image";
+            imagecol.Binding = new System.Windows.Data.Binding("ImageOfGame");
+
+            gameListView.Columns.Add(imagecol);
+
+            DataGridTextColumn text = new DataGridTextColumn();
+            text.Header = "Game Name";
+            text.Binding = new System.Windows.Data.Binding("GameName");
+            gameListView.Columns.Add(text);
+
+            
+
             LoadFile(filepath);
         }
 
-        internal void AddToFile(string text)
+        public void AddToFile(string text)
         {
             var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
             var complete = System.IO.Path.Combine(systemPath, "GameLogger");
@@ -59,28 +71,25 @@ namespace GameLogger
             doc.DocumentElement.AppendChild(node);
             doc.Save(filepath);
 
-            LoadFile(filepath);
+            DataGridTextColumn textColumn = new DataGridTextColumn();
+            textColumn.Header = text;
+            textColumn.Binding = new System.Windows.Data.Binding(text);
+            gameListView.Items.Add(new GameData() { GameName = text });
+            gameListView.ApplyTemplate();
 
         }
 
-        private void LoadFile(string path)
+        public void LoadFile(string path)
         {
             XmlDocument doc = new XmlDocument();
             doc.Load(path);
             XmlNodeList xnList = doc.SelectNodes("/GameList/Game");
 
-            DataGridTextColumn imagecol = new DataGridTextColumn();
-            imagecol.Header = "Image";
-            imagecol.Binding = new System.Windows.Data.Binding("ImageOfGame");
-            gameListView.Columns.Add(imagecol);
-
-            DataGridTextColumn textColumn1 = new DataGridTextColumn();
-            textColumn1.Header = "Game Name" ;
-            textColumn1.Binding = new System.Windows.Data.Binding("GameName");
-            gameListView.Columns.Add(textColumn1);
             foreach (XmlNode xn in xnList)
             {
                 string gameName = xn["Game_Name"].InnerText;
+
+
                 /*TextAndImageColumn colName = new TextAndImageColumn();
                 dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(20, 20, 20, 20);
                 colName.DefaultCellStyle = dataGridViewCellStyle1;
@@ -92,18 +101,19 @@ namespace GameLogger
                 colName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
                 colName.Width = 60;
                 */
-                
 
+                
                 DataGridTextColumn textColumn = new DataGridTextColumn();
                 textColumn.Header = gameName;
                 textColumn.Binding = new System.Windows.Data.Binding(gameName);
-                System.Drawing.Image t = System.Drawing.Image.FromFile("C:\\Users\\Dillon\\Source\\Repos\\CapstoneProject\\GameLogger\\GameLogger\\Properties\\placeholder.png");
-                gameListView.Items.Add(new GameData() {image = t, GameName = gameName});
-
+                gameListView.Items.Add(new GameData() {GameName = gameName});
+                
 
 
 
             }
+            
+          
          }
 
         private void Menu(object sender, RoutedEventArgs e)
