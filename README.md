@@ -1,7 +1,7 @@
 # CapstoneProject
 
 
-##Setup Instructions
+## Setup Instructions
 
 1. Click Clone or Download 
 2. Click Download ZIP
