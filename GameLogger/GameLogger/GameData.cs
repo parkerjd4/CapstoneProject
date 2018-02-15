@@ -22,8 +22,13 @@ namespace GameLogger
 {
     class GameData 
     {
+        
         public BitmapSource Picture { get; set; }
-        public string GameName { get; set; }
+        public string Name { get; set; }
 
+    }
+    class RootObject
+    {
+        public List<string> Response { get; set; }
     }
 }

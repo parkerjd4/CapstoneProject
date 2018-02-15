@@ -34,8 +34,10 @@ namespace GameLogger
 
         public MainWindow()
         {
+
+           
             
-            // Loop to insert elements from tmp into MyObservableCollection
+            
             InitializeComponent();
 
             var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
@@ -61,9 +63,7 @@ namespace GameLogger
             gameListView.Columns.Add(text);*/
 
 
-            gameListImg.ItemsSource = null;
-            gameListImg.ItemsSource = gameList;
-            gameList.Clear();
+
 
             LoadFile(filepath);
         }
