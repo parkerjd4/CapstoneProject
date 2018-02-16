@@ -42,7 +42,7 @@
             this.GameName.Size = new System.Drawing.Size(175, 26);
             this.GameName.TabIndex = 0;
             this.GameName.Text = "Enter Game ";
-            this.GameName.TextChanged += new System.EventHandler(this.TextBox1_TextChangedAsync);
+            this.GameName.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
             // button1
             // 

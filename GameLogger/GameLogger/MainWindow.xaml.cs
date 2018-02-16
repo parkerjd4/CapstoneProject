@@ -34,10 +34,6 @@ namespace GameLogger
 
         public MainWindow()
         {
-
-           
-            
-            
             InitializeComponent();
 
             var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
@@ -70,14 +66,14 @@ namespace GameLogger
 
         public void AddToFile(string text)
         {
+            gameListImg.BeginInit();
             gameList.Clear();
             gameListImg.ItemsSource = null;
             gameList.Add(text);
             gameListImg.ItemsSource = gameList;
             gameListImg.InvalidateArrange();
             gameListImg.UpdateLayout();
-            ICollectionView view = CollectionViewSource.GetDefaultView(gameList);
-            view.Refresh();
+            gameListImg.EndInit();
 
             var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
             var complete = System.IO.Path.Combine(systemPath, "GameLogger");
@@ -156,6 +152,15 @@ namespace GameLogger
             wind.Show();
 
         }
+
+        private void Refresh_Click_Add(object sender, RoutedEventArgs e)
+        {
+            gameListImg.ItemsSource = null;
+            gameListImg.Items.Refresh();
+            gameListImg.ItemsSource = gameList;
+            gameListImg.BeginInit();
+        }
+
 
         public void CheckxmlFiles()
         {

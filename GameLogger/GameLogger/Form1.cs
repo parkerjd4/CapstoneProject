@@ -16,12 +16,13 @@ using Newtonsoft.Json;
 using unirest_net;
 using unirest_net.http;
 using Json;
-using IgdbApi;
+using GiantBomb.Api;
 
 namespace GameLogger
 {
     public partial class From1: Form
-    {   
+    {
+        string Search; 
         public From1()
         {
             InitializeComponent();
@@ -31,24 +32,28 @@ namespace GameLogger
         private void Form1_Load(object sender, EventArgs e)
         {
 
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.AddToFile(GameName.Text);
+            MainWindow win = new MainWindow();
+            win.AddToFile(Search);
+            /*var client = new GiantBombRestClient("23896f4f00ce753ef98a3c79c42c3d4e226dded0");
+            var result = client.SearchForGames(Search).ToList();
+            result.ForEach(Console.WriteLine);*/
         }
 
-        private async void TextBox1_TextChangedAsync(object sender, EventArgs e)
+        private void TextBox1_TextChanged(object sender, EventArgs e)
         {
-            Grab_gamesAsync();
+            string value = ((System.Windows.Forms.TextBox)sender).Text;
+            Search = value; 
 
         }
 
-        private async Task Grab_gamesAsync()
+        private void Grab_gamesAsync()
         {
-            IIgdbGamesApi gamesApi = new IgdbApi.IgdbApi("c707f6bc39116f2006b8a0d61e23175e");
-            var games = await gamesApi.GetGamesAsync();
+
         }
 
         private void button2_Click(object sender, EventArgs e)
