@@ -19,6 +19,8 @@ using System.Windows.Forms;
 using Microsoft.CSharp.RuntimeBinder;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using GiantBomb.Api;
+using System.Text.RegularExpressions;
 
 namespace GameLogger
 {
@@ -27,14 +29,17 @@ namespace GameLogger
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public ObservableCollection<ImageSource> gameImg = new ObservableCollection<ImageSource>();
-        public ObservableCollection<String> gameList = new ObservableCollection<string>(); 
+        public ObservableCollection<string> GameList { get; set; }
 
 
 
         public MainWindow()
         {
             InitializeComponent();
+            GameList = new ObservableCollection<string>();
+            
 
             var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
             var complete = System.IO.Path.Combine(systemPath, "GameLogger");
@@ -66,24 +71,32 @@ namespace GameLogger
 
         public void AddToFile(string text)
         {
-            gameListImg.BeginInit();
-            gameList.Clear();
-            gameListImg.ItemsSource = null;
-            gameList.Add(text);
-            gameListImg.ItemsSource = gameList;
-            gameListImg.InvalidateArrange();
-            gameListImg.UpdateLayout();
-            gameListImg.EndInit();
-
+            var client = new GiantBombRestClient("23896f4f00ce753ef98a3c79c42c3d4e226dded0");
+            var result = client.SearchForGames(text).ToList();
+            
             var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
             var complete = System.IO.Path.Combine(systemPath, "GameLogger");
             var filepath = System.IO.Path.Combine(complete, "game_list.xml");
             XmlDocument doc = new XmlDocument();
             doc.Load(filepath);
             XmlNode node = doc.CreateNode(XmlNodeType.Element, "Game", null);
-            XmlNode gameName = doc.CreateElement("Game_Name");
-            gameName.InnerText = text;
-            node.AppendChild(gameName);
+
+            XmlNode GameName = doc.CreateElement("Game_Name");
+            XmlNode Developer = doc.CreateElement("Developer");
+            XmlNode Genres = doc.CreateElement("Genres");
+            XmlNode Description = doc.CreateElement("Description");
+
+            GameName.InnerText = result.FirstOrDefault().Name.ToString();
+            Developer.InnerText = result.FirstOrDefault().Developers.ToString();
+            Genres.InnerText = result.FirstOrDefault().Genres.ToString();
+            string desc = result.FirstOrDefault().Developers.ToString();
+            Description.InnerText = Regex.Replace(desc, "<.*?>", String.Empty);
+
+            node.AppendChild(GameName);
+            node.AppendChild(Developer);
+            node.AppendChild(Genres);
+            node.AppendChild(Description);
+
             doc.DocumentElement.AppendChild(node);
             doc.Save(filepath);
 
@@ -109,9 +122,9 @@ namespace GameLogger
             foreach (XmlNode xn in xnList)
             {
                 string gameName = xn["Game_Name"].InnerText;
-                gameList.Add(gameName);
+                GameList.Add(gameName);
                 gameImg.Add(new BitmapImage(new Uri(@"C:\Users\Dillon\Source\Repos\CapstoneProject\GameLogger\GameLogger\Properties\placeholder.png")));
-                gameListImg.ItemsSource = gameList;
+                gameListImg.ItemsSource = GameList;
                 //gameListImg.ItemsSource = gameImg;
 
 
@@ -150,17 +163,7 @@ namespace GameLogger
         {
             From1 wind = new From1();
             wind.Show();
-
         }
-
-        private void Refresh_Click_Add(object sender, RoutedEventArgs e)
-        {
-            gameListImg.ItemsSource = null;
-            gameListImg.Items.Refresh();
-            gameListImg.ItemsSource = gameList;
-            gameListImg.BeginInit();
-        }
-
 
         public void CheckxmlFiles()
         {

@@ -17,6 +17,9 @@ using unirest_net;
 using unirest_net.http;
 using Json;
 using GiantBomb.Api;
+using HtmlAgilityPack;
+using System.Text.RegularExpressions;
+using Google.Apis;
 
 namespace GameLogger
 {
@@ -39,14 +42,16 @@ namespace GameLogger
         {
             MainWindow win = new MainWindow();
             win.AddToFile(Search);
-            /*var client = new GiantBombRestClient("23896f4f00ce753ef98a3c79c42c3d4e226dded0");
-            var result = client.SearchForGames(Search).ToList();
-            result.ForEach(Console.WriteLine);*/
+
+           
         }
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
         {
+
             string value = ((System.Windows.Forms.TextBox)sender).Text;
+            
+            
             Search = value; 
 
         }

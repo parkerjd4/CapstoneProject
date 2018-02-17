@@ -7,14 +7,14 @@
     <framework targetVersion="4.6.1" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="GameLogger.exe.manifest" size="23017">
+    <dependentAssembly dependencyType="install" codebase="GameLogger.exe.manifest" size="25769">
       <assemblyIdentity name="GameLogger.exe" version="1.0.0.3" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>rhV8KyHk7TZ6rkiSsI3xlPrRqPoFF179zGOpcAPTFzg=</dsig:DigestValue>
+        <dsig:DigestValue>dj+e1enSq+0VmDtIWmn74bb2ftVQeNR6e6+aHAAYdgY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -64,3 +64,11 @@ C:\Users\Dillon\Source\Repos\CapstoneProject\GameLogger\GameLogger\bin\Debug\Sys
 C:\Users\Dillon\Source\Repos\CapstoneProject\GameLogger\GameLogger\bin\Debug\FubarCoder.RestSharp.Portable.Core.xml
 C:\Users\Dillon\Source\Repos\CapstoneProject\GameLogger\GameLogger\bin\Debug\FubarCoder.RestSharp.Portable.HttpClient.xml
 C:\Users\Dillon\Source\Repos\CapstoneProject\GameLogger\GameLogger\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Dillon\Source\Repos\CapstoneProject\GameLogger\GameLogger\bin\Debug\HtmlAgilityPack.dll
+C:\Users\Dillon\Source\Repos\CapstoneProject\GameLogger\GameLogger\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\Dillon\Source\Repos\CapstoneProject\GameLogger\GameLogger\bin\Debug\HtmlAgilityPack.xml
+C:\Users\Dillon\Source\Repos\CapstoneProject\GameLogger\GameLogger\bin\Debug\Google.Apis.Core.dll
+C:\Users\Dillon\Source\Repos\CapstoneProject\GameLogger\GameLogger\bin\Debug\Google.Apis.dll
+C:\Users\Dillon\Source\Repos\CapstoneProject\GameLogger\GameLogger\bin\Debug\Google.Apis.PlatformServices.dll
+C:\Users\Dillon\Source\Repos\CapstoneProject\GameLogger\GameLogger\bin\Debug\Google.Apis.xml
+C:\Users\Dillon\Source\Repos\CapstoneProject\GameLogger\GameLogger\bin\Debug\Google.Apis.Core.xml

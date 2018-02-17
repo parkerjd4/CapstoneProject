@@ -14,15 +14,13 @@
         <Menu x:Name="MenuBar" Height="23" VerticalAlignment="Top" Grid.ColumnSpan="2">
             <MenuItem Header="File">
                 <MenuItem Header="Add Game" Click="Menu_Click_Add"></MenuItem>
-                <MenuItem Header="Refresh" Click="Refresh_Click_Add"></MenuItem>
             </MenuItem>
         </Menu>
         <!--<DataGrid x:Name="gameListView" Height="301" VerticalAlignment="Top" Margin="0,23,0,0" Grid.ColumnSpan="2" /> -->
-
         <ListView
               Name="gameListImg"
-              ItemsSource="{Binding Path= gameList, UpdateSourceTrigger=PropertyChanged}" Margin="0,23,0,0" Grid.ColumnSpan="2"
-              VerticalContentAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" >
+              ItemsSource="{Binding gameList}" Margin="0,23,0,0" Grid.ColumnSpan="2"
+              VerticalContentAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" IsSynchronizedWithCurrentItem="True" >
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid Columns="5" />
