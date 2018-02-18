@@ -82,20 +82,15 @@ namespace GameLogger
             XmlNode node = doc.CreateNode(XmlNodeType.Element, "Game", null);
 
             XmlNode GameName = doc.CreateElement("Game_Name");
-            XmlNode Developer = doc.CreateElement("Developer");
-            XmlNode Genres = doc.CreateElement("Genres");
             XmlNode Description = doc.CreateElement("Description");
 
-            GameName.InnerText = result.FirstOrDefault().Name.ToString();
-            Developer.InnerText = result.FirstOrDefault().Developers.ToString();
-            Genres.InnerText = result.FirstOrDefault().Genres.ToString();
-            string desc = result.FirstOrDefault().Developers.ToString();
+            GameName.InnerText = result.First().Name.ToString();
+            string desc = result.First().Description.ToString();
             Description.InnerText = Regex.Replace(desc, "<.*?>", String.Empty);
 
             node.AppendChild(GameName);
-            node.AppendChild(Developer);
-            node.AppendChild(Genres);
             node.AppendChild(Description);
+            
 
             doc.DocumentElement.AppendChild(node);
             doc.Save(filepath);

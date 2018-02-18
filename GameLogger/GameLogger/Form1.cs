@@ -20,6 +20,7 @@ using GiantBomb.Api;
 using HtmlAgilityPack;
 using System.Text.RegularExpressions;
 using Google.Apis;
+using System.Windows.Documents;
 
 namespace GameLogger
 {
@@ -41,13 +42,19 @@ namespace GameLogger
         private void button1_Click(object sender, EventArgs e)
         {
             MainWindow win = new MainWindow();
+            //var client = new GiantBombRestClient("23896f4f00ce753ef98a3c79c42c3d4e226dded0");
+            //var result = client.SearchForGames(Search).ToList();
             win.AddToFile(Search);
 
-           
+
         }
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
         {
+
+
+
+
 
             string value = ((System.Windows.Forms.TextBox)sender).Text;
             
