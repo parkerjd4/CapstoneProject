@@ -21,6 +21,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using GiantBomb.Api;
 using System.Text.RegularExpressions;
+using GiantBomb.Api.Model;
 
 namespace GameLogger
 {
@@ -80,32 +81,59 @@ namespace GameLogger
             XmlDocument doc = new XmlDocument();
             doc.Load(filepath);
             XmlNode node = doc.CreateNode(XmlNodeType.Element, "Game", null);
+            var Game = client.GetGame(result.First().Id);
 
             XmlNode GameName = doc.CreateElement("Game_Name");
+            XmlNode Genre = doc.CreateElement("Genre");
             XmlNode Description = doc.CreateElement("Description");
+            XmlNode Platforms = doc.CreateElement("Platforms");
 
             GameName.InnerText = result.First().Name.ToString();
-            string desc = result.First().Description.ToString();
-            Description.InnerText = Regex.Replace(desc, "<.*?>", String.Empty);
+            Description.InnerText = result.First().Deck.ToString();
+            Genre.InnerText = GetGenre(Game.Genres.ToList());
+            Platforms.InnerText = GetPlatforms(Game.Platforms.ToList());
 
             node.AppendChild(GameName);
             node.AppendChild(Description);
+            node.AppendChild(Genre);
+            node.AppendChild(Platforms);
             
-
             doc.DocumentElement.AppendChild(node);
             doc.Save(filepath);
+        }
 
+        public string GetGenre(List<Genre> list)
+        {
+            string y = "";
+            foreach (var x in list)
+            {
+                if (y == "")
+                {
+                    y += x.Name;
+                }
+                else
+                {
+                    y += ", " + x.Name;
+                }
+            }
+            return y; 
+        }
 
-            gameImg.Add(new BitmapImage(new Uri(@"C:\Users\Dillon\Source\Repos\CapstoneProject\GameLogger\GameLogger\Properties\placeholder.png")));
-
-
-
-            /**DataGridTextColumn textColumn = new DataGridTextColumn();
-            textColumn.Header = text;
-            textColumn.Binding = new System.Windows.Data.Binding(text);
-            gameListView.Items.Add(new GameData() { GameName = text });
-            gameListView.ApplyTemplate(); */
-
+        public string GetPlatforms(List<Platform> list)
+        {
+            string y = "";
+            foreach (var x in list)
+            {
+                if (y == "")
+                {
+                    y += x.Name;
+                }
+                else
+                {
+                    y += ", " + x.Name;
+                }
+            }
+            return y;
         }
 
         public void LoadFile(string path)
