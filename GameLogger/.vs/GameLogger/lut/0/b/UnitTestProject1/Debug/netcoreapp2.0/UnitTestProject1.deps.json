@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v2.0": {
       "UnitTestProject1/1.0.0": {
         "dependencies": {
+          "GameLogger": "1.0.0",
           "MSTest.TestAdapter": "1.2.0",
           "MSTest.TestFramework": "1.2.0",
           "Microsoft.NET.Test.Sdk": "15.5.0",
@@ -999,6 +1000,11 @@
           "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
       },
+      "GameLogger/1.0.0": {
+        "runtime": {
+          "GameLogger.exe": {}
+        }
+      },
       "Microsoft.CodeAnalysis.LiveUnitTesting.Runtime/1.5.0.0": {
         "runtime": {
           "Microsoft.CodeAnalysis.LiveUnitTesting.Runtime.dll": {}
@@ -1508,6 +1514,11 @@
       "sha512": "sha512-Zm2BdeanuncYs3NhCj4c9e1x3EXFzFBVv2wPEc/Dj4ZbI9R8ecLSR5frAsx4zJCPBtKQreQ7Q/KxJEohJZbfzA==",
       "path": "system.xml.xpath.xmldocument/4.0.1",
       "hashPath": "system.xml.xpath.xmldocument.4.0.1.nupkg.sha512"
+    },
+    "GameLogger/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Microsoft.CodeAnalysis.LiveUnitTesting.Runtime/1.5.0.0": {
       "type": "reference",

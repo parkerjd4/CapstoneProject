@@ -22,6 +22,8 @@ using System.ComponentModel;
 using GiantBomb.Api;
 using System.Text.RegularExpressions;
 using GiantBomb.Api.Model;
+using System.Net;
+using System.Net.Http.Headers;
 
 namespace GameLogger
 {
@@ -33,6 +35,7 @@ namespace GameLogger
 
         public ObservableCollection<ImageSource> gameImg = new ObservableCollection<ImageSource>();
         public ObservableCollection<string> GameList { get; set; }
+        public string APIURL = "?api_key=23896f4f00ce753ef98a3c79c42c3d4e226dded0";
 
 
 
@@ -82,6 +85,7 @@ namespace GameLogger
             doc.Load(filepath);
             XmlNode node = doc.CreateNode(XmlNodeType.Element, "Game", null);
             var Game = client.GetGame(result.First().Id);
+            DownloadImages(Game);
 
             XmlNode GameName = doc.CreateElement("Game_Name");
             XmlNode Description = doc.CreateElement("Description");
@@ -112,6 +116,22 @@ namespace GameLogger
 
             doc.DocumentElement.AppendChild(node);
             doc.Save(filepath);
+        }
+
+        private void DownloadImages(Game game)
+        {
+            string url = game.Image.IconUrl.ToString().Trim();
+
+
+            /*byte[] data;
+            using (WebClient client = new WebClient())
+            {
+                //client.Headers.Add("JOSEDPARCAPSTONEGAMELOGGER", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; .NET CLR 1.0.3705;)");
+                data = client.DownloadData(url);
+            }
+            File.WriteAllBytes(@"c:\images\xyz.png", data);
+            */
+
         }
 
         public string GetGenre(List<Genre> list)

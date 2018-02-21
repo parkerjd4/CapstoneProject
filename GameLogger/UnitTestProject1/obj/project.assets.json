@@ -1611,6 +1611,15 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
+      },
+      "GameLogger/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/GameLogger.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GameLogger.dll": {}
+        }
       }
     }
   },
@@ -5683,10 +5692,16 @@
         "system.xml.xpath.xmldocument.4.0.1.nupkg.sha512",
         "system.xml.xpath.xmldocument.nuspec"
       ]
+    },
+    "GameLogger/1.0.0": {
+      "type": "project",
+      "path": "../GameLogger/GameLogger.csproj",
+      "msbuildProject": "../GameLogger/GameLogger.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
+      "GameLogger >= 1.0.0",
       "MSTest.TestAdapter >= 1.2.0",
       "MSTest.TestFramework >= 1.2.0",
       "Microsoft.NET.Test.Sdk >= 15.5.0",
@@ -5728,7 +5743,11 @@
       },
       "frameworks": {
         "netcoreapp2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\parkerjd4\\Source\\Repos\\CapstoneProject\\GameLogger\\GameLogger\\GameLogger.csproj": {
+              "projectPath": "C:\\Users\\parkerjd4\\Source\\Repos\\CapstoneProject\\GameLogger\\GameLogger\\GameLogger.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

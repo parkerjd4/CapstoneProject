@@ -131,7 +131,6 @@ C:\Users\parkerjd4\Source\Repos\CapstoneProject\GameLogger\GameLogger\bin\Debug\
 C:\Users\parkerjd4\Source\Repos\CapstoneProject\GameLogger\GameLogger\bin\Debug\System.Diagnostics.DiagnosticSource.xml
 C:\Users\parkerjd4\Source\Repos\CapstoneProject\GameLogger\GameLogger\bin\Debug\System.Net.Http.Extensions.xml
 C:\Users\parkerjd4\Source\Repos\CapstoneProject\GameLogger\GameLogger\bin\Debug\System.Net.Http.Primitives.xml
-C:\Users\parkerjd4\Source\Repos\CapstoneProject\GameLogger\GameLogger\obj\Debug\GameLogger.csprojResolveAssemblyReference.cache
 C:\Users\parkerjd4\Source\Repos\CapstoneProject\GameLogger\GameLogger\obj\Debug\MainWindow.g.cs
 C:\Users\parkerjd4\Source\Repos\CapstoneProject\GameLogger\GameLogger\obj\Debug\App.g.cs
 C:\Users\parkerjd4\Source\Repos\CapstoneProject\GameLogger\GameLogger\obj\Debug\GameLogger_MarkupCompile.cache
