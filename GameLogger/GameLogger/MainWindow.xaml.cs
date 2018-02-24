@@ -121,16 +121,15 @@ namespace GameLogger
         private void DownloadImages(Game game)
         {
             string url = game.Image.IconUrl.ToString().Trim();
+            var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
+            var complete = System.IO.Path.Combine(systemPath, "GameLogger");
+            var filepath = System.IO.Path.Combine(complete, game.Name + ".png");
+
+            WebClient client = new WebClient();
+            client.Headers["User-Agent"] = "josedpar";
+            client.DownloadFile(new Uri(url), filepath);
 
 
-            /*byte[] data;
-            using (WebClient client = new WebClient())
-            {
-                //client.Headers.Add("JOSEDPARCAPSTONEGAMELOGGER", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; .NET CLR 1.0.3705;)");
-                data = client.DownloadData(url);
-            }
-            File.WriteAllBytes(@"c:\images\xyz.png", data);
-            */
 
         }
 
