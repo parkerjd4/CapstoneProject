@@ -85,7 +85,7 @@ namespace GameLogger
             doc.Load(filepath);
             XmlNode node = doc.CreateNode(XmlNodeType.Element, "Game", null);
             var Game = client.GetGame(result.First().Id);
-
+            
             XmlNode GameName = doc.CreateElement("Game_Name");
             XmlNode Description = doc.CreateElement("Description");
             XmlNode ReleaseDate = doc.CreateElement("Release_Date");
@@ -93,7 +93,6 @@ namespace GameLogger
             XmlNode Genre = doc.CreateElement("Genres");
             XmlNode Publishers = doc.CreateElement("Publishers");
             XmlNode Developers = doc.CreateElement("Developers");
-            
 
             GameName.InnerText = Game.Name.ToString();
             Description.InnerText = Game.Deck.ToString();
@@ -249,26 +248,7 @@ namespace GameLogger
                 //gameImg.Add(new BitmapImage(new Uri(@"C:\Users\Dillon\Source\Repos\CapstoneProject\GameLogger\GameLogger\Properties\placeholder.png")));
                 gameListImg.ItemsSource = GameList;
                 //gameListImg.ItemsSource = gameImg;
-
-
-                /*TextAndImageColumn colName = new TextAndImageColumn();
-                dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(20, 20, 20, 20);
-                colName.DefaultCellStyle = dataGridViewCellStyle1;
-                colName.FillWeight = 10F;
-                colName.HeaderText = gameName ;
-                colName.Image = System.Drawing.Image.FromFile("C:\\Users\\Dillon\\Source\\Repos\\CapstoneProject\\GameLogger\\GameLogger\\Properties\\placeholder.png");
-                colName.Name = "test";
-                colName.ReadOnly = true;
-                colName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-                colName.Width = 60;
-                DataGridTextColumn textColumn = new DataGridTextColumn();
-                textColumn.Header = gameName;
-                textColumn.Binding = new System.Windows.Data.Binding(gameName);
-                gameListView.Items.Add(new GameData() {GameName = gameName});*/
-
-            }
-            
-          
+            }                     
          }
 
         private void Menu_Click_Add(object sender, RoutedEventArgs e)
