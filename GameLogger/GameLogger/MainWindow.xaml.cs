@@ -85,7 +85,6 @@ namespace GameLogger
             doc.Load(filepath);
             XmlNode node = doc.CreateNode(XmlNodeType.Element, "Game", null);
             var Game = client.GetGame(result.First().Id);
-            DownloadImages(Game);
 
             XmlNode GameName = doc.CreateElement("Game_Name");
             XmlNode Description = doc.CreateElement("Description");
@@ -98,7 +97,7 @@ namespace GameLogger
 
             GameName.InnerText = Game.Name.ToString();
             Description.InnerText = Game.Deck.ToString();
-            ReleaseDate.InnerText = Game.ExpectedReleaseDay.ToString();
+            ReleaseDate.InnerText = Game.OriginalReleaseDate.ToString();
             Genre.InnerText = GetGenre(Game.Genres.ToList());
             Platforms.InnerText = GetPlatforms(Game.Platforms.ToList());
             Publishers.InnerText = GetPublishers(Game.Publishers.ToList());
@@ -112,23 +111,26 @@ namespace GameLogger
             node.AppendChild(ReleaseDate);
             node.AppendChild(Publishers);
             node.AppendChild(Developers);
-
+            DownloadImages(Game, doc, node);
 
             doc.DocumentElement.AppendChild(node);
             doc.Save(filepath);
         }
 
-        private void DownloadImages(Game game)
+        private void DownloadImages(Game game,XmlDocument doc,XmlNode node)
         {
             string url = game.Image.IconUrl.ToString().Trim();
             var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
             var complete = System.IO.Path.Combine(systemPath, "GameLogger");
-            var filepath = System.IO.Path.Combine(complete, game.Name + ".png");
+            var filepath = System.IO.Path.Combine(complete, game.Id + ".png");
 
             WebClient client = new WebClient();
             client.Headers["User-Agent"] = "josedpar";
             client.DownloadFile(new Uri(url), filepath);
-
+            
+            XmlNode ImgPath = doc.CreateElement("ImagePath");
+            ImgPath.InnerText = filepath;
+            node.AppendChild(ImgPath);
 
 
         }
