@@ -90,14 +90,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GameLogger.exe" size="20960">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GameLogger.exe" size="21984">
       <assemblyIdentity name="GameLogger" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>PP29GZ2uwORMQuNWkkNwG90Eb1hN/uTM6SSxOGN1l4o=</dsig:DigestValue>
+        <dsig:DigestValue>niw6oX7E7QCGY0HBoxcuOAK36wfrAl094fwNxdWiT6U=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

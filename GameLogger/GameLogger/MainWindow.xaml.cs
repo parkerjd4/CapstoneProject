@@ -119,18 +119,50 @@ namespace GameLogger
 
         private void DownloadImages(Game game,XmlDocument doc,XmlNode node)
         {
-            string url = game.Image.IconUrl.ToString().Trim();
+            string url = game.Image.SuperUrl.ToString().Trim();
+            string url1 = game.Images[7].SuperUrl.ToString().Trim();
+            string url2 = game.Images[8].SuperUrl.ToString().Trim();
+            string url3 = game.Images[9].SuperUrl.ToString().Trim();
+
             var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
-            var complete = System.IO.Path.Combine(systemPath, "GameLogger");
+            var complete = System.IO.Path.Combine(systemPath, @"GameLogger\Images");
+            System.IO.Directory.CreateDirectory(complete);
+
             var filepath = System.IO.Path.Combine(complete, game.Id + ".png");
+            var filepath1 = System.IO.Path.Combine(complete, game.Id + "_1.png");
+            var filepath2 = System.IO.Path.Combine(complete, game.Id + "_2.png");
+            var filepath3 = System.IO.Path.Combine(complete, game.Id + "_3.png");
+
 
             WebClient client = new WebClient();
+
             client.Headers["User-Agent"] = "josedpar";
             client.DownloadFile(new Uri(url), filepath);
-            
-            XmlNode ImgPath = doc.CreateElement("ImagePath");
+
+            client.Headers["User-Agent"] = "josedpar123";
+            client.DownloadFile(new Uri(url1), filepath1);
+
+            client.Headers["User-Agent"] = "josedparCAP";
+            client.DownloadFile(new Uri(url2), filepath2);
+
+            client.Headers["User-Agent"] = "josedparSTONE";
+            client.DownloadFile(new Uri(url3), filepath3);
+
+
+            XmlNode ImgPath = doc.CreateElement("ImageCover");
+            XmlNode ImgScreen1 = doc.CreateElement("ScreenShot_1");
+            XmlNode ImgScreen2 = doc.CreateElement("ScreenShot_2");
+            XmlNode ImgScreen3 = doc.CreateElement("ScreenShot_3");
+
             ImgPath.InnerText = filepath;
+            ImgScreen1.InnerText = filepath1;
+            ImgScreen2.InnerText = filepath2;
+            ImgScreen3.InnerText = filepath3;
+
             node.AppendChild(ImgPath);
+            node.AppendChild(ImgScreen1);
+            node.AppendChild(ImgScreen2);
+            node.AppendChild(ImgScreen3);
 
 
         }
