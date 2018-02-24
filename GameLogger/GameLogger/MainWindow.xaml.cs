@@ -22,6 +22,8 @@ using System.ComponentModel;
 using GiantBomb.Api;
 using System.Text.RegularExpressions;
 using GiantBomb.Api.Model;
+using System.Net;
+using System.Net.Http.Headers;
 
 namespace GameLogger
 {
@@ -33,6 +35,7 @@ namespace GameLogger
 
         public ObservableCollection<ImageSource> gameImg = new ObservableCollection<ImageSource>();
         public ObservableCollection<string> GameList { get; set; }
+        public string APIURL = "?api_key=23896f4f00ce753ef98a3c79c42c3d4e226dded0";
 
 
 
@@ -82,24 +85,53 @@ namespace GameLogger
             doc.Load(filepath);
             XmlNode node = doc.CreateNode(XmlNodeType.Element, "Game", null);
             var Game = client.GetGame(result.First().Id);
+            DownloadImages(Game);
 
             XmlNode GameName = doc.CreateElement("Game_Name");
-            XmlNode Genre = doc.CreateElement("Genre");
             XmlNode Description = doc.CreateElement("Description");
+            XmlNode ReleaseDate = doc.CreateElement("Release_Date");
             XmlNode Platforms = doc.CreateElement("Platforms");
+            XmlNode Genre = doc.CreateElement("Genres");
+            XmlNode Publishers = doc.CreateElement("Publishers");
+            XmlNode Developers = doc.CreateElement("Developers");
+            
 
-            GameName.InnerText = result.First().Name.ToString();
-            Description.InnerText = result.First().Deck.ToString();
+            GameName.InnerText = Game.Name.ToString();
+            Description.InnerText = Game.Deck.ToString();
+            ReleaseDate.InnerText = Game.ExpectedReleaseDay.ToString();
             Genre.InnerText = GetGenre(Game.Genres.ToList());
             Platforms.InnerText = GetPlatforms(Game.Platforms.ToList());
+            Publishers.InnerText = GetPublishers(Game.Publishers.ToList());
+            Developers.InnerText = GetDevelopers(Game.Developers.ToList());
+
 
             node.AppendChild(GameName);
             node.AppendChild(Description);
             node.AppendChild(Genre);
             node.AppendChild(Platforms);
-            
+            node.AppendChild(ReleaseDate);
+            node.AppendChild(Publishers);
+            node.AppendChild(Developers);
+
+
             doc.DocumentElement.AppendChild(node);
             doc.Save(filepath);
+        }
+
+        private void DownloadImages(Game game)
+        {
+            string url = game.Image.IconUrl.ToString().Trim();
+
+
+            /*byte[] data;
+            using (WebClient client = new WebClient())
+            {
+                //client.Headers.Add("JOSEDPARCAPSTONEGAMELOGGER", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; .NET CLR 1.0.3705;)");
+                data = client.DownloadData(url);
+            }
+            File.WriteAllBytes(@"c:\images\xyz.png", data);
+            */
+
         }
 
         public string GetGenre(List<Genre> list)
@@ -136,6 +168,41 @@ namespace GameLogger
             return y;
         }
 
+        public string GetPublishers(List<Publisher> list)
+        {
+            string y = "";
+            foreach (var x in list)
+            {
+                if (y == "")
+                {
+                    y += x.Name;
+                }
+                else
+                {
+                    y += ", " + x.Name;
+                }
+            }
+            return y;
+        }
+
+        public string GetDevelopers(List<Developer> list)
+        {
+            string y = "";
+            foreach (var x in list)
+            {
+                if (y == "")
+                {
+                    y += x.Name;
+                }
+                else
+                {
+                    y += ", " + x.Name;
+                }
+            }
+            return y;
+        }
+
+
         public void LoadFile(string path)
         {
             XmlDocument doc = new XmlDocument();
@@ -146,7 +213,7 @@ namespace GameLogger
             {
                 string gameName = xn["Game_Name"].InnerText;
                 GameList.Add(gameName);
-                gameImg.Add(new BitmapImage(new Uri(@"C:\Users\Dillon\Source\Repos\CapstoneProject\GameLogger\GameLogger\Properties\placeholder.png")));
+                //gameImg.Add(new BitmapImage(new Uri(@"C:\Users\Dillon\Source\Repos\CapstoneProject\GameLogger\GameLogger\Properties\placeholder.png")));
                 gameListImg.ItemsSource = GameList;
                 //gameListImg.ItemsSource = gameImg;
 
@@ -161,26 +228,15 @@ namespace GameLogger
                 colName.ReadOnly = true;
                 colName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
                 colName.Width = 60;
-                */
-
-
-                /*DataGridTextColumn textColumn = new DataGridTextColumn();
+                DataGridTextColumn textColumn = new DataGridTextColumn();
                 textColumn.Header = gameName;
                 textColumn.Binding = new System.Windows.Data.Binding(gameName);
                 gameListView.Items.Add(new GameData() {GameName = gameName});*/
-
-
-
 
             }
             
           
          }
-
-        private void Menu(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void Menu_Click_Add(object sender, RoutedEventArgs e)
         {
@@ -193,14 +249,6 @@ namespace GameLogger
             var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
             var complete = System.IO.Path.Combine(systemPath, "GameLogger");
             var filepath = System.IO.Path.Combine(complete, "game_list.xml");
-
-
-
-        }
-
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }
