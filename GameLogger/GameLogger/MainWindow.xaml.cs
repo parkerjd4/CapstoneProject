@@ -67,9 +67,6 @@ namespace GameLogger
             text.Binding = new System.Windows.Data.Binding("GameName");
             gameListView.Columns.Add(text);*/
 
-
-
-
             LoadFile(filepath);
         }
 
@@ -257,11 +254,20 @@ namespace GameLogger
             wind.Show();
         }
 
+        
+
         public void CheckxmlFiles()
         {
             var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
             var complete = System.IO.Path.Combine(systemPath, "GameLogger");
             var filepath = System.IO.Path.Combine(complete, "game_list.xml");
+        }
+
+        private void gameListImg_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            GameView View = new GameView();
+            View.Show();
+            View.TopMost = true;
         }
     }
 }
