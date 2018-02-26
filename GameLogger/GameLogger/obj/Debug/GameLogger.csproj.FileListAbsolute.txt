@@ -145,6 +145,6 @@ C:\Users\parkerjd4\Source\Repos\CapstoneProject\GameLogger\GameLogger\obj\Debug\
 C:\Users\parkerjd4\Source\Repos\CapstoneProject\GameLogger\GameLogger\obj\Debug\GameLogger.application
 C:\Users\parkerjd4\Source\Repos\CapstoneProject\GameLogger\GameLogger\obj\Debug\GameLogger.exe
 C:\Users\parkerjd4\Source\Repos\CapstoneProject\GameLogger\GameLogger\obj\Debug\GameLogger.pdb
-C:\Users\Dillon\Source\Repos\CapstoneProject\GameLogger\GameLogger\obj\Debug\GameLogger.GameView.resources
 C:\Users\Dillon\Source\Repos\CapstoneProject\GameLogger\GameLogger\obj\Debug\UserControl1.g.cs
 C:\Users\Dillon\Source\Repos\CapstoneProject\GameLogger\GameLogger\obj\Debug\UserControl1.baml
+C:\Users\Dillon\Source\Repos\CapstoneProject\GameLogger\GameLogger\obj\Debug\GameLogger.Form2.resources

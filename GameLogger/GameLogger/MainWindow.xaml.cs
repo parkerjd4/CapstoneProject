@@ -265,9 +265,24 @@ namespace GameLogger
 
         private void gameListImg_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            GameView View = new GameView();
-            View.Show();
-            View.TopMost = true;
+            //Form2 View = new Form2();
+            //View.Show();
+            //View.TopMost = true;
         }
+
+        private void ListViewItem_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var item = sender as System.Windows.Controls.ListViewItem;
+            if (item != null && item.IsSelected)
+            {
+                Form2 View = new Form2();
+                
+                View.Show();
+                View.TopMost = true;
+                
+            }
+        }
+
+
     }
 }
