@@ -14,6 +14,14 @@ namespace GameLogger
 {
     public partial class Form2 : Form
     {
+        public string Name1
+        {
+            get => this.Name;
+            set
+            {
+                this.Name = value;
+            }
+        }
         public Form2()
         {
             InitializeComponent();

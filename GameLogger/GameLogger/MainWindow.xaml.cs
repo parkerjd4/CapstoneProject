@@ -84,6 +84,7 @@ namespace GameLogger
             var Game = client.GetGame(result.First().Id);
             
             XmlNode GameName = doc.CreateElement("Game_Name");
+            XmlNode Id = doc.CreateElement("Id");
             XmlNode Description = doc.CreateElement("Description");
             XmlNode ReleaseDate = doc.CreateElement("Release_Date");
             XmlNode Platforms = doc.CreateElement("Platforms");
@@ -92,6 +93,8 @@ namespace GameLogger
             XmlNode Developers = doc.CreateElement("Developers");
 
             GameName.InnerText = Game.Name.ToString();
+
+            Id.InnerText = Game.Id.ToString();
             Description.InnerText = Game.Deck.ToString();
             ReleaseDate.InnerText = Game.OriginalReleaseDate.ToString();
             Genre.InnerText = GetGenre(Game.Genres.ToList());
@@ -101,6 +104,7 @@ namespace GameLogger
 
 
             node.AppendChild(GameName);
+            node.AppendChild(Id);
             node.AppendChild(Description);
             node.AppendChild(Genre);
             node.AppendChild(Platforms);
@@ -234,6 +238,7 @@ namespace GameLogger
 
         public void LoadFile(string path)
         {
+             
             XmlDocument doc = new XmlDocument();
             doc.Load(path);
             XmlNodeList xnList = doc.SelectNodes("/GameList/Game");
@@ -243,6 +248,8 @@ namespace GameLogger
                 string gameName = xn["Game_Name"].InnerText;
                 GameList.Add(gameName);
                 //gameImg.Add(new BitmapImage(new Uri(@"C:\Users\Dillon\Source\Repos\CapstoneProject\GameLogger\GameLogger\Properties\placeholder.png")));
+                
+                
                 gameListImg.ItemsSource = GameList;
                 //gameListImg.ItemsSource = gameImg;
             }                     
