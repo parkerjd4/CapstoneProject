@@ -35,5 +35,46 @@ namespace GameLogger
             
             Close();
         }
+
+        public System.Drawing.Point LocLabel()
+        {
+            System.Drawing.Point loc = new System.Drawing.Point(label1.Location.X, label1.Location.Y);
+            return loc;
+        }
+
+        public void SetLabel1(string label)
+        {
+            label1.Text += label;
+        }
+        public void SetLabel2(string label)
+        {
+            label2.Text += label;
+        }
+        public void SetLabel3(string label)
+        {
+            label3.Text += label;
+        }
+        public void SetLabel4(string label)
+        {
+            label4.Text += label;
+        }
+        public void SetLabel5(string label)
+        {
+            label5.Text += label;
+        }
+        public void SetLabel6(string label)
+        {
+            label6.Text += label;
+        }
+        public void SetLabel7(string label)
+        {
+            label7.Text += label;
+        }
+       
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

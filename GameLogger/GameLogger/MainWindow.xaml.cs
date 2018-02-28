@@ -24,6 +24,7 @@ using System.Text.RegularExpressions;
 using GiantBomb.Api.Model;
 using System.Net;
 using System.Net.Http.Headers;
+using System.Diagnostics;
 
 namespace GameLogger
 {
@@ -41,6 +42,7 @@ namespace GameLogger
 
         public MainWindow()
         {
+            
             InitializeComponent();
             GameList = new ObservableCollection<string>();
             
@@ -261,6 +263,16 @@ namespace GameLogger
             wind.Show();
         }
 
+        private void DeleteXML()
+        {
+            var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
+            var complete = System.IO.Path.Combine(systemPath, "GameLogger");
+            var filepath = System.IO.Path.Combine(complete, "game_list.xml");
+            File.Delete(filepath);
+
+
+        }
+
         
 
         public void CheckxmlFiles()
@@ -279,14 +291,53 @@ namespace GameLogger
 
         private void ListViewItem_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
+            var complete = System.IO.Path.Combine(systemPath, "GameLogger");
+            var filepath = System.IO.Path.Combine(complete, "game_list.xml");
+            XmlDocument doc = new XmlDocument();
+            doc.Load(filepath);
+            XmlNodeList xnList = doc.SelectNodes("/GameList/Game");
+
             var item = sender as System.Windows.Controls.ListViewItem;
             if (item != null && item.IsSelected)
             {
+                string a = item.DataContext.ToString();
                 Form2 View = new Form2();
-                
+
+                foreach (XmlNode x in xnList)
+                {
+                    Debug.Print(x.InnerText);
+                    Debug.Print(x.InnerText);
+                    Debug.Print(a);
+                    Debug.Print(a);
+                    if (x["Game_Name"].InnerText.Equals(a))
+                    {
+                        
+
+                        string Name = x["Game_Name"].InnerText;
+
+                        string Description = x["Description"].InnerText;
+                        string Genres = x["Genres"].InnerText;
+                        string Platforms = x["Platforms"].InnerText;
+                        string Release_Date = x["Release_Date"].InnerText;
+                        string Publishers = x["Publishers"].InnerText;
+                        string Developers = x["Developers"].InnerText;
+                        string ImageCover = x["ImageCover"].InnerText;
+                        string ScreenShot_1 = x["ScreenShot_1"].InnerText;
+                        string ScreenShot_2 = x["ScreenShot_2"].InnerText;
+                        string ScreenShot_3 = x["ScreenShot_3"].InnerText;
+                        View.SetLabel1(Name);
+                        View.SetLabel2(Release_Date);
+                        View.SetLabel3(Developers);
+                        View.SetLabel4(Publishers);
+                        View.SetLabel5(Platforms);
+                        View.SetLabel6(Genres);
+                        View.SetLabel7(Description);
+                    }
+                        
+                }
                 View.Show();
-                View.TopMost = true;
-                
+                View.TopMost = true;       
             }
         }
 
