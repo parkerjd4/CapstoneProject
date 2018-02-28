@@ -189,16 +189,27 @@ namespace GameLogger
         public string GetPlatforms(List<Platform> list)
         {
             string y = "";
+            int count = 0;
             foreach (var x in list)
             {
+                
                 if (y == "")
                 {
                     y += x.Name;
                 }
                 else
                 {
-                    y += ", " + x.Name;
+                    if (count % 2 == 0)
+                    {
+                        y += Environment.NewLine + "                  " + x.Name;
+                    }
+                    else
+                    {
+                        y += ", " + x.Name;
+                    }
+
                 }
+                count++;
             }
             return y;
         }
@@ -326,13 +337,15 @@ namespace GameLogger
                         string ScreenShot_1 = x["ScreenShot_1"].InnerText;
                         string ScreenShot_2 = x["ScreenShot_2"].InnerText;
                         string ScreenShot_3 = x["ScreenShot_3"].InnerText;
+
+                        string lines = string.Join(Environment.NewLine+"                      ", Description.Split().Select((word, index) => new { word, index }).GroupBy(y => y.index / 9).Select(grp => string.Join(" ", grp.Select(y => y.word))));
                         View.SetLabel1(Name);
                         View.SetLabel2(Release_Date);
                         View.SetLabel3(Developers);
                         View.SetLabel4(Publishers);
                         View.SetLabel5(Platforms);
                         View.SetLabel6(Genres);
-                        View.SetLabel7(Description);
+                        View.SetLabel7(lines);
                     }
                         
                 }
