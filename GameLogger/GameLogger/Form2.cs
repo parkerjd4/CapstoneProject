@@ -14,6 +14,8 @@ namespace GameLogger
 {
     public partial class Form2 : Form
     {
+
+        public string[] imglist; 
         public string Name1
         {
             get => this.Name;
@@ -25,6 +27,10 @@ namespace GameLogger
         public Form2()
         {
             InitializeComponent();
+        }
+        public void Form2_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -71,8 +77,23 @@ namespace GameLogger
             label7.Text += label;
         }
        
+        public void SetImgList(string[] imgs)
+        {
+            imglist = imgs;
+        }
+        public void SetPicBox(string file)
+        {
+            Image image = Image.FromFile(file);
+
+            pictureBox1.Image = Image.FromFile(file);
+        }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }

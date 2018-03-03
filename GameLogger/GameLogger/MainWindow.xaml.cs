@@ -317,16 +317,9 @@ namespace GameLogger
 
                 foreach (XmlNode x in xnList)
                 {
-                    Debug.Print(x.InnerText);
-                    Debug.Print(x.InnerText);
-                    Debug.Print(a);
-                    Debug.Print(a);
                     if (x["Game_Name"].InnerText.Equals(a))
                     {
-                        
-
                         string Name = x["Game_Name"].InnerText;
-
                         string Description = x["Description"].InnerText;
                         string Genres = x["Genres"].InnerText;
                         string Platforms = x["Platforms"].InnerText;
@@ -337,7 +330,9 @@ namespace GameLogger
                         string ScreenShot_1 = x["ScreenShot_1"].InnerText;
                         string ScreenShot_2 = x["ScreenShot_2"].InnerText;
                         string ScreenShot_3 = x["ScreenShot_3"].InnerText;
-
+                        string[] img = { ImageCover, ScreenShot_1, ScreenShot_2, ScreenShot_3};
+                        View.SetImgList(img);
+                        View.SetPicBox(ImageCover);
                         string lines = string.Join(Environment.NewLine+"                      ", Description.Split().Select((word, index) => new { word, index }).GroupBy(y => y.index / 9).Select(grp => string.Join(" ", grp.Select(y => y.word))));
                         View.SetLabel1(Name);
                         View.SetLabel2(Release_Date);
