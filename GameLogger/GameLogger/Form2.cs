@@ -15,7 +15,8 @@ namespace GameLogger
     public partial class Form2 : Form
     {
 
-        public string[] imglist; 
+        public string[] imglist;
+        public int count = 0; 
         public string Name1
         {
             get => this.Name;
@@ -38,6 +39,7 @@ namespace GameLogger
             MainWindow window = new MainWindow();
 
             window.gameListImg.SelectedItems.Clear();
+
             
             Close();
         }
@@ -83,9 +85,10 @@ namespace GameLogger
         }
         public void SetPicBox(string file)
         {
-            Image image = Image.FromFile(file);
-
+            
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.Image = Image.FromFile(file);
+            count++;
         }
 
         private void label1_Click(object sender, EventArgs e)

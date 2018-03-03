@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace GameLogger
 {
@@ -39,7 +42,6 @@ namespace GameLogger
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.ImgGames = new System.Windows.Forms.ImageList(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -127,14 +129,9 @@ namespace GameLogger
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // ImgGames
-            // 
-            this.ImgGames.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.ImgGames.ImageSize = new System.Drawing.Size(16, 16);
-            this.ImgGames.TransparentColor = System.Drawing.Color.Transparent;
-            // 
             // timer1
             // 
+            this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
@@ -171,7 +168,17 @@ namespace GameLogger
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            //Debug.Print("askfjaskldfjklsdfjklasdf");
+            if(count == 4)
+            {
+                count = 0; 
+            }
+            this.pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.Image = Image.FromFile(this.imglist[this.count]);
+            this.pictureBox1.Refresh();
+            this.pictureBox1.Visible = true;
+            count++;
+            //throw new NotImplementedException();
         }
 
         #endregion
@@ -184,7 +191,6 @@ namespace GameLogger
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ImageList ImgGames;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
