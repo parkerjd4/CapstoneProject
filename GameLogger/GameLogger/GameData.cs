@@ -31,4 +31,6 @@ namespace GameLogger
     {
         public List<string> Response { get; set; }
     }
+
+
 }
