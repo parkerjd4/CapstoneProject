@@ -30,13 +30,52 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
-        public void CompareXML()
+        public void CompareXML1()
         {
             Class1 test = new Class1();
             var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
             var complete = System.IO.Path.Combine(systemPath, "GameLogger");
             var OGXML = System.IO.Path.Combine(complete, "OGFile.xml");
             var testXML = System.IO.Path.Combine(complete, "TestFile.xml");
+            System.IO.File.WriteAllText(OGXML, string.Empty);
+            File.AppendAllText(OGXML, String.Format("<GameList>" + Environment.NewLine + "</GameList>"));
+            test.AddToFile("skyrim");
+            //test.AddToFile("persona 4 golden");
+
+            var originalFile = GetFileHash(OGXML);
+            var testFile = GetFileHash(testXML);
+
+            Assert.AreEqual(testFile, originalFile);
+        }
+
+        [TestMethod]
+        public void CompareXML2()
+        {
+            Class1 test = new Class1();
+            var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
+            var complete = System.IO.Path.Combine(systemPath, "GameLogger");
+            var OGXML = System.IO.Path.Combine(complete, "OGFile.xml");
+            var testXML = System.IO.Path.Combine(complete, "TestFile1.xml");
+            System.IO.File.WriteAllText(OGXML, string.Empty);
+            File.AppendAllText(OGXML, String.Format("<GameList>" + Environment.NewLine + "</GameList>"));
+            test.AddToFile("persona 4 golden");
+
+            var originalFile = GetFileHash(OGXML);
+            var testFile = GetFileHash(testXML);
+
+            Assert.AreEqual(testFile, originalFile);
+        }
+
+        [TestMethod]
+        public void CompareXML3()
+        {
+            Class1 test = new Class1();
+            var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
+            var complete = System.IO.Path.Combine(systemPath, "GameLogger");
+            var OGXML = System.IO.Path.Combine(complete, "OGFile.xml");
+            var testXML = System.IO.Path.Combine(complete, "TestFile2.xml");
+            System.IO.File.WriteAllText(OGXML, string.Empty);
+            File.AppendAllText(OGXML, String.Format("<GameList>" + Environment.NewLine + "</GameList>"));
             test.AddToFile("skyrim");
             test.AddToFile("persona 4 golden");
 
