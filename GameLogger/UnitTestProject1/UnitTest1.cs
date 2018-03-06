@@ -109,6 +109,71 @@ namespace UnitTestProject1
             Assert.AreEqual(GenreTest, Genre1);
         }
 
+        [TestMethod]
+        public void TestPlatforms()
+        {
+            Class1 test = new Class1();
+            var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
+            var complete = System.IO.Path.Combine(systemPath, "GameLogger");
+            var testXML = System.IO.Path.Combine(complete, "TestFile.xml");
+            XmlDocument doc = new XmlDocument();
+            doc.Load(testXML);
+            XmlNodeList xnList = doc.SelectNodes("/GameList/Game");
+            var client = new GiantBombRestClient("23896f4f00ce753ef98a3c79c42c3d4e226dded0");
+            var result = client.SearchForGames("skyrim").ToList();
+            var Game = client.GetGame(result.First().Id);
+            string PlatformsTest = test.GetPlatforms(Game.Platforms);
+            string Platforms1 = "";
+            foreach (XmlNode x in xnList)
+            {
+                Platforms1 = x["Platforms"].InnerText;
+            }
+            Assert.AreEqual(PlatformsTest, Platforms1);
+        }
+
+        [TestMethod]
+        public void TestPublishers()
+        {
+            Class1 test = new Class1();
+            var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
+            var complete = System.IO.Path.Combine(systemPath, "GameLogger");
+            var testXML = System.IO.Path.Combine(complete, "TestFile.xml");
+            XmlDocument doc = new XmlDocument();
+            doc.Load(testXML);
+            XmlNodeList xnList = doc.SelectNodes("/GameList/Game");
+            var client = new GiantBombRestClient("23896f4f00ce753ef98a3c79c42c3d4e226dded0");
+            var result = client.SearchForGames("skyrim").ToList();
+            var Game = client.GetGame(result.First().Id);
+            string PublishersTest = test.GetPublishers(Game.Publishers);
+            string Publishers1 = "";
+            foreach (XmlNode x in xnList)
+            {
+                Publishers1 = x["Publishers"].InnerText;
+            }
+            Assert.AreEqual(PublishersTest, Publishers1);
+        }
+
+        [TestMethod]
+        public void TestDeveloper()
+        {
+            Class1 test = new Class1();
+            var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
+            var complete = System.IO.Path.Combine(systemPath, "GameLogger");
+            var testXML = System.IO.Path.Combine(complete, "TestFile.xml");
+            XmlDocument doc = new XmlDocument();
+            doc.Load(testXML);
+            XmlNodeList xnList = doc.SelectNodes("/GameList/Game");
+            var client = new GiantBombRestClient("23896f4f00ce753ef98a3c79c42c3d4e226dded0");
+            var result = client.SearchForGames("skyrim").ToList();
+            var Game = client.GetGame(result.First().Id);
+            string DeveloperTest = test.GetDevelopers(Game.Developers);
+            string Developer1 = "";
+            foreach (XmlNode x in xnList)
+            {
+                Developer1 = x["Developers"].InnerText;
+            }
+            Assert.AreEqual(DeveloperTest, Developer1);
+        }
     }
 
 
