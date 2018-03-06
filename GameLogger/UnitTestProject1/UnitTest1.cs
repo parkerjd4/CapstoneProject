@@ -4,6 +4,9 @@ using System.Text;
 using System.Security.Cryptography;
 using System.IO;
 using System;
+using System.Xml;
+using GiantBomb.Api;
+using System.Linq;
 
 namespace UnitTestProject1
 {
@@ -84,5 +87,29 @@ namespace UnitTestProject1
 
             Assert.AreEqual(testFile, originalFile);
         }
+        [TestMethod]
+        public void TestGenre()
+        {
+            Class1 test = new Class1();
+            var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
+            var complete = System.IO.Path.Combine(systemPath, "GameLogger");
+            var testXML = System.IO.Path.Combine(complete, "TestFile.xml");
+            XmlDocument doc = new XmlDocument();
+            doc.Load(testXML);
+            XmlNodeList xnList = doc.SelectNodes("/GameList/Game");
+            var client = new GiantBombRestClient("23896f4f00ce753ef98a3c79c42c3d4e226dded0");
+            var result = client.SearchForGames("skyrim").ToList();
+            var Game = client.GetGame(result.First().Id);
+            string GenreTest = test.GetGenre(Game.Genres);
+            string Genre1 = "";
+            foreach (XmlNode x in xnList)
+            {
+                 Genre1 = x["Genres"].InnerText;
+            }
+            Assert.AreEqual(GenreTest, Genre1);
+        }
+
     }
+
+
 }
