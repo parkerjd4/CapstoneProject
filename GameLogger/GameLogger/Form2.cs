@@ -83,11 +83,21 @@ namespace GameLogger
         {
             imglist = imgs;
         }
-        public void SetPicBox(string file)
+        public void SetPicBox(string[] file)
         {
             
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.Image = Image.FromFile(file);
+            pictureBox1.Image = Image.FromFile(file[0]);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.Image = Image.FromFile(file[0]);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.Image = Image.FromFile(file[1]);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox4.Image = Image.FromFile(file[2]);
+            pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox5.Image = Image.FromFile(file[3]);
+            
+
             count++;
         }
 
@@ -99,6 +109,33 @@ namespace GameLogger
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.Image = Image.FromFile(imglist[0]);
+
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.Image = Image.FromFile(imglist[1]);
+
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.Image = Image.FromFile(imglist[2]);
+
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.Image = Image.FromFile(imglist[3]);
         }
     }
 }
