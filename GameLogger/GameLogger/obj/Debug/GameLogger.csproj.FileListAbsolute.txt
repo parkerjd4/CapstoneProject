@@ -152,3 +152,4 @@ C:\Users\parkerjd4\Source\Repos\CapstoneProject\GameLogger\GameLogger\obj\Debug\
 C:\Users\parkerjd4\Source\Repos\CapstoneProject\GameLogger\GameLogger\obj\Debug\UserControl1.g.cs
 C:\Users\parkerjd4\Source\Repos\CapstoneProject\GameLogger\GameLogger\obj\Debug\UserControl1.baml
 C:\Users\parkerjd4\Source\Repos\CapstoneProject\GameLogger\GameLogger\obj\Debug\GameLogger.Form2.resources
+C:\Users\Dillon\Source\Repos\CapstoneProject\GameLogger\GameLogger\obj\Debug\GameLogger.csproj.CopyComplete

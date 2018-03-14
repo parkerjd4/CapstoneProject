@@ -31,21 +31,21 @@ namespace GameLogger
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window 
     {
 
         public ObservableCollection<ImageSource> gameImg = new ObservableCollection<ImageSource>();
-        public ObservableCollection<string> GameList { get; set; }
+        public ObservableCollection<String> GameList { get; set; }
         public string APIURL = "?api_key=23896f4f00ce753ef98a3c79c42c3d4e226dded0";
 
 
 
         public MainWindow()
         {
-            
+            GameList = new ObservableCollection<String>();
             InitializeComponent();
-            GameList = new ObservableCollection<string>();
             
+            gameListImg.ItemsSource = GameList;
 
             var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
             var complete = System.IO.Path.Combine(systemPath, "GameLogger");
@@ -117,6 +117,10 @@ namespace GameLogger
 
             doc.DocumentElement.AppendChild(node);
             doc.Save(filepath);
+            gameListImg.ItemsSource = GameList;
+            gameListImg.Items.Refresh();
+
+
         }
 
         private void DownloadImages(Game game,XmlDocument doc,XmlNode node)
@@ -165,6 +169,7 @@ namespace GameLogger
             node.AppendChild(ImgScreen1);
             node.AppendChild(ImgScreen2);
             node.AppendChild(ImgScreen3);
+            
 
 
         }
@@ -259,6 +264,7 @@ namespace GameLogger
             foreach (XmlNode xn in xnList)
             {
                 string gameName = xn["Game_Name"].InnerText;
+                //gameListImg.Items.Add(gameName);
                 GameList.Add(gameName);
                 //gameImg.Add(new BitmapImage(new Uri(@"C:\Users\Dillon\Source\Repos\CapstoneProject\GameLogger\GameLogger\Properties\placeholder.png")));
                 
@@ -341,6 +347,7 @@ namespace GameLogger
                         View.SetLabel5(Platforms);
                         View.SetLabel6(Genres);
                         View.SetLabel7(lines);
+                        break;
                     }
                         
                 }
@@ -349,6 +356,9 @@ namespace GameLogger
             }
         }
 
+        private void UniformGrid_SourceUpdated(object sender, DataTransferEventArgs e)
+        {
 
+        }
     }
 }

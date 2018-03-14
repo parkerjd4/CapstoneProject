@@ -20,11 +20,13 @@
 
         <ListView
               Name="gameListImg" 
-              ItemsSource="{Binding gameList}" Margin="0,23,0,0" Grid.ColumnSpan="2"
+              ItemsSource="{Binding ElementName=UI, Path=GameList}"
+              Margin="0,23,0,0" Grid.ColumnSpan="2"
               VerticalContentAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" IsSynchronizedWithCurrentItem="True" >
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <UniformGrid Columns="5" />
+                    <UniformGrid Columns="5"/>
+                    
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
             <ListView.ItemContainerStyle>
