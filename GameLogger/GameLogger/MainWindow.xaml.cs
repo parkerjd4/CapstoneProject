@@ -316,6 +316,7 @@ namespace GameLogger
             XmlNodeList xnList = doc.SelectNodes("/GameList/Game");
 
             var item = sender as System.Windows.Controls.ListViewItem;
+           
             if (item != null && item.IsSelected)
             {
                 string a = item.DataContext.ToString();
@@ -340,7 +341,18 @@ namespace GameLogger
                         View.SetImgList(img);
                         View.SetPicBox(img);
                         string lines = string.Join(Environment.NewLine+"                     ", Description.Split().Select((word, index) => new { word, index }).GroupBy(y => y.index / 9).Select(grp => string.Join(" ", grp.Select(y => y.word))));
-                        CheckNumLines(Platforms);
+                        
+                        int numLines = Platforms.Split('\n').Length;
+                        if (numLines > 2)
+                        {
+
+                            System.Drawing.Point Platform = View.LocLabel5();
+                            System.Drawing.Point Genre = View.LocLabel6();
+                            System.Drawing.Point Desc = View.LocLabel7();
+                            int Num = numLines * 10;
+                            View.SetLocLabel6(Genre.X, Genre.Y + Num);
+                            View.SetLocLabel7(Desc.X, Desc.Y + Num);
+                        }
 
                         View.SetLabel1(Name);
                         View.SetLabel2(Release_Date);
@@ -349,21 +361,17 @@ namespace GameLogger
                         View.SetLabel5(Platforms);
                         View.SetLabel6(Genres);
                         View.SetLabel7(lines);
+                        
                         break;
                     }
                         
                 }
                 View.Show();
+                
                 View.TopMost = true;       
             }
         }
 
-        public void CheckNumLines(string a)
-        {
-            int numLines = a.Split('\n').Length;
-            System.Windows.MessageBox.Show(""+numLines);
-
-        }
 
         private void UniformGrid_SourceUpdated(object sender, DataTransferEventArgs e)
         {
