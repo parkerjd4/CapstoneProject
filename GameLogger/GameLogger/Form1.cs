@@ -59,13 +59,9 @@ namespace GameLogger
 
         }
 
+
         private void TextBox1_TextChanged(object sender, EventArgs e)
         {
-
-
-
-
-
             string value = ((System.Windows.Forms.TextBox)sender).Text;
             
             

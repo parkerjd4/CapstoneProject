@@ -206,7 +206,7 @@ namespace GameLogger
                 {
                     if (count % 2 == 0)
                     {
-                        y += Environment.NewLine + "                  " + x.Name;
+                        y += Environment.NewLine + "                 " + x.Name;
                     }
                     else
                     {
@@ -339,7 +339,9 @@ namespace GameLogger
                         string[] img = { ImageCover, ScreenShot_1, ScreenShot_2, ScreenShot_3};
                         View.SetImgList(img);
                         View.SetPicBox(img);
-                        string lines = string.Join(Environment.NewLine+"                      ", Description.Split().Select((word, index) => new { word, index }).GroupBy(y => y.index / 9).Select(grp => string.Join(" ", grp.Select(y => y.word))));
+                        string lines = string.Join(Environment.NewLine+"                     ", Description.Split().Select((word, index) => new { word, index }).GroupBy(y => y.index / 9).Select(grp => string.Join(" ", grp.Select(y => y.word))));
+                        CheckNumLines(Platforms);
+
                         View.SetLabel1(Name);
                         View.SetLabel2(Release_Date);
                         View.SetLabel3(Developers);
@@ -354,6 +356,13 @@ namespace GameLogger
                 View.Show();
                 View.TopMost = true;       
             }
+        }
+
+        public void CheckNumLines(string a)
+        {
+            int numLines = a.Split('\n').Length;
+            System.Windows.MessageBox.Show(""+numLines);
+
         }
 
         private void UniformGrid_SourceUpdated(object sender, DataTransferEventArgs e)
