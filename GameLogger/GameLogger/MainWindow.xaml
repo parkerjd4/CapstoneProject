@@ -14,6 +14,7 @@
         <Menu x:Name="MenuBar" Height="23" VerticalAlignment="Top" Grid.ColumnSpan="2">
             <MenuItem Header="File">
                 <MenuItem Header="Add Game" Click="Menu_Click_Add"></MenuItem>
+                <MenuItem Header="Remove Game" Click="Menu_Click_Remove"></MenuItem>
             </MenuItem>
         </Menu>
         <!--<DataGrid x:Name="gameListView" Height="301" VerticalAlignment="Top" Margin="0,23,0,0" Grid.ColumnSpan="2" /> -->

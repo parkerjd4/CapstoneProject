@@ -290,6 +290,13 @@ namespace GameLogger
             wind.Show();
         }
 
+        private void Menu_Click_Remove(object sender, RoutedEventArgs e)
+        {
+            RemoveGame removeGame = new RemoveGame();
+            removeGame.Show();
+
+        }
+
         private void DeleteXML()
         {
             var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);

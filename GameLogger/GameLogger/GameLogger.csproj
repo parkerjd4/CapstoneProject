@@ -207,6 +207,12 @@
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
     <Compile Include="GameData.cs" />
+    <Compile Include="RemoveGame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RemoveGame.Designer.cs">
+      <DependentUpon>RemoveGame.cs</DependentUpon>
+    </Compile>
     <Compile Include="TextAndImageColumn.cs" />
     <Compile Include="UserControl1.xaml.cs">
       <DependentUpon>UserControl1.xaml</DependentUpon>
@@ -257,6 +263,9 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RemoveGame.resx">
+      <DependentUpon>RemoveGame.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="GameLogger_TemporaryKey.pfx" />
     <None Include="packages.config" />
