@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,24 +38,22 @@ namespace GameLogger
             var Game = client.GetGame(result.First().Id);
             XmlNodeList xnList = doc.SelectNodes("/GameList/Game");
             XmlNode xmlNode = doc.SelectSingleNode("/GameList");
+            foreach (XmlNode x in xnList)
+            {
+                if (x["Game_Name"].InnerText.Equals(Game.Name.ToString()))
+                {
+                    File.Delete(x["ImageCover"].InnerText);
+                    File.Delete(x["ScreenShot_1"].InnerText);
+                    File.Delete(x["ScreenShot_2"].InnerText);
+                    File.Delete(x["ScreenShot_3"].InnerText);
+
+                }
+            }
 
             XElement objElement = XElement.Load(filepath);
             XElement delNode = objElement.Descendants("Game").Where(a => a.Element("Game_Name").Value == Game.Name.ToString()).FirstOrDefault();
             delNode.Remove();
             objElement.Save(filepath);
-
-            /*foreach (XmlNode x in xnList)
-            {
-                if (x["Game_Name"].InnerText.Equals(Game.Name.ToString()))
-                {
-                    XmlNode parent = x.ParentNode;
-                    
-                    xmlNode.RemoveChild(parent);
-                    
-                    doc.Save(filepath);
-                    break;
-                }
-            }*/
         }
 
         private void button2_Click(object sender, EventArgs e) => Close();
