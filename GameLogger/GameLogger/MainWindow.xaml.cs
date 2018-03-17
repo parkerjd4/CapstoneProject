@@ -83,8 +83,18 @@ namespace GameLogger
             XmlDocument doc = new XmlDocument();
             doc.Load(filepath);
             XmlNode node = doc.CreateNode(XmlNodeType.Element, "Game", null);
+            XmlNodeList xnList = doc.SelectNodes("/GameList/Game");
             var Game = client.GetGame(result.First().Id);
-            
+            foreach (XmlNode x in xnList)
+            {
+                if (x["Game_Name"].InnerText.Equals(Game.Name.ToString()))
+                {
+                    System.Windows.MessageBox.Show("Game is already in the list.");
+                    return;
+                }
+            }
+
+
             XmlNode GameName = doc.CreateElement("Game_Name");
             XmlNode Id = doc.CreateElement("Id");
             XmlNode Description = doc.CreateElement("Description");
@@ -340,7 +350,7 @@ namespace GameLogger
                         string[] img = { ImageCover, ScreenShot_1, ScreenShot_2, ScreenShot_3};
                         View.SetImgList(img);
                         View.SetPicBox(img);
-                        string lines = string.Join(Environment.NewLine+"                     ", Description.Split().Select((word, index) => new { word, index }).GroupBy(y => y.index / 9).Select(grp => string.Join(" ", grp.Select(y => y.word))));
+                        string lines = string.Join(Environment.NewLine+"                    ", Description.Split().Select((word, index) => new { word, index }).GroupBy(y => y.index / 9).Select(grp => string.Join(" ", grp.Select(y => y.word))));
                         
                         int numLines = Platforms.Split('\n').Length;
                         if (numLines > 2)
@@ -366,6 +376,7 @@ namespace GameLogger
                     }
                         
                 }
+                //View.BackgroundImage = GameLogger.Properties.Resources.background;
                 View.Show();
                 
                 View.TopMost = true;       

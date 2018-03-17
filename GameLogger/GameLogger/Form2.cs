@@ -29,6 +29,7 @@ namespace GameLogger
         public Form2()
         {
             InitializeComponent();
+            
         }
         public void Form2_Load(object sender, EventArgs e)
         {
