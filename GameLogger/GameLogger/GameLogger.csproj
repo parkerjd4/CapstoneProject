@@ -301,6 +301,9 @@
   <ItemGroup>
     <None Include="Resources\424657-carbon-fiber-best-wallpapers-free.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\preview_Black-Background-Metal-Hole-Small-2048x2048.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

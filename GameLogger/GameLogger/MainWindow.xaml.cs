@@ -383,7 +383,7 @@ namespace GameLogger
                     }
                         
                 }
-                //View.BackgroundImage = GameLogger.Properties.Resources.background;
+                //View.BackgroundImage = GameLogger.Properties.Resources.preview_Black_Background_Metal_Hole_Small_2048x2048;
                 View.Show();
                 
                 View.TopMost = true;       

@@ -69,5 +69,15 @@ namespace GameLogger.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap preview_Black_Background_Metal_Hole_Small_2048x2048 {
+            get {
+                object obj = ResourceManager.GetObject("preview_Black_Background_Metal_Hole_Small_2048x2048", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
