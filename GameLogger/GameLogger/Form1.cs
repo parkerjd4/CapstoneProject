@@ -42,24 +42,26 @@ namespace GameLogger
         private void button1_Click(object sender, EventArgs e)
         {
             MainWindow win = new MainWindow();
-            /*var client = new GiantBombRestClient("23896f4f00ce753ef98a3c79c42c3d4e226dded0");
-            var result = client.SearchForGames(Search).ToList();
-            int id = result.FirstOrDefault().Id;
-            var r1 = client.GetGame(id);*/
+            try
+            {
+                var client = new GiantBombRestClient("23896f4f00ce753ef98a3c79c42c3d4e226dded0");
+                var result = client.SearchForGames(Search).ToList();
+                int id = result.FirstOrDefault().Id;
+                var r1 = client.GetGame(id);
+                win.AddToFile(Search);
 
-            //System.Windows.Forms.MessageBox.Show(r1.Genres.ForEac);
-            win.AddToFile(Search);
+            }
+            catch (ArgumentNullException)
+            {
+                MessageBox.Show("Not a vaild game.");
+            }
 
 
         }
 
+
         private void TextBox1_TextChanged(object sender, EventArgs e)
         {
-
-
-
-
-
             string value = ((System.Windows.Forms.TextBox)sender).Text;
             
             

@@ -24,26 +24,28 @@ using System.Text.RegularExpressions;
 using GiantBomb.Api.Model;
 using System.Net;
 using System.Net.Http.Headers;
+using System.Diagnostics;
 
 namespace GameLogger
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window 
     {
 
         public ObservableCollection<ImageSource> gameImg = new ObservableCollection<ImageSource>();
-        public ObservableCollection<string> GameList { get; set; }
+        public ObservableCollection<String> GameList { get; set; }
         public string APIURL = "?api_key=23896f4f00ce753ef98a3c79c42c3d4e226dded0";
 
 
 
         public MainWindow()
         {
+            GameList = new ObservableCollection<String>();
             InitializeComponent();
-            GameList = new ObservableCollection<string>();
             
+            gameListImg.ItemsSource = GameList;
 
             var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
             var complete = System.IO.Path.Combine(systemPath, "GameLogger");
@@ -67,9 +69,6 @@ namespace GameLogger
             text.Binding = new System.Windows.Data.Binding("GameName");
             gameListView.Columns.Add(text);*/
 
-
-
-
             LoadFile(filepath);
         }
 
@@ -84,9 +83,20 @@ namespace GameLogger
             XmlDocument doc = new XmlDocument();
             doc.Load(filepath);
             XmlNode node = doc.CreateNode(XmlNodeType.Element, "Game", null);
+            XmlNodeList xnList = doc.SelectNodes("/GameList/Game");
             var Game = client.GetGame(result.First().Id);
-            
+            foreach (XmlNode x in xnList)
+            {
+                if (x["Game_Name"].InnerText.Equals(Game.Name.ToString()))
+                {
+                    System.Windows.MessageBox.Show("Game is already in the list.");
+                    return;
+                }
+            }
+
+
             XmlNode GameName = doc.CreateElement("Game_Name");
+            XmlNode Id = doc.CreateElement("Id");
             XmlNode Description = doc.CreateElement("Description");
             XmlNode ReleaseDate = doc.CreateElement("Release_Date");
             XmlNode Platforms = doc.CreateElement("Platforms");
@@ -95,6 +105,8 @@ namespace GameLogger
             XmlNode Developers = doc.CreateElement("Developers");
 
             GameName.InnerText = Game.Name.ToString();
+
+            Id.InnerText = Game.Id.ToString();
             Description.InnerText = Game.Deck.ToString();
             ReleaseDate.InnerText = Game.OriginalReleaseDate.ToString();
             Genre.InnerText = GetGenre(Game.Genres.ToList());
@@ -104,6 +116,7 @@ namespace GameLogger
 
 
             node.AppendChild(GameName);
+            node.AppendChild(Id);
             node.AppendChild(Description);
             node.AppendChild(Genre);
             node.AppendChild(Platforms);
@@ -114,6 +127,10 @@ namespace GameLogger
 
             doc.DocumentElement.AppendChild(node);
             doc.Save(filepath);
+            gameListImg.ItemsSource = GameList;
+            gameListImg.Items.Refresh();
+
+
         }
 
         private void DownloadImages(Game game,XmlDocument doc,XmlNode node)
@@ -162,6 +179,7 @@ namespace GameLogger
             node.AppendChild(ImgScreen1);
             node.AppendChild(ImgScreen2);
             node.AppendChild(ImgScreen3);
+            
 
 
         }
@@ -186,16 +204,27 @@ namespace GameLogger
         public string GetPlatforms(List<Platform> list)
         {
             string y = "";
+            int count = 0;
             foreach (var x in list)
             {
+                
                 if (y == "")
                 {
                     y += x.Name;
                 }
                 else
                 {
-                    y += ", " + x.Name;
+                    if (count % 2 == 0)
+                    {
+                        y += Environment.NewLine + "                 " + x.Name;
+                    }
+                    else
+                    {
+                        y += ", " + x.Name;
+                    }
+
                 }
+                count++;
             }
             return y;
         }
@@ -237,6 +266,7 @@ namespace GameLogger
 
         public void LoadFile(string path)
         {
+             
             XmlDocument doc = new XmlDocument();
             doc.Load(path);
             XmlNodeList xnList = doc.SelectNodes("/GameList/Game");
@@ -244,8 +274,11 @@ namespace GameLogger
             foreach (XmlNode xn in xnList)
             {
                 string gameName = xn["Game_Name"].InnerText;
+                //gameListImg.Items.Add(gameName);
                 GameList.Add(gameName);
                 //gameImg.Add(new BitmapImage(new Uri(@"C:\Users\Dillon\Source\Repos\CapstoneProject\GameLogger\GameLogger\Properties\placeholder.png")));
+                
+                
                 gameListImg.ItemsSource = GameList;
                 //gameListImg.ItemsSource = gameImg;
             }                     
@@ -257,11 +290,110 @@ namespace GameLogger
             wind.Show();
         }
 
+        private void Menu_Click_Remove(object sender, RoutedEventArgs e)
+        {
+            RemoveGame removeGame = new RemoveGame();
+            removeGame.Show();
+
+        }
+
+        private void DeleteXML()
+        {
+            var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
+            var complete = System.IO.Path.Combine(systemPath, "GameLogger");
+            var filepath = System.IO.Path.Combine(complete, "game_list.xml");
+            File.Delete(filepath);
+
+
+        }
+
+        
+
         public void CheckxmlFiles()
         {
             var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
             var complete = System.IO.Path.Combine(systemPath, "GameLogger");
             var filepath = System.IO.Path.Combine(complete, "game_list.xml");
+        }
+
+        private void gameListImg_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            //Form2 View = new Form2();
+            //View.Show();
+            //View.TopMost = true;
+        }
+
+        private void ListViewItem_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
+            var complete = System.IO.Path.Combine(systemPath, "GameLogger");
+            var filepath = System.IO.Path.Combine(complete, "game_list.xml");
+            XmlDocument doc = new XmlDocument();
+            doc.Load(filepath);
+            XmlNodeList xnList = doc.SelectNodes("/GameList/Game");
+
+            var item = sender as System.Windows.Controls.ListViewItem;
+           
+            if (item != null && item.IsSelected)
+            {
+                string a = item.DataContext.ToString();
+                Form2 View = new Form2();
+
+                foreach (XmlNode x in xnList)
+                {
+                    if (x["Game_Name"].InnerText.Equals(a))
+                    {
+                        string Name = x["Game_Name"].InnerText;
+                        string Description = x["Description"].InnerText;
+                        string Genres = x["Genres"].InnerText;
+                        string Platforms = x["Platforms"].InnerText;
+                        string Release_Date = x["Release_Date"].InnerText;
+                        string Publishers = x["Publishers"].InnerText;
+                        string Developers = x["Developers"].InnerText;
+                        string ImageCover = x["ImageCover"].InnerText;
+                        string ScreenShot_1 = x["ScreenShot_1"].InnerText;
+                        string ScreenShot_2 = x["ScreenShot_2"].InnerText;
+                        string ScreenShot_3 = x["ScreenShot_3"].InnerText;
+                        string[] img = { ImageCover, ScreenShot_1, ScreenShot_2, ScreenShot_3};
+                        View.SetImgList(img);
+                        View.SetPicBox(img);
+                        string lines = string.Join(Environment.NewLine+"                    ", Description.Split().Select((word, index) => new { word, index }).GroupBy(y => y.index / 9).Select(grp => string.Join(" ", grp.Select(y => y.word))));
+                        
+                        int numLines = Platforms.Split('\n').Length;
+                        if (numLines > 2)
+                        {
+
+                            System.Drawing.Point Platform = View.LocLabel5();
+                            System.Drawing.Point Genre = View.LocLabel6();
+                            System.Drawing.Point Desc = View.LocLabel7();
+                            int Num = numLines * 10;
+                            View.SetLocLabel6(Genre.X, Genre.Y + Num);
+                            View.SetLocLabel7(Desc.X, Desc.Y + Num);
+                        }
+
+                        View.SetLabel1(Name);
+                        View.SetLabel2(Release_Date);
+                        View.SetLabel3(Developers);
+                        View.SetLabel4(Publishers);
+                        View.SetLabel5(Platforms);
+                        View.SetLabel6(Genres);
+                        View.SetLabel7(lines);
+                        
+                        break;
+                    }
+                        
+                }
+                //View.BackgroundImage = GameLogger.Properties.Resources.preview_Black_Background_Metal_Hole_Small_2048x2048;
+                View.Show();
+                
+                View.TopMost = true;       
+            }
+        }
+
+
+        private void UniformGrid_SourceUpdated(object sender, DataTransferEventArgs e)
+        {
+
         }
     }
 }

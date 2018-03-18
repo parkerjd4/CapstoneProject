@@ -14,20 +14,29 @@
         <Menu x:Name="MenuBar" Height="23" VerticalAlignment="Top" Grid.ColumnSpan="2">
             <MenuItem Header="File">
                 <MenuItem Header="Add Game" Click="Menu_Click_Add"></MenuItem>
+                <MenuItem Header="Remove Game" Click="Menu_Click_Remove"></MenuItem>
             </MenuItem>
         </Menu>
         <!--<DataGrid x:Name="gameListView" Height="301" VerticalAlignment="Top" Margin="0,23,0,0" Grid.ColumnSpan="2" /> -->
+
         <ListView
-              Name="gameListImg"
-              ItemsSource="{Binding gameList}" Margin="0,23,0,0" Grid.ColumnSpan="2"
+              Name="gameListImg" 
+              ItemsSource="{Binding ElementName=UI, Path=GameList}"
+              Margin="0,23,0,0" Grid.ColumnSpan="2"
               VerticalContentAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" IsSynchronizedWithCurrentItem="True" >
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <UniformGrid Columns="5" />
+                    <UniformGrid Columns="5"/>
+                    
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ListViewItem_PreviewMouseLeftButtonDown" />
+                </Style>
+            </ListView.ItemContainerStyle>
         </ListView>
-        
+
         <!--<TextBlock Name="SampleTextBlock"
                Text="{Binding Path=gameList}" Margin="0,23,0,0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="626" />-->
     </Grid>

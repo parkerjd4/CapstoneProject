@@ -20,15 +20,37 @@ using System.ComponentModel;
 
 namespace GameLogger
 {
-    class GameData 
+    class GameData : INotifyPropertyChanged
     {
-        
-        public BitmapSource Picture { get; set; }
-        public string Name { get; set; }
+        public string name; 
 
-    }
-    class RootObject
-    {
-        public List<string> Response { get; set; }
+        public string GameName
+        {
+            get { return name; }
+
+            set
+            {
+                name = value;
+                RaisePropertyChanged("GameData");
+            }
+        }
+
+        public GameData()
+        {
+           
+        }
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void RaisePropertyChanged(string propertyName)
+        {
+            // take a copy to prevent thread issues
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
 }
