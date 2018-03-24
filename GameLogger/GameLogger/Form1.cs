@@ -21,6 +21,7 @@ using HtmlAgilityPack;
 using System.Text.RegularExpressions;
 using Google.Apis;
 using System.Windows.Documents;
+using System.Xml;
 
 namespace GameLogger
 {

@@ -292,8 +292,33 @@ namespace GameLogger
 
         private void Menu_Click_Remove(object sender, RoutedEventArgs e)
         {
-            RemoveGame removeGame = new RemoveGame();
-            removeGame.Show();
+            var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
+            var complete = System.IO.Path.Combine(systemPath, "GameLogger");
+            var filepath = System.IO.Path.Combine(complete, "game_list.xml");
+            XmlDocument doc = new XmlDocument();
+            doc.Load(filepath);
+            XmlNodeList xnList = doc.SelectNodes("/GameList/Game");
+
+            foreach (XmlNode xn in xnList)
+            {
+                if(!(GameList.Contains(xn["Game_Name"].InnerText)))
+                {
+                    string gameName = xn["Game_Name"].InnerText;
+                    //gameListImg.Items.Add(gameName);
+                    GameList.Add(gameName);
+                    gameListImg.ItemsSource = GameList;
+
+                }
+            }
+            
+            //RemoveGame removeGame = new RemoveGame();
+            //removeGame.Show();
+
+        }
+        private void Menu_Click_Remove1(object sender, RoutedEventArgs e)
+        {
+            //RemoveGame removeGame = new RemoveGame();
+            //removeGame.Show();
 
         }
 
