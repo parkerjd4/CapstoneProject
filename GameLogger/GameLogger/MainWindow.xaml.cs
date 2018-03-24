@@ -72,7 +72,7 @@ namespace GameLogger
             LoadFile(filepath);
         }
 
-        public void AddToFile(string text)
+        public void AddToFile(string text,string cat)
         {
             var client = new GiantBombRestClient("23896f4f00ce753ef98a3c79c42c3d4e226dded0");
             var result = client.SearchForGames(text).ToList();
@@ -97,6 +97,7 @@ namespace GameLogger
 
             XmlNode GameName = doc.CreateElement("Game_Name");
             XmlNode Id = doc.CreateElement("Id");
+            XmlNode Categories = doc.CreateElement("Status");
             XmlNode Description = doc.CreateElement("Description");
             XmlNode ReleaseDate = doc.CreateElement("Release_Date");
             XmlNode Platforms = doc.CreateElement("Platforms");
@@ -105,8 +106,8 @@ namespace GameLogger
             XmlNode Developers = doc.CreateElement("Developers");
 
             GameName.InnerText = Game.Name.ToString();
-
             Id.InnerText = Game.Id.ToString();
+            Categories.InnerText = cat;
             Description.InnerText = Game.Deck.ToString();
             ReleaseDate.InnerText = Game.OriginalReleaseDate.ToString();
             Genre.InnerText = GetGenre(Game.Genres.ToList());
@@ -117,6 +118,7 @@ namespace GameLogger
 
             node.AppendChild(GameName);
             node.AppendChild(Id);
+            node.AppendChild(Categories);
             node.AppendChild(Description);
             node.AppendChild(Genre);
             node.AppendChild(Platforms);
@@ -292,6 +294,27 @@ namespace GameLogger
 
         private void Menu_Click_Remove(object sender, RoutedEventArgs e)
         {
+            var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
+            var complete = System.IO.Path.Combine(systemPath, "GameLogger");
+            var filepath = System.IO.Path.Combine(complete, "game_list.xml");
+            XmlDocument doc = new XmlDocument();
+            doc.Load(filepath);
+            XmlNodeList xnList = doc.SelectNodes("/GameList/Game");
+
+            foreach (XmlNode xn in xnList)
+            {
+                if(!(GameList.Contains(xn["Game_Name"].InnerText)))
+                {
+                    string gameName = xn["Game_Name"].InnerText;
+                    //gameListImg.Items.Add(gameName);
+                    GameList.Add(gameName);
+                    gameListImg.ItemsSource = GameList;
+
+                }
+            }
+        }
+        private void Menu_Click_Remove1(object sender, RoutedEventArgs e)
+        {
             RemoveGame removeGame = new RemoveGame();
             removeGame.Show();
 
@@ -345,6 +368,7 @@ namespace GameLogger
                     {
                         string Name = x["Game_Name"].InnerText;
                         string Description = x["Description"].InnerText;
+                        string Status = x["Status"].InnerText;
                         string Genres = x["Genres"].InnerText;
                         string Platforms = x["Platforms"].InnerText;
                         string Release_Date = x["Release_Date"].InnerText;
@@ -357,7 +381,7 @@ namespace GameLogger
                         string[] img = { ImageCover, ScreenShot_1, ScreenShot_2, ScreenShot_3};
                         View.SetImgList(img);
                         View.SetPicBox(img);
-                        string lines = string.Join(Environment.NewLine+"                    ", Description.Split().Select((word, index) => new { word, index }).GroupBy(y => y.index / 9).Select(grp => string.Join(" ", grp.Select(y => y.word))));
+                        string Lines = string.Join(Environment.NewLine+"                    ", Description.Split().Select((word, index) => new { word, index }).GroupBy(y => y.index / 9).Select(grp => string.Join(" ", grp.Select(y => y.word))));
                         
                         int numLines = Platforms.Split('\n').Length;
                         if (numLines > 2)
@@ -366,9 +390,11 @@ namespace GameLogger
                             System.Drawing.Point Platform = View.LocLabel5();
                             System.Drawing.Point Genre = View.LocLabel6();
                             System.Drawing.Point Desc = View.LocLabel7();
+                            System.Drawing.Point Stat = View.LocLabel8();
                             int Num = numLines * 10;
                             View.SetLocLabel6(Genre.X, Genre.Y + Num);
                             View.SetLocLabel7(Desc.X, Desc.Y + Num);
+                            View.SetLocLabel8(Stat.X, Stat.Y + Num);
                         }
 
                         View.SetLabel1(Name);
@@ -377,7 +403,8 @@ namespace GameLogger
                         View.SetLabel4(Publishers);
                         View.SetLabel5(Platforms);
                         View.SetLabel6(Genres);
-                        View.SetLabel7(lines);
+                        View.SetLabel7(Lines);
+                        View.SetLabel8(Status);
                         
                         break;
                     }

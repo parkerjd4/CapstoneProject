@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GameLogger"
         mc:Ignorable="d"
-        Title="GameLogger" Height="505.972" Width="733.928">
+        Title="GameLogger" Height="547.972" Width="802.928">
     <Grid x:Name="gridView">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="18*"/>
@@ -14,7 +14,8 @@
         <Menu x:Name="MenuBar" Height="23" VerticalAlignment="Top" Grid.ColumnSpan="2">
             <MenuItem Header="File">
                 <MenuItem Header="Add Game" Click="Menu_Click_Add"></MenuItem>
-                <MenuItem Header="Remove Game" Click="Menu_Click_Remove"></MenuItem>
+                <MenuItem Header="Refersh Gamelist" Click="Menu_Click_Remove"></MenuItem>
+                <MenuItem Header="Remove Game" Click="Menu_Click_Remove1"></MenuItem>
             </MenuItem>
         </Menu>
         <!--<DataGrid x:Name="gameListView" Height="301" VerticalAlignment="Top" Margin="0,23,0,0" Grid.ColumnSpan="2" /> -->
@@ -23,11 +24,11 @@
               Name="gameListImg" 
               ItemsSource="{Binding ElementName=UI, Path=GameList}"
               Margin="0,23,0,0" Grid.ColumnSpan="2"
-              VerticalContentAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" IsSynchronizedWithCurrentItem="True" >
+              VerticalContentAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" IsSynchronizedWithCurrentItem="True" >
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid Columns="5"/>
-                    
+
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
             <ListView.ItemContainerStyle>
