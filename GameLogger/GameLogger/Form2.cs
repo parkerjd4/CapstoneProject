@@ -61,6 +61,11 @@ namespace GameLogger
             System.Drawing.Point loc = new System.Drawing.Point(label7.Location.X, label7.Location.Y);
             return loc;
         }
+        public System.Drawing.Point LocLabel8()
+        {
+            System.Drawing.Point loc = new System.Drawing.Point(label8.Location.X, label8.Location.Y);
+            return loc;
+        }
 
         public void SetLocLabel5(int x, int y)
         {
@@ -69,13 +74,15 @@ namespace GameLogger
         public void SetLocLabel6(int x, int y)
         {
           
-            label6.Location = new System.Drawing.Point(x, y);
-           
-         
+            label6.Location = new System.Drawing.Point(x, y);     
         }
         public void SetLocLabel7(int x, int y)
         {
             label7.Location = new System.Drawing.Point(x, y);
+        }
+        public void SetLocLabel8(int x, int y)
+        {
+            label8.Location = new System.Drawing.Point(x, y);
         }
 
         public void SetLabel1(string label)
@@ -105,6 +112,10 @@ namespace GameLogger
         public void SetLabel7(string label)
         {
             label7.Text += label;
+        }
+        public void SetLabel8(string label)
+        {
+            label8.Text += label;
         }
        
         public void SetImgList(string[] imgs)

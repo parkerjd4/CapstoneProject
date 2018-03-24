@@ -49,7 +49,8 @@ namespace GameLogger
                 var result = client.SearchForGames(Search).ToList();
                 int id = result.FirstOrDefault().Id;
                 var r1 = client.GetGame(id);
-                win.AddToFile(Search);
+                string cat = comboBox1.SelectedItem.ToString();
+                win.AddToFile(Search,cat);
 
             }
             catch (ArgumentNullException)
