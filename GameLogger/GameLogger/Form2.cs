@@ -176,5 +176,10 @@ namespace GameLogger
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.Image = Image.FromFile(imglist[3]);
         }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

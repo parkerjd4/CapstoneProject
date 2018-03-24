@@ -45,12 +45,19 @@ namespace GameLogger
             MainWindow win = new MainWindow();
             try
             {
-                var client = new GiantBombRestClient("23896f4f00ce753ef98a3c79c42c3d4e226dded0");
-                var result = client.SearchForGames(Search).ToList();
-                int id = result.FirstOrDefault().Id;
-                var r1 = client.GetGame(id);
-                string cat = comboBox1.SelectedItem.ToString();
-                win.AddToFile(Search,cat);
+                if(comboBox1.SelectedItem != null)
+                {
+                    var client = new GiantBombRestClient("23896f4f00ce753ef98a3c79c42c3d4e226dded0");
+                    var result = client.SearchForGames(Search).ToList();
+                    int id = result.FirstOrDefault().Id;
+                    var r1 = client.GetGame(id);
+                    string cat = comboBox1.SelectedItem.ToString();
+                    win.AddToFile(Search, cat);
+                }
+                else
+                {
+                    MessageBox.Show("Please choose a Category.");
+                }
 
             }
             catch (ArgumentNullException)
