@@ -310,15 +310,11 @@ namespace GameLogger
 
                 }
             }
-            
-            //RemoveGame removeGame = new RemoveGame();
-            //removeGame.Show();
-
         }
         private void Menu_Click_Remove1(object sender, RoutedEventArgs e)
         {
-            //RemoveGame removeGame = new RemoveGame();
-            //removeGame.Show();
+            RemoveGame removeGame = new RemoveGame();
+            removeGame.Show();
 
         }
 

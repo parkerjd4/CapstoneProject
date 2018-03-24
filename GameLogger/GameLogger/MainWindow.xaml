@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GameLogger"
         mc:Ignorable="d"
-        Title="GameLogger" Height="505.972" Width="733.928">
+        Title="GameLogger" Height="547.972" Width="802.928">
     <Grid x:Name="gridView">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="18*"/>
@@ -28,7 +28,7 @@
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid Columns="5"/>
-                    
+
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
             <ListView.ItemContainerStyle>
