@@ -25,6 +25,7 @@ using GiantBomb.Api.Model;
 using System.Net;
 using System.Net.Http.Headers;
 using System.Diagnostics;
+using System.Xml.Linq;
 
 namespace GameLogger
 {
@@ -129,6 +130,8 @@ namespace GameLogger
 
             doc.DocumentElement.AppendChild(node);
             doc.Save(filepath);
+            RoutedEventArgs routedEventArgs = new RoutedEventArgs();
+            Menu_Click_Add(null, routedEventArgs);
             gameListImg.ItemsSource = GameList;
             gameListImg.Items.Refresh();
 
@@ -182,6 +185,7 @@ namespace GameLogger
             node.AppendChild(ImgScreen2);
             node.AppendChild(ImgScreen3);
             
+
 
 
         }
@@ -309,6 +313,19 @@ namespace GameLogger
                     //gameListImg.Items.Add(gameName);
                     GameList.Add(gameName);
                     gameListImg.ItemsSource = GameList;
+
+                }
+                
+            }
+            XElement objElement = XElement.Load(filepath);
+
+            for (int i =0; i < GameList.Count; i++)
+            {
+                if(objElement.Descendants("Game").Where(a => a.Element("Game_Name").Value == GameList[i].ToString()).FirstOrDefault() == null)
+                {
+                    GameList.Remove(GameList[i].ToString());
+                    gameListImg.ItemsSource = GameList;
+
 
                 }
             }
