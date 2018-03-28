@@ -20,3 +20,8 @@
 3. Move OGFile.xml, TestFile.xml, TestFile1.xml, and TestFile2.xml to ProgramData\GameLogger
 4. In Visual Studio Click Test in the ToolBar
 5. Now move your mouse over "Run" and click "All Test"  
+
+
+## Refresh Application 
+1. Click File 
+2. Click Refresh Gamelist 
