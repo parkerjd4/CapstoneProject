@@ -179,6 +179,9 @@ namespace GameLogger
 
         private void label8_Click(object sender, EventArgs e)
         {
+            EditForm Edit = new EditForm();
+            Edit.Show();
+            Edit.SetLabel1("Change Status");
 
         }
     }
