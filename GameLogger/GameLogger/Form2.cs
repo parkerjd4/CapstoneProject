@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GiantBomb.Api;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -233,6 +234,20 @@ namespace GameLogger
                     break;
                 }
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var Client = new GiantBombRestClient("23896f4f00ce753ef98a3c79c42c3d4e226dded0");
+            var Result = Client.SearchForGames(label1.Text.Substring(6, label1.Text.Length - 6)).ToList();
+            var Game = Client.GetGame(Result.First().Id);
+            RecommendGames recommendGames = new RecommendGames();
+            recommendGames.Show();
+            for (int i = 0; i < Game.SimilarGames.Count; i++)
+            {
+                recommendGames
+            }
+
         }
     }
 }

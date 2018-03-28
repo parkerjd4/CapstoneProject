@@ -214,6 +214,12 @@
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
     <Compile Include="GameData.cs" />
+    <Compile Include="RecommendGames.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecommendGames.Designer.cs">
+      <DependentUpon>RecommendGames.cs</DependentUpon>
+    </Compile>
     <Compile Include="RemoveGame.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -273,6 +279,9 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecommendGames.resx">
+      <DependentUpon>RecommendGames.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RemoveGame.resx">
       <DependentUpon>RemoveGame.cs</DependentUpon>
