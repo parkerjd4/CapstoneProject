@@ -243,10 +243,9 @@ namespace GameLogger
             var Game = Client.GetGame(Result.First().Id);
             RecommendGames recommendGames = new RecommendGames();
             recommendGames.Show();
-            for (int i = 0; i < Game.SimilarGames.Count; i++)
-            {
-                recommendGames
-            }
+            recommendGames.TopMost = true;
+            recommendGames.SetTableContents(Game.SimilarGames);
+
 
         }
     }

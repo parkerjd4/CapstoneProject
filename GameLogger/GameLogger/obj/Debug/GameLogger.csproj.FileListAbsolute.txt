@@ -155,3 +155,4 @@ C:\Users\parkerjd4\Source\Repos\CapstoneProject\GameLogger\GameLogger\obj\Debug\
 C:\Users\Dillon\Source\Repos\CapstoneProject\GameLogger\GameLogger\obj\Debug\GameLogger.csproj.CopyComplete
 C:\Users\Dillon\Source\Repos\CapstoneProject\GameLogger\GameLogger\obj\Debug\GameLogger.RemoveGame.resources
 C:\Users\Dillon\Source\Repos\CapstoneProject\GameLogger\GameLogger\obj\Debug\GameLogger.EditForm.resources
+C:\Users\Dillon\Source\Repos\CapstoneProject\GameLogger\GameLogger\obj\Debug\GameLogger.RecommendGames.resources
