@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,6 +16,11 @@ namespace GameLogger
 {
     public partial class RecommendGames : Form
     {
+        string GameName1;
+        string GameName2;
+        string GameName3;
+        string GameName4; 
+
         public RecommendGames()
         {
             InitializeComponent();
@@ -41,7 +48,12 @@ namespace GameLogger
 
         internal void SetTableContents(List<Game> similarGames)
         {
-            var Game = similarGames[0];
+         
+            GameName1 = similarGames[0].Name.ToString();
+            GameName2 = similarGames[1].Name.ToString();
+            GameName3 = similarGames[2].Name.ToString();
+            GameName4 = similarGames[3].Name.ToString();
+
             linkLabel1.Text = similarGames[0].Name.ToString();
             linkLabel2.Text = similarGames[1].Name.ToString();
             linkLabel3.Text = similarGames[2].Name.ToString();
@@ -56,6 +68,43 @@ namespace GameLogger
             var Result4 = Client.SearchForGames(similarGames[4].Name.ToString()).ToList();
             var Game4 = Client.GetGame(Result4.First().Id);
 
+            string url = Game1.Image.MediumUrl.ToString().Trim();
+            string url1 = Game2.Image.MediumUrl.ToString().Trim();
+            string url2 = Game3.Image.MediumUrl.ToString().Trim();
+            string url3 = Game4.Image.MediumUrl.ToString().Trim();
+            WebClient client = new WebClient();
+            var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
+            var complete = System.IO.Path.Combine(systemPath, @"GameLogger\Images");
+            System.IO.Directory.CreateDirectory(complete);
+
+            var filepath = System.IO.Path.Combine(complete, Game1.Id + ".png");
+            var filepath1 = System.IO.Path.Combine(complete, Game2.Id + ".png");
+            var filepath2 = System.IO.Path.Combine(complete, Game3.Id + ".png");
+            var filepath3 = System.IO.Path.Combine(complete, Game4.Id + ".png");
+            client.Headers["User-Agent"] = "josedpar";
+            client.DownloadFile(new Uri(url), filepath);
+            client.Headers["User-Agent"] = "josedpar1";
+            client.DownloadFile(new Uri(url1), filepath1);
+            client.Headers["User-Agent"] = "josedpar2";
+            client.DownloadFile(new Uri(url2), filepath2);
+            client.Headers["User-Agent"] = "josedpar3";
+            client.DownloadFile(new Uri(url3), filepath3);
+
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.Image = System.Drawing.Image.FromFile(filepath);
+
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.Image = System.Drawing.Image.FromFile(filepath1);
+
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.Image = System.Drawing.Image.FromFile(filepath2);
+
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox4.Image = System.Drawing.Image.FromFile(filepath3);
+
+
+
+
 
             label4.Text = Game1.Deck.ToString(); 
             //string.Join(Environment.NewLine + "                    ", similarGames[0].Deck.ToString().Split().Select((word, index) => new { word, index }).GroupBy(y => y.index / 9).Select(grp => string.Join(" ", grp.Select(y => y.word))));
@@ -66,6 +115,21 @@ namespace GameLogger
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
         {
 
         }
