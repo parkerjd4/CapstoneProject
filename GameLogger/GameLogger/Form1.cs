@@ -51,6 +51,7 @@ namespace GameLogger
                     var result = client.SearchForGames(Search).ToList();
                     int id = result.FirstOrDefault().Id;
                     var r1 = client.GetGame(id);
+                    
                     string cat = comboBox1.SelectedItem.ToString();
                     win.AddToFile(Search, cat);
                 }
@@ -86,6 +87,11 @@ namespace GameLogger
         private void button2_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

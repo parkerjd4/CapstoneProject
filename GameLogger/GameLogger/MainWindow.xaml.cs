@@ -25,6 +25,7 @@ using GiantBomb.Api.Model;
 using System.Net;
 using System.Net.Http.Headers;
 using System.Diagnostics;
+using System.Xml.Linq;
 
 namespace GameLogger
 {
@@ -129,6 +130,8 @@ namespace GameLogger
 
             doc.DocumentElement.AppendChild(node);
             doc.Save(filepath);
+            RoutedEventArgs routedEventArgs = new RoutedEventArgs();
+            Menu_Click_Add(null, routedEventArgs);
             gameListImg.ItemsSource = GameList;
             gameListImg.Items.Refresh();
 
@@ -182,6 +185,7 @@ namespace GameLogger
             node.AppendChild(ImgScreen2);
             node.AppendChild(ImgScreen3);
             
+
 
 
         }
@@ -311,6 +315,19 @@ namespace GameLogger
                     gameListImg.ItemsSource = GameList;
 
                 }
+                
+            }
+            XElement objElement = XElement.Load(filepath);
+
+            for (int i =0; i < GameList.Count; i++)
+            {
+                if(objElement.Descendants("Game").Where(a => a.Element("Game_Name").Value == GameList[i].ToString()).FirstOrDefault() == null)
+                {
+                    GameList.Remove(GameList[i].ToString());
+                    gameListImg.ItemsSource = GameList;
+
+
+                }
             }
         }
         private void Menu_Click_Remove1(object sender, RoutedEventArgs e)
@@ -412,8 +429,10 @@ namespace GameLogger
                 }
                 //View.BackgroundImage = GameLogger.Properties.Resources.preview_Black_Background_Metal_Hole_Small_2048x2048;
                 View.Show();
-                
-                View.TopMost = true;       
+                View.TopMost = true;
+                View.BringToFront();
+                View.Focus();
+                View.Activate();
             }
         }
 

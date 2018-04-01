@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GiantBomb.Api;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Input;
+using System.Xml;
 
 namespace GameLogger
 {
@@ -17,7 +19,9 @@ namespace GameLogger
     {
 
         public string[] imglist;
-        public int count = 0; 
+        public int count = 0;
+        public string Status;
+        public string SetNewStatus; 
         public string Name1
         {
             get => this.Name;
@@ -29,7 +33,9 @@ namespace GameLogger
         public Form2()
         {
             InitializeComponent();
-            
+            BringToFront();
+
+
         }
         public void Form2_Load(object sender, EventArgs e)
         {
@@ -44,6 +50,11 @@ namespace GameLogger
 
             
             Close();
+        }
+        public void SetStatus(string stat)
+        {
+            SetNewStatus = stat;
+
         }
 
         public System.Drawing.Point LocLabel5()
@@ -116,6 +127,7 @@ namespace GameLogger
         public void SetLabel8(string label)
         {
             label8.Text += label;
+            Status = label;
         }
        
         public void SetImgList(string[] imgs)
@@ -179,6 +191,64 @@ namespace GameLogger
 
         private void label8_Click(object sender, EventArgs e)
         {
+            EditForm Edit = new EditForm();
+            Edit.Show();
+            Edit.TopMost = true;
+            Edit.SetGameName(label1.Text.Substring(6, label1.Text.Length-6));
+
+            Edit.Name = "Change Status";
+            Edit.SetLabel1("Change Status");
+            string[] list = new string[5];
+            string name = "Set Status";
+            list[0] = "Playing";
+            list[1] = "Plan to Play";
+            list[2] = "Completed";
+            list[3] = "On Hold";
+            list[4] = "Dropped";
+            Edit.SetComboBox1(name, list);
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
+            var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
+            var complete = System.IO.Path.Combine(systemPath, "GameLogger");
+            var filepath = System.IO.Path.Combine(complete, "game_list.xml");
+            XmlDocument doc = new XmlDocument();
+            doc.Load(filepath);
+            var Game = label1.Text.Substring(6, label1.Text.Length - 6);
+            XmlNodeList xnList = doc.SelectNodes("/GameList/Game");
+            XmlNode xmlNode = doc.SelectSingleNode("/GameList");
+            Form2 form2 = new Form2();
+            foreach (XmlNode x in xnList)
+            {
+                if (x["Game_Name"].InnerText.Equals(Game))
+                {
+                    String Name = x["Status"].InnerText;
+                    label8.Text = label8.Text.Substring(0, label8.Text.Length - (Name.Length));
+                    label8.Text += Name;
+                    break;
+                }
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var Client = new GiantBombRestClient("23896f4f00ce753ef98a3c79c42c3d4e226dded0");
+            var Result = Client.SearchForGames((label1.Text.Substring(6, label1.Text.Length - 6))).ToList();
+            var Game = Client.GetGame(Result.First().Id);
+            RecommendGames recommendGames = new RecommendGames();
+            TopMost = false;
+            recommendGames.Show();
+            recommendGames.TopLevel = true;
+            recommendGames.SetTableContents(Game.SimilarGames);
+
 
         }
     }

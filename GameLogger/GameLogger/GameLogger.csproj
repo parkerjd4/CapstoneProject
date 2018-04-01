@@ -27,7 +27,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>7</ApplicationRevision>
+    <ApplicationRevision>8</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -201,6 +201,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Class1.cs" />
+    <Compile Include="EditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditForm.Designer.cs">
+      <DependentUpon>EditForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -208,6 +214,12 @@
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
     <Compile Include="GameData.cs" />
+    <Compile Include="RecommendGames.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecommendGames.Designer.cs">
+      <DependentUpon>RecommendGames.cs</DependentUpon>
+    </Compile>
     <Compile Include="RemoveGame.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -255,6 +267,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="EditForm.resx">
+      <DependentUpon>EditForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -264,6 +279,9 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecommendGames.resx">
+      <DependentUpon>RecommendGames.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RemoveGame.resx">
       <DependentUpon>RemoveGame.cs</DependentUpon>
@@ -304,6 +322,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\preview_Black-Background-Metal-Hole-Small-2048x2048.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\index.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
