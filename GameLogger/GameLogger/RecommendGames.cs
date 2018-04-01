@@ -68,9 +68,9 @@ namespace GameLogger
             var Game4 = Client.GetGame(Result4.First().Id);
 
             GameName1 = Game1.SiteDetailUrl.ToString();
-            GameName2 = Game1.SiteDetailUrl.ToString();
-            GameName3 = Game1.SiteDetailUrl.ToString();
-            GameName4 = Game1.SiteDetailUrl.ToString();
+            GameName2 = Game2.SiteDetailUrl.ToString();
+            GameName3 = Game3.SiteDetailUrl.ToString();
+            GameName4 = Game4.SiteDetailUrl.ToString();
 
             string url = Game1.Image.MediumUrl.ToString().Trim();
             string url1 = Game2.Image.MediumUrl.ToString().Trim();
@@ -121,12 +121,12 @@ namespace GameLogger
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            var Client = new GiantBombRestClient("23896f4f00ce753ef98a3c79c42c3d4e226dded0");
-            var Result = Client.SearchForGames(GameName1).ToList();
-            var Game = Client.GetGame(Result.First().Id);
+            //var Client = new GiantBombRestClient("23896f4f00ce753ef98a3c79c42c3d4e226dded0");
+            //var Result = Client.SearchForGames(GameName1).ToList();
+            //var Game = Client.GetGame(Result.First().Id);
             linkLabel1.LinkVisited = true;
 
-            System.Diagnostics.Process.Start(Game.SiteDetailUrl);
+            System.Diagnostics.Process.Start(GameName1);
 
         }
 
@@ -142,6 +142,30 @@ namespace GameLogger
 
         private void label7_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            linkLabel1.LinkVisited = true;
+
+            System.Diagnostics.Process.Start(GameName2);
+
+        }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            linkLabel1.LinkVisited = true;
+
+            System.Diagnostics.Process.Start(GameName3);
+
+        }
+
+        private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            linkLabel1.LinkVisited = true;
+
+            System.Diagnostics.Process.Start(GameName4);
 
         }
     }

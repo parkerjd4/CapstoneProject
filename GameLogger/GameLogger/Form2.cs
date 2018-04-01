@@ -33,7 +33,9 @@ namespace GameLogger
         public Form2()
         {
             InitializeComponent();
-            
+            BringToFront();
+
+
         }
         public void Form2_Load(object sender, EventArgs e)
         {
@@ -243,7 +245,7 @@ namespace GameLogger
             var Game = Client.GetGame(Result.First().Id);
             RecommendGames recommendGames = new RecommendGames();
             recommendGames.Show();
-            recommendGames.TopMost = true;
+            recommendGames.TopLevel = true;
             recommendGames.SetTableContents(Game.SimilarGames);
 
 
