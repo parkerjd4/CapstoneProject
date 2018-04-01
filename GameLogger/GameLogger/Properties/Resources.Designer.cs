@@ -73,6 +73,16 @@ namespace GameLogger.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap index {
+            get {
+                object obj = ResourceManager.GetObject("index", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap preview_Black_Background_Metal_Hole_Small_2048x2048 {
             get {
                 object obj = ResourceManager.GetObject("preview_Black_Background_Metal_Hole_Small_2048x2048", resourceCulture);

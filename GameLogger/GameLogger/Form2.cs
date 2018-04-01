@@ -244,6 +244,7 @@ namespace GameLogger
             var Result = Client.SearchForGames((label1.Text.Substring(6, label1.Text.Length - 6))).ToList();
             var Game = Client.GetGame(Result.First().Id);
             RecommendGames recommendGames = new RecommendGames();
+            TopMost = false;
             recommendGames.Show();
             recommendGames.TopLevel = true;
             recommendGames.SetTableContents(Game.SimilarGames);

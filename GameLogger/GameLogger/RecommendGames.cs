@@ -53,6 +53,7 @@ namespace GameLogger
             linkLabel3.Text = similarGames[2].Name.ToString();
             linkLabel4.Text = similarGames[3].Name.ToString();
 
+
             var Client = new GiantBombRestClient("23896f4f00ce753ef98a3c79c42c3d4e226dded0");
 
             var Result1 = Client.SearchForGames(similarGames[0].Name.ToString()).ToList();
@@ -64,7 +65,7 @@ namespace GameLogger
             var Result3 = Client.SearchForGames(similarGames[2].Name.ToString()).ToList();
             var Game3 = Client.GetGame(Result3.First().Id);
 
-            var Result4 = Client.SearchForGames(similarGames[4].Name.ToString()).ToList();
+            var Result4 = Client.SearchForGames(similarGames[3].Name.ToString()).ToList();
             var Game4 = Client.GetGame(Result4.First().Id);
 
             GameName1 = Game1.SiteDetailUrl.ToString();
@@ -121,6 +122,7 @@ namespace GameLogger
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            TopMost = false;
             //var Client = new GiantBombRestClient("23896f4f00ce753ef98a3c79c42c3d4e226dded0");
             //var Result = Client.SearchForGames(GameName1).ToList();
             //var Game = Client.GetGame(Result.First().Id);
