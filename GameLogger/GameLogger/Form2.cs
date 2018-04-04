@@ -22,7 +22,7 @@ namespace GameLogger
         public int count = 0;
         public string Status;
         public string SetNewStatus; 
-        public string Name1
+        public string GameName
         {
             get => this.Name;
             set
@@ -42,7 +42,7 @@ namespace GameLogger
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             MainWindow window = new MainWindow();
 
@@ -99,6 +99,7 @@ namespace GameLogger
         public void SetLabel1(string label)
         {
             label1.Text += label;
+            GameName = label;
         }
         public void SetLabel2(string label)
         {
@@ -152,49 +153,49 @@ namespace GameLogger
             count++;
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Label1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void PictureBox1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void PictureBox2_Click(object sender, EventArgs e)
         {
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.Image = Image.FromFile(imglist[0]);
 
         }
 
-        private void pictureBox3_Click(object sender, EventArgs e)
+        private void PictureBox3_Click(object sender, EventArgs e)
         {
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.Image = Image.FromFile(imglist[1]);
 
         }
 
-        private void pictureBox4_Click(object sender, EventArgs e)
+        private void PictureBox4_Click(object sender, EventArgs e)
         {
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.Image = Image.FromFile(imglist[2]);
 
         }
 
-        private void pictureBox5_Click(object sender, EventArgs e)
+        private void PictureBox5_Click(object sender, EventArgs e)
         {
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.Image = Image.FromFile(imglist[3]);
         }
 
-        private void label8_Click(object sender, EventArgs e)
+        private void Label8_Click(object sender, EventArgs e)
         {
             EditForm Edit = new EditForm();
             Edit.Show();
             Edit.TopMost = true;
-            Edit.SetGameName(label1.Text.Substring(6, label1.Text.Length-6));
+            Edit.SetGameName(label1.Text.Substring(label1.Text.Length-GameName.Length));
 
             Edit.Name = "Change Status";
             Edit.SetLabel1("Change Status");
@@ -209,12 +210,12 @@ namespace GameLogger
 
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void Button1_Click_1(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             
             var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
@@ -230,15 +231,15 @@ namespace GameLogger
             {
                 if (x["Game_Name"].InnerText.Equals(Game))
                 {
-                    String Name = x["Status"].InnerText;
-                    label8.Text = label8.Text.Substring(0, label8.Text.Length - (Name.Length));
-                    label8.Text += Name;
+                    String Status = x["Status"].InnerText;
+                    label8.Text = label8.Text.Substring(0,8);
+                    label8.Text += Status;
                     break;
                 }
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void Button3_Click(object sender, EventArgs e)
         {
             var Client = new GiantBombRestClient("23896f4f00ce753ef98a3c79c42c3d4e226dded0");
             var Result = Client.SearchForGames((label1.Text.Substring(6, label1.Text.Length - 6))).ToList();

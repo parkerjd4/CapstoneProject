@@ -35,7 +35,7 @@ namespace GameLogger
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Label1_Click(object sender, EventArgs e)
         {
 
         }
@@ -44,7 +44,7 @@ namespace GameLogger
             GameName = name; 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             var client = new GiantBombRestClient("23896f4f00ce753ef98a3c79c42c3d4e226dded0");
             var result = client.SearchForGames(GameName).ToList();
@@ -75,7 +75,7 @@ namespace GameLogger
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             Close();
         }

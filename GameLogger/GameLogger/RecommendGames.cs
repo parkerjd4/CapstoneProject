@@ -26,22 +26,22 @@ namespace GameLogger
             InitializeComponent();
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        private void TableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Label1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void Label3_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void Label4_Click(object sender, EventArgs e)
         {
 
         }
@@ -120,7 +120,7 @@ namespace GameLogger
 
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             TopMost = false;
             //var Client = new GiantBombRestClient("23896f4f00ce753ef98a3c79c42c3d4e226dded0");
@@ -132,43 +132,53 @@ namespace GameLogger
 
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void PictureBox2_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(GameName2);
+        }
+
+        private void PictureBox1_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(GameName1);
+        }
+
+        private void Label7_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void LinkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            linkLabel1.LinkVisited = true;
+            linkLabel2.LinkVisited = true;
 
             System.Diagnostics.Process.Start(GameName2);
 
         }
 
-        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void LinkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            linkLabel1.LinkVisited = true;
+            linkLabel3.LinkVisited = true;
 
             System.Diagnostics.Process.Start(GameName3);
 
         }
 
-        private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void LinkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            linkLabel1.LinkVisited = true;
+            linkLabel4.LinkVisited = true;
 
             System.Diagnostics.Process.Start(GameName4);
 
+        }
+
+        private void PictureBox3_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(GameName3);
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(GameName4);
         }
     }
 }

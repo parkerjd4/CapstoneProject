@@ -67,7 +67,7 @@ namespace GameLogger
             this.label1.Size = new System.Drawing.Size(49, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Name: ";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.label1.Click += new System.EventHandler(this.Label1_Click);
             // 
             // label2
             // 
@@ -141,7 +141,7 @@ namespace GameLogger
             this.pictureBox1.Size = new System.Drawing.Size(269, 333);
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBox1.Click += new System.EventHandler(this.PictureBox1_Click);
             // 
             // pictureBox2
             // 
@@ -150,7 +150,7 @@ namespace GameLogger
             this.pictureBox2.Size = new System.Drawing.Size(64, 58);
             this.pictureBox2.TabIndex = 9;
             this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.pictureBox2.Click += new System.EventHandler(this.PictureBox2_Click);
             // 
             // pictureBox3
             // 
@@ -159,7 +159,7 @@ namespace GameLogger
             this.pictureBox3.Size = new System.Drawing.Size(64, 58);
             this.pictureBox3.TabIndex = 10;
             this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            this.pictureBox3.Click += new System.EventHandler(this.PictureBox3_Click);
             // 
             // pictureBox4
             // 
@@ -168,7 +168,7 @@ namespace GameLogger
             this.pictureBox4.Size = new System.Drawing.Size(64, 58);
             this.pictureBox4.TabIndex = 11;
             this.pictureBox4.TabStop = false;
-            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
+            this.pictureBox4.Click += new System.EventHandler(this.PictureBox4_Click);
             // 
             // pictureBox5
             // 
@@ -177,7 +177,7 @@ namespace GameLogger
             this.pictureBox5.Size = new System.Drawing.Size(64, 58);
             this.pictureBox5.TabIndex = 12;
             this.pictureBox5.TabStop = false;
-            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
+            this.pictureBox5.Click += new System.EventHandler(this.PictureBox5_Click);
             // 
             // label8
             // 
@@ -187,7 +187,7 @@ namespace GameLogger
             this.label8.Size = new System.Drawing.Size(52, 15);
             this.label8.TabIndex = 13;
             this.label8.Text = "Status: ";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
+            this.label8.Click += new System.EventHandler(this.Label8_Click);
             // 
             // button2
             // 
@@ -200,7 +200,7 @@ namespace GameLogger
             this.button2.TabIndex = 14;
             this.button2.Text = "Refresh";
             this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // button1
             // 
@@ -213,7 +213,7 @@ namespace GameLogger
             this.button1.TabIndex = 15;
             this.button1.Text = "Close";
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.button1.Click += new System.EventHandler(this.Button1_Click_1);
             // 
             // button3
             // 
@@ -226,7 +226,7 @@ namespace GameLogger
             this.button3.TabIndex = 16;
             this.button3.Text = "Recommend Games";
             this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.Click += new System.EventHandler(this.Button3_Click);
             // 
             // Form2
             // 

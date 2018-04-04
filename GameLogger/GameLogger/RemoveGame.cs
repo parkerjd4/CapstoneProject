@@ -21,12 +21,12 @@ namespace GameLogger
             InitializeComponent();
         }
 
-        private void textBox1_Enter(object sender, EventArgs e)
+        private void TextBox1_Enter(object sender, EventArgs e)
         {
-            button1_Click(sender, e);
+            Button1_Click(sender, e);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             try
             {
@@ -78,6 +78,6 @@ namespace GameLogger
             }
         }
 
-        private void button2_Click(object sender, EventArgs e) => Close();
+        private void Button2_Click(object sender, EventArgs e) => Close();
     }
 }
