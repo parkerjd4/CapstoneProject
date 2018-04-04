@@ -37,7 +37,6 @@ namespace GameLogger
 
         private void Label1_Click(object sender, EventArgs e)
         {
-
         }
         public void SetGameName(string name)
         {
@@ -51,12 +50,14 @@ namespace GameLogger
             var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
             var complete = System.IO.Path.Combine(systemPath, "GameLogger");
             var filepath = System.IO.Path.Combine(complete, "game_list.xml");
+
             XmlDocument doc = new XmlDocument();
             doc.Load(filepath);
             var Game = client.GetGame(result.First().Id);
             XmlNodeList xnList = doc.SelectNodes("/GameList/Game");
             XmlNode xmlNode = doc.SelectSingleNode("/GameList");
             Form2 form2 = new Form2();
+
             foreach (XmlNode x in xnList)
             {
                 if (x["Game_Name"].InnerText.Equals(Game.Name.ToString()))

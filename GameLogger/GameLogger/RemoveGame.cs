@@ -35,6 +35,7 @@ namespace GameLogger
                 var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
                 var complete = System.IO.Path.Combine(systemPath, "GameLogger");
                 var filepath = System.IO.Path.Combine(complete, "game_list.xml");
+
                 XmlDocument doc = new XmlDocument();
                 doc.Load(filepath);
                 var Game = client.GetGame(result.First().Id);
@@ -65,8 +66,6 @@ namespace GameLogger
                 {
                     MessageBox.Show("Could not find the game.");
                 }
-
-
             }
             catch (InvalidOperationException)
             {

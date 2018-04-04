@@ -30,20 +30,16 @@ namespace GameLogger
         string Search; 
         public From1()
         {
-            InitializeComponent();
-            
+            InitializeComponent();           
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
-
         }
 
         private void Button1_Click(object sender, EventArgs e)
         {
             MainWindow win = new MainWindow();
-
 
             var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
             var complete = System.IO.Path.Combine(systemPath, "GameLogger");
@@ -109,7 +105,6 @@ namespace GameLogger
 
         private void Grab_gamesAsync()
         {
-
         }
 
         private void Button2_Click(object sender, EventArgs e)
@@ -119,7 +114,6 @@ namespace GameLogger
 
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
     }
 }

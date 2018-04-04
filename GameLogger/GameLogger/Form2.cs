@@ -34,27 +34,20 @@ namespace GameLogger
         {
             InitializeComponent();
             BringToFront();
-
-
         }
         public void Form2_Load(object sender, EventArgs e)
         {
-
         }
 
         private void Button1_Click(object sender, EventArgs e)
         {
             MainWindow window = new MainWindow();
-
             window.gameListImg.SelectedItems.Clear();
-
-            
             Close();
         }
         public void SetStatus(string stat)
         {
             SetNewStatus = stat;
-
         }
 
         public System.Drawing.Point LocLabel5()
@@ -83,8 +76,7 @@ namespace GameLogger
             label5.Location = new System.Drawing.Point(x, y);
         }
         public void SetLocLabel6(int x, int y)
-        {
-          
+        {         
             label6.Location = new System.Drawing.Point(x, y);     
         }
         public void SetLocLabel7(int x, int y)
@@ -136,8 +128,7 @@ namespace GameLogger
             imglist = imgs;
         }
         public void SetPicBox(string[] file)
-        {
-            
+        {         
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.Image = Image.FromFile(file[0]);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -148,40 +139,33 @@ namespace GameLogger
             pictureBox4.Image = Image.FromFile(file[2]);
             pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox5.Image = Image.FromFile(file[3]);
-            
-
             count++;
         }
 
         private void Label1_Click(object sender, EventArgs e)
         {
-
         }
 
         private void PictureBox1_Click(object sender, EventArgs e)
         {
-
         }
 
         private void PictureBox2_Click(object sender, EventArgs e)
         {
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.Image = Image.FromFile(imglist[0]);
-
         }
 
         private void PictureBox3_Click(object sender, EventArgs e)
         {
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.Image = Image.FromFile(imglist[1]);
-
         }
 
         private void PictureBox4_Click(object sender, EventArgs e)
         {
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.Image = Image.FromFile(imglist[2]);
-
         }
 
         private void PictureBox5_Click(object sender, EventArgs e)
@@ -207,7 +191,6 @@ namespace GameLogger
             list[3] = "On Hold";
             list[4] = "Dropped";
             Edit.SetComboBox1(name, list);
-
         }
 
         private void Button1_Click_1(object sender, EventArgs e)
@@ -216,17 +199,19 @@ namespace GameLogger
         }
 
         private void Button2_Click(object sender, EventArgs e)
-        {
-            
+        {           
             var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
             var complete = System.IO.Path.Combine(systemPath, "GameLogger");
             var filepath = System.IO.Path.Combine(complete, "game_list.xml");
+
             XmlDocument doc = new XmlDocument();
             doc.Load(filepath);
             var Game = label1.Text.Substring(6, label1.Text.Length - 6);
+
             XmlNodeList xnList = doc.SelectNodes("/GameList/Game");
             XmlNode xmlNode = doc.SelectSingleNode("/GameList");
             Form2 form2 = new Form2();
+
             foreach (XmlNode x in xnList)
             {
                 if (x["Game_Name"].InnerText.Equals(Game))
@@ -244,6 +229,7 @@ namespace GameLogger
             var Client = new GiantBombRestClient("23896f4f00ce753ef98a3c79c42c3d4e226dded0");
             var Result = Client.SearchForGames((label1.Text.Substring(6, label1.Text.Length - 6))).ToList();
             var Game = Client.GetGame(Result.First().Id);
+
             RecommendGames recommendGames = new RecommendGames();
             TopMost = false;
             recommendGames.Show();

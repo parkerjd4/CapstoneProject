@@ -28,22 +28,18 @@ namespace GameLogger
 
         private void TableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
-
         }
 
         private void Label1_Click(object sender, EventArgs e)
         {
-
         }
 
         private void Label3_Click(object sender, EventArgs e)
         {
-
         }
 
         private void Label4_Click(object sender, EventArgs e)
         {
-
         }
 
         internal void SetTableContents(List<Game> similarGames)
@@ -111,7 +107,6 @@ namespace GameLogger
             label5.Text = Game2.Deck.ToString();
             label6.Text = Game3.Deck.ToString();
             label7.Text = Game4.Deck.ToString();
-
         }
 
         private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -134,7 +129,6 @@ namespace GameLogger
 
         private void Label7_Click(object sender, EventArgs e)
         {
-
         }
 
         private void LinkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
