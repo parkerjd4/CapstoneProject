@@ -43,6 +43,15 @@ namespace GameLogger
         private void button1_Click(object sender, EventArgs e)
         {
             MainWindow win = new MainWindow();
+
+
+            var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
+            var complete = System.IO.Path.Combine(systemPath, "GameLogger");
+            var filepath = System.IO.Path.Combine(complete, "game_list.xml");
+            XmlDocument doc = new XmlDocument();
+            doc.Load(filepath);
+            Boolean FoundGame = false;
+
             try
             {
                 if(comboBox1.SelectedItem != null)
@@ -51,9 +60,28 @@ namespace GameLogger
                     var result = client.SearchForGames(Search).ToList();
                     int id = result.FirstOrDefault().Id;
                     var r1 = client.GetGame(id);
+                    XmlNodeList xnList = doc.SelectNodes("/GameList/Game");
+                    XmlNode xmlNode = doc.SelectSingleNode("/GameList");
+                    foreach (XmlNode x in xnList)
+                    {
+                        if (x["Game_Name"].InnerText.Equals(r1.Name.ToString()))
+                        {
+                            FoundGame = true;
+                            break;
+
+                        }
+                        
+                    }
+                    if(!FoundGame)
+                    {
+                        string cat = comboBox1.SelectedItem.ToString();
+                        win.AddToFile(Search, cat);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Game is already in the list.");
+                    }
                     
-                    string cat = comboBox1.SelectedItem.ToString();
-                    win.AddToFile(Search, cat);
                 }
                 else
                 {
