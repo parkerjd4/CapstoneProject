@@ -53,7 +53,6 @@ namespace GameLogger
             linkLabel3.Text = similarGames[2].Name.ToString();
             linkLabel4.Text = similarGames[3].Name.ToString();
 
-
             var Client = new GiantBombRestClient("23896f4f00ce753ef98a3c79c42c3d4e226dded0");
 
             var Result1 = Client.SearchForGames(similarGames[0].Name.ToString()).ToList();
@@ -108,12 +107,7 @@ namespace GameLogger
             pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox4.Image = System.Drawing.Image.FromFile(filepath3);
 
-
-
-
-
-            label4.Text = Game1.Deck.ToString(); 
-            //string.Join(Environment.NewLine + "                    ", similarGames[0].Deck.ToString().Split().Select((word, index) => new { word, index }).GroupBy(y => y.index / 9).Select(grp => string.Join(" ", grp.Select(y => y.word))));
+            label4.Text = Game1.Deck.ToString();           
             label5.Text = Game2.Deck.ToString();
             label6.Text = Game3.Deck.ToString();
             label7.Text = Game4.Deck.ToString();
@@ -123,11 +117,7 @@ namespace GameLogger
         private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             TopMost = false;
-            //var Client = new GiantBombRestClient("23896f4f00ce753ef98a3c79c42c3d4e226dded0");
-            //var Result = Client.SearchForGames(GameName1).ToList();
-            //var Game = Client.GetGame(Result.First().Id);
             linkLabel1.LinkVisited = true;
-
             System.Diagnostics.Process.Start(GameName1);
 
         }
@@ -150,25 +140,19 @@ namespace GameLogger
         private void LinkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             linkLabel2.LinkVisited = true;
-
             System.Diagnostics.Process.Start(GameName2);
-
         }
 
         private void LinkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             linkLabel3.LinkVisited = true;
-
             System.Diagnostics.Process.Start(GameName3);
-
         }
 
         private void LinkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             linkLabel4.LinkVisited = true;
-
             System.Diagnostics.Process.Start(GameName4);
-
         }
 
         private void PictureBox3_Click(object sender, EventArgs e)
@@ -176,7 +160,7 @@ namespace GameLogger
             System.Diagnostics.Process.Start(GameName3);
         }
 
-        private void pictureBox4_Click(object sender, EventArgs e)
+        private void PictureBox4_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(GameName4);
         }

@@ -67,12 +67,7 @@ namespace GameLogger
                 }
             }
             doc.Save(filepath);
-            //form2.SetNewStatus = comboBox1.SelectedItem.ToString();
-
-
-
             Close();
-
         }
 
         private void Button2_Click(object sender, EventArgs e)
