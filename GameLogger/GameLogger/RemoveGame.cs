@@ -28,6 +28,7 @@ namespace GameLogger
 
         private void Button1_Click(object sender, EventArgs e)
         {
+
             try
             {
                 var client = new GiantBombRestClient("23896f4f00ce753ef98a3c79c42c3d4e226dded0");
@@ -42,29 +43,34 @@ namespace GameLogger
                 XmlNodeList xnList = doc.SelectNodes("/GameList/Game");
                 XmlNode xmlNode = doc.SelectSingleNode("/GameList");
                 Boolean FoundGame = false;
+                DialogResult dialogResult = MessageBox.Show("Is this the correct game, " + Game.Name.ToString() + "?", "Correct Game?", MessageBoxButtons.YesNo);
 
-                foreach (XmlNode x in xnList)
+                if (dialogResult == DialogResult.Yes)
                 {
-                    if (x["Game_Name"].InnerText.Equals(Game.Name.ToString()))
+
+                    foreach (XmlNode x in xnList)
                     {
-                        File.Delete(x["ImageCover"].InnerText);
-                        File.Delete(x["ScreenShot_1"].InnerText);
-                        File.Delete(x["ScreenShot_2"].InnerText);
-                        File.Delete(x["ScreenShot_3"].InnerText);
-                        FoundGame = true;
-                        break;
+                        if (x["Game_Name"].InnerText.Equals(Game.Name.ToString()))
+                        {
+                            File.Delete(x["ImageCover"].InnerText);
+                            File.Delete(x["ScreenShot_1"].InnerText);
+                            File.Delete(x["ScreenShot_2"].InnerText);
+                            File.Delete(x["ScreenShot_3"].InnerText);
+                            FoundGame = true;
+                            break;
+                        }
                     }
-                }
-                if(FoundGame)
-                {
-                    XElement objElement = XElement.Load(filepath);
-                    XElement delNode = objElement.Descendants("Game").Where(a => a.Element("Game_Name").Value == Game.Name.ToString()).FirstOrDefault();
-                    delNode.Remove();
-                    objElement.Save(filepath);
-                }
-                else
-                {
-                    MessageBox.Show("Could not find the game.");
+                    if (FoundGame)
+                    {
+                        XElement objElement = XElement.Load(filepath);
+                        XElement delNode = objElement.Descendants("Game").Where(a => a.Element("Game_Name").Value == Game.Name.ToString()).FirstOrDefault();
+                        delNode.Remove();
+                        objElement.Save(filepath);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Could not find the game.");
+                    }
                 }
             }
             catch (InvalidOperationException)
@@ -78,5 +84,10 @@ namespace GameLogger
         }
 
         private void Button2_Click(object sender, EventArgs e) => Close();
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
