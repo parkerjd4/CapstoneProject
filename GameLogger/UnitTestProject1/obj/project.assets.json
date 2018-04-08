@@ -6939,25 +6939,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\joseph\\.nuget\\packages\\": {},
+    "C:\\Users\\Dillon\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\joseph\\Source\\Repos\\CapstoneTHISONE\\GameLogger\\UnitTestProject1\\UnitTestProject1.csproj",
+      "projectUniqueName": "C:\\Users\\Dillon\\Source\\Repos\\CapstoneProject\\GameLogger\\UnitTestProject1\\UnitTestProject1.csproj",
       "projectName": "UnitTestProject1",
-      "projectPath": "C:\\Users\\joseph\\Source\\Repos\\CapstoneTHISONE\\GameLogger\\UnitTestProject1\\UnitTestProject1.csproj",
-      "packagesPath": "C:\\Users\\joseph\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\joseph\\Source\\Repos\\CapstoneTHISONE\\GameLogger\\UnitTestProject1\\obj\\",
+      "projectPath": "C:\\Users\\Dillon\\Source\\Repos\\CapstoneProject\\GameLogger\\UnitTestProject1\\UnitTestProject1.csproj",
+      "packagesPath": "C:\\Users\\Dillon\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Dillon\\Source\\Repos\\CapstoneProject\\GameLogger\\UnitTestProject1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\joseph\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Dillon\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
@@ -6971,8 +6971,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Users\\joseph\\Source\\Repos\\CapstoneTHISONE\\GameLogger\\GameLogger\\GameLogger.csproj": {
-              "projectPath": "C:\\Users\\joseph\\Source\\Repos\\CapstoneTHISONE\\GameLogger\\GameLogger\\GameLogger.csproj"
+            "C:\\Users\\Dillon\\Source\\Repos\\CapstoneProject\\GameLogger\\GameLogger\\GameLogger.csproj": {
+              "projectPath": "C:\\Users\\Dillon\\Source\\Repos\\CapstoneProject\\GameLogger\\GameLogger\\GameLogger.csproj"
             }
           }
         }
