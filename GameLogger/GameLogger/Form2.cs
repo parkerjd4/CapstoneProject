@@ -182,7 +182,7 @@ namespace GameLogger
             Edit.SetGameName(label1.Text.Substring(label1.Text.Length-GameName.Length));
 
             Edit.Name = "Change Status";
-            Edit.SetLabel1("Change Status");
+            Edit.SetLabel1("Please change the status of " + label1.Text.Substring(label1.Text.Length - GameName.Length) +".");
             string[] list = new string[5];
             string name = "Set Status";
             list[0] = "Playing";
