@@ -1,0 +1,17 @@
+<GameList>
+  <Game>
+    <Game_Name>Persona 4 Golden</Game_Name>
+    <Id>36273</Id>
+    <Status>Playing </Status>
+    <Description>Persona 4 Golden is an update of the critically acclaimed PlayStation 2 role-playing game. New additions and changes have been made exclusively for the PlayStation Vita.</Description>
+    <Genres>Role-Playing</Genres>
+    <Platforms>PlayStation Vita, PlayStation Network (Vita)</Platforms>
+    <Release_Date>6/14/2012 12:00:00 AM</Release_Date>
+    <Publishers>Atlus Co., Ltd., Atlus U.S.A., Inc., NIS America, Inc.</Publishers>
+    <Developers>Atlus Co., Ltd., P Studio</Developers>
+    <ImageCover>C:\ProgramData\GameLogger\Images\36273.png</ImageCover>
+    <ScreenShot_1>C:\ProgramData\GameLogger\Images\36273_1.png</ScreenShot_1>
+    <ScreenShot_2>C:\ProgramData\GameLogger\Images\36273_2.png</ScreenShot_2>
+    <ScreenShot_3>C:\ProgramData\GameLogger\Images\36273_3.png</ScreenShot_3>
+  </Game>
+</GameList>
