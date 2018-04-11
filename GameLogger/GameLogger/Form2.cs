@@ -148,6 +148,11 @@ namespace GameLogger
 
         private void PictureBox1_Click(object sender, EventArgs e)
         {
+            //ImageLarger imageLarger = new ImageLarger();
+            //Image image = pictureBox1.Image;
+            //var len = image.Size;           
+            //imageLarger.CreatePictureBox(len, image);
+            //imageLarger.Show();
         }
 
         private void PictureBox2_Click(object sender, EventArgs e)

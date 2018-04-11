@@ -28,7 +28,7 @@
               VerticalContentAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" IsSynchronizedWithCurrentItem="True" >
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <UniformGrid Columns="5"/>
+                    <UniformGrid Columns="4"/>
 
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>

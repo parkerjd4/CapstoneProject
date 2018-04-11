@@ -214,6 +214,12 @@
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
     <Compile Include="GameData.cs" />
+    <Compile Include="ImageLarger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImageLarger.Designer.cs">
+      <DependentUpon>ImageLarger.cs</DependentUpon>
+    </Compile>
     <Compile Include="RecommendGames.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -275,6 +281,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImageLarger.resx">
+      <DependentUpon>ImageLarger.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

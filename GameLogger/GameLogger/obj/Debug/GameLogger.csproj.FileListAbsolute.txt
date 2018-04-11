@@ -237,3 +237,4 @@ C:\Users\joseph\Source\Repos\CapstoneTHISONE\GameLogger\GameLogger\obj\Debug\Gam
 C:\Users\joseph\Source\Repos\CapstoneTHISONE\GameLogger\GameLogger\obj\Debug\GameLogger.csproj.CopyComplete
 C:\Users\joseph\Source\Repos\CapstoneTHISONE\GameLogger\GameLogger\obj\Debug\GameLogger.exe
 C:\Users\joseph\Source\Repos\CapstoneTHISONE\GameLogger\GameLogger\obj\Debug\GameLogger.pdb
+C:\Users\Dillon\source\repos\CapstoneProject\GameLogger\GameLogger\obj\Debug\GameLogger.ImageLarger.resources
