@@ -61,22 +61,12 @@ namespace GameLogger.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        public static System.Drawing.Bitmap background {
+        public static System.Drawing.Icon controller {
             get {
-                object obj = ResourceManager.GetObject("background", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap exit_image {
-            get {
-                object obj = ResourceManager.GetObject("exit_image", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("controller", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         
@@ -86,16 +76,6 @@ namespace GameLogger.Properties {
         public static System.Drawing.Bitmap index {
             get {
                 object obj = ResourceManager.GetObject("index", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap preview_Black_Background_Metal_Hole_Small_2048x2048 {
-            get {
-                object obj = ResourceManager.GetObject("preview_Black_Background_Metal_Hole_Small_2048x2048", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

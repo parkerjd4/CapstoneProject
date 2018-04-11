@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="GameLogger.exe" version="1.0.0.11" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
-  <description asmv2:iconFile="Resources\controller.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <asmv1:assemblyIdentity name="GameLogger.exe" version="1.0.0.9" publicKeyToken="1ec2eebe9e08131b" language="neutral" processorArchitecture="msil" type="win32" />
   <application />
   <entryPoint>
     <assemblyIdentity name="GameLogger" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
@@ -91,14 +90,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GameLogger.exe" size="3515328">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GameLogger.exe" size="3144640">
       <assemblyIdentity name="GameLogger" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>y93ft3fAch2COcO9NTdIEWwDSCVVIiYDgD6O5chAQZs=</dsig:DigestValue>
+        <dsig:DigestValue>4OBQsrnD7IZ+AX4O3tziwVak3PuLyj1EBZMDPE2ROvQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -483,13 +482,4 @@
       <dsig:DigestValue>IhFx+PH2QfBWI8mLtpoIE2yZhERFbSgpwqjEAXhnbrc=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Resources\controller.ico" size="370070">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>Bj7gRYrSQb9H0szmsUvUgMI9ZLFPMRfcsK3w/m+iDQw=</dsig:DigestValue>
-    </hash>
-  </file>
-</asmv1:assembly>
+<publisherIdentity name="CN=Dillon-PC\Dillon" issuerKeyHash="528a3d847baef9446878f65d65ced3d5cded15ad" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>BIRAr3eivaUKa2XjpFO3PLTsuTzXVhiGGtaBMSIDGUk=</DigestValue></Reference></SignedInfo><SignatureValue>rRcZ9689UP5I9tqUoYqFWMerMoCWPDdPrzkgnFKL50yqOyKWcOI1iyfmfoSCItAoeOl79zQE7v335XGQQZNOa9AgsELOzN+zBLP78dUCo8GLKRTmrylSwDVZMfyYvKJ347n6V4vvPopLmZWvAHMTbsZDid9w6ACVFKw5DJO7fUM=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>0kCNz8a0MBhQfzmaTwoVjcB5rVVdzf5MyOoHBW3aJkknmZ+/Ugt4ww406GTCEcYuDWpemPIYQrp7/bj/C6IzPunYVZNpWTPTa3sYgXzbGI7XQa7iyrzjINDVG+gmvNYMIm3Dt7whD8Or+jB6wy0oXdCcOYrtbV6bCpT5tfG708c=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="491903223181d61a861856d73cb9ecb43cb753a4e3656b0aa5bda277af408404" Description="" Url=""><as:assemblyIdentity name="GameLogger.exe" version="1.0.0.9" publicKeyToken="1ec2eebe9e08131b" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=Dillon-PC\Dillon</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>s4fDafw2+OwfUZaTFErRkptif6+mDKT3ecQxHcBTiYE=</DigestValue></Reference></SignedInfo><SignatureValue>aBCD0pJauzXpKvAdnDQsRSe29mHigqz10lkC9rr+Gyy9tFJ+D4u7a3JMjb+DlSLBsPGKCI1/B77dV9pDWmaGyTMQJxS7ssjxHjwFKzYBJoPF2NDqSbWXGA6tr4mc4iCXtwuM7l/HeyrbslzZr/HXjqmx5FQ2wN1WdUx/2WcKmnQ=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>0kCNz8a0MBhQfzmaTwoVjcB5rVVdzf5MyOoHBW3aJkknmZ+/Ugt4ww406GTCEcYuDWpemPIYQrp7/bj/C6IzPunYVZNpWTPTa3sYgXzbGI7XQa7iyrzjINDVG+gmvNYMIm3Dt7whD8Or+jB6wy0oXdCcOYrtbV6bCpT5tfG708c=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB2TCCAUKgAwIBAgIQHJ7Ksn727K9MMlPxlSGWgzANBgkqhkiG9w0BAQsFADArMSkwJwYDVQQDHiAARABpAGwAbABvAG4ALQBQAEMAXABEAGkAbABsAG8AbjAeFw0xODAyMDEwMTQ0MDFaFw0xOTAyMDEwNzQ0MDFaMCsxKTAnBgNVBAMeIABEAGkAbABsAG8AbgAtAFAAQwBcAEQAaQBsAGwAbwBuMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDSQI3PxrQwGFB/OZpPChWNwHmtVV3N/kzI6gcFbdomSSeZn79SC3jDDjToZMIRxi4Nal6Y8hhCunv9uP8LojM+6dhVk2lZM9NrexiBfNsYjtdBruLKvOMg0NUb6Ca81gwibcO3vCEPw6v6MHrDLShd0Jw5iu1tXpsKlPm18bvTxwIDAQABMA0GCSqGSIb3DQEBCwUAA4GBANDT/6X97qBICqm7++Ca6rdHYZrI30ryJV5txCdxT3cYIvXyh/37rDSv56EAsJIgfs30WZ9BXFlT7JC1T+BM5wsoAlnIA+TXkVqi4Z0hZFNI2EClq0ZIl03WAr8trYVeJZLktmPxtAx4swedP2gO5AYfkPPWZomRNxPq3u1Ud9PA</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

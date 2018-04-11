@@ -15,6 +15,7 @@ namespace GameLogger
         public ImageLarger()
         {
             InitializeComponent();
+            BringToFront();
         }
 
         internal void CreatePictureBox(Size len, Image img)

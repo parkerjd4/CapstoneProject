@@ -30,7 +30,8 @@ namespace GameLogger
         string Search; 
         public From1()
         {
-            InitializeComponent();           
+            InitializeComponent();
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)

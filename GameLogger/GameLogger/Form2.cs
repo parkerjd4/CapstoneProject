@@ -148,11 +148,13 @@ namespace GameLogger
 
         private void PictureBox1_Click(object sender, EventArgs e)
         {
-            //ImageLarger imageLarger = new ImageLarger();
-            //Image image = pictureBox1.Image;
-            //var len = image.Size;           
-            //imageLarger.CreatePictureBox(len, image);
-            //imageLarger.Show();
+            ImageLarger imageLarger = new ImageLarger();
+            Image image = pictureBox1.Image;
+            var len = image.Size;           
+            imageLarger.CreatePictureBox(len, image);
+            imageLarger.Show();
+            TopMost = false;
+            imageLarger.TopMost = true;
         }
 
         private void PictureBox2_Click(object sender, EventArgs e)
@@ -240,8 +242,6 @@ namespace GameLogger
             recommendGames.Show();
             recommendGames.TopLevel = true;
             recommendGames.SetTableContents(Game.SimilarGames);
-
-
         }
     }
 }
