@@ -26,24 +26,20 @@ namespace GameLogger
             InitializeComponent();
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        private void TableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
-
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Label1_Click(object sender, EventArgs e)
         {
-
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void Label3_Click(object sender, EventArgs e)
         {
-
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void Label4_Click(object sender, EventArgs e)
         {
-
         }
 
         internal void SetTableContents(List<Game> similarGames)
@@ -52,7 +48,6 @@ namespace GameLogger
             linkLabel2.Text = similarGames[1].Name.ToString();
             linkLabel3.Text = similarGames[2].Name.ToString();
             linkLabel4.Text = similarGames[3].Name.ToString();
-
 
             var Client = new GiantBombRestClient("23896f4f00ce753ef98a3c79c42c3d4e226dded0");
 
@@ -108,67 +103,60 @@ namespace GameLogger
             pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox4.Image = System.Drawing.Image.FromFile(filepath3);
 
-
-
-
-
-            label4.Text = Game1.Deck.ToString(); 
-            //string.Join(Environment.NewLine + "                    ", similarGames[0].Deck.ToString().Split().Select((word, index) => new { word, index }).GroupBy(y => y.index / 9).Select(grp => string.Join(" ", grp.Select(y => y.word))));
+            label4.Text = Game1.Deck.ToString();           
             label5.Text = Game2.Deck.ToString();
             label6.Text = Game3.Deck.ToString();
             label7.Text = Game4.Deck.ToString();
-
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             TopMost = false;
-            //var Client = new GiantBombRestClient("23896f4f00ce753ef98a3c79c42c3d4e226dded0");
-            //var Result = Client.SearchForGames(GameName1).ToList();
-            //var Game = Client.GetGame(Result.First().Id);
             linkLabel1.LinkVisited = true;
-
             System.Diagnostics.Process.Start(GameName1);
 
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void PictureBox2_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            linkLabel1.LinkVisited = true;
-
             System.Diagnostics.Process.Start(GameName2);
-
         }
 
-        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void PictureBox1_Click(object sender, EventArgs e)
         {
-            linkLabel1.LinkVisited = true;
+            System.Diagnostics.Process.Start(GameName1);
+        }
 
+        private void Label7_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void LinkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            linkLabel2.LinkVisited = true;
+            System.Diagnostics.Process.Start(GameName2);
+        }
+
+        private void LinkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            linkLabel3.LinkVisited = true;
             System.Diagnostics.Process.Start(GameName3);
-
         }
 
-        private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void LinkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            linkLabel1.LinkVisited = true;
-
+            linkLabel4.LinkVisited = true;
             System.Diagnostics.Process.Start(GameName4);
+        }
 
+        private void PictureBox3_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(GameName3);
+        }
+
+        private void PictureBox4_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(GameName4);
         }
     }
 }

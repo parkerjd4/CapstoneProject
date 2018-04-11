@@ -36,13 +36,19 @@ namespace GameLogger
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
-
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             MainWindow win = new MainWindow();
+
+            var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
+            var complete = System.IO.Path.Combine(systemPath, "GameLogger");
+            var filepath = System.IO.Path.Combine(complete, "game_list.xml");
+            XmlDocument doc = new XmlDocument();
+            doc.Load(filepath);
+            Boolean FoundGame = false;
+
             try
             {
                 if(comboBox1.SelectedItem != null)
@@ -51,45 +57,69 @@ namespace GameLogger
                     var result = client.SearchForGames(Search).ToList();
                     int id = result.FirstOrDefault().Id;
                     var r1 = client.GetGame(id);
-                    
-                    string cat = comboBox1.SelectedItem.ToString();
-                    win.AddToFile(Search, cat);
+                    DialogResult dialogResult = MessageBox.Show("Is this the correct game, " + 
+                        r1.Name.ToString() + "?", "Correct Game?", MessageBoxButtons.YesNo);
+
+                    if(dialogResult == DialogResult.Yes)
+                    {
+                        XmlNodeList xnList = doc.SelectNodes("/GameList/Game");
+                        XmlNode xmlNode = doc.SelectSingleNode("/GameList");
+                        foreach (XmlNode x in xnList)
+                        {
+                            if (x["Game_Name"].InnerText.Equals(r1.Name.ToString()))
+                            {
+                                FoundGame = true;
+                                break;
+                            }
+                        }
+                        if (!FoundGame)
+                        {
+                            string cat = comboBox1.SelectedItem.ToString();
+                            win.AddToFile(Search, cat);
+                            Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Game is already in the list.");
+                        }
+                    }                    
                 }
                 else
                 {
                     MessageBox.Show("Please choose a Category.");
                 }
-
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Not a vaild game.");
             }
             catch (ArgumentNullException)
             {
                 MessageBox.Show("Not a vaild game.");
-            }
-
-
+            }   
         }
 
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
         {
             string value = ((System.Windows.Forms.TextBox)sender).Text;
-            
-            
             Search = value; 
-
         }
 
         private void Grab_gamesAsync()
         {
-
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

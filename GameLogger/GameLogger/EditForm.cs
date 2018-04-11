@@ -35,28 +35,29 @@ namespace GameLogger
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Label1_Click(object sender, EventArgs e)
         {
-
         }
         public void SetGameName(string name)
         {
             GameName = name; 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             var client = new GiantBombRestClient("23896f4f00ce753ef98a3c79c42c3d4e226dded0");
             var result = client.SearchForGames(GameName).ToList();
             var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
             var complete = System.IO.Path.Combine(systemPath, "GameLogger");
             var filepath = System.IO.Path.Combine(complete, "game_list.xml");
+
             XmlDocument doc = new XmlDocument();
             doc.Load(filepath);
             var Game = client.GetGame(result.First().Id);
             XmlNodeList xnList = doc.SelectNodes("/GameList/Game");
             XmlNode xmlNode = doc.SelectSingleNode("/GameList");
             Form2 form2 = new Form2();
+
             foreach (XmlNode x in xnList)
             {
                 if (x["Game_Name"].InnerText.Equals(Game.Name.ToString()))
@@ -67,15 +68,10 @@ namespace GameLogger
                 }
             }
             doc.Save(filepath);
-            //form2.SetNewStatus = comboBox1.SelectedItem.ToString();
-
-
-
             Close();
-
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             Close();
         }

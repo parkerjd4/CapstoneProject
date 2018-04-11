@@ -16,6 +16,7 @@
                 <MenuItem Header="Add Game" Click="Menu_Click_Add"></MenuItem>
                 <MenuItem Header="Refersh Gamelist" Click="Menu_Click_Remove" ></MenuItem>
                 <MenuItem Header="Remove Game" Click="Menu_Click_Remove1"></MenuItem>
+                <MenuItem Header="Exit" Click="Menu_Click_Exit"></MenuItem>
             </MenuItem>
         </Menu>
         <!--<DataGrid x:Name="gameListView" Height="301" VerticalAlignment="Top" Margin="0,23,0,0" Grid.ColumnSpan="2" /> -->
@@ -27,7 +28,7 @@
               VerticalContentAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" IsSynchronizedWithCurrentItem="True" >
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <UniformGrid Columns="5"/>
+                    <UniformGrid Columns="4"/>
 
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>

@@ -59,16 +59,6 @@ namespace GameLogger
                 File.AppendAllText(filepath, String.Format("<GameList>" + Environment.NewLine + "</GameList>"));
 
             }
-            /*DataGridTextColumn imagecol = new DataGridTextColumn();
-            imagecol.Header = "Image";
-            imagecol.Binding = new System.Windows.Data.Binding("ImageOfGame");
-
-            gameListView.Columns.Add(imagecol);
-
-            DataGridTextColumn text = new DataGridTextColumn();
-            text.Header = "Game Name";
-            text.Binding = new System.Windows.Data.Binding("GameName");
-            gameListView.Columns.Add(text);*/
 
             LoadFile(filepath);
         }
@@ -116,7 +106,6 @@ namespace GameLogger
             Publishers.InnerText = GetPublishers(Game.Publishers.ToList());
             Developers.InnerText = GetDevelopers(Game.Developers.ToList());
 
-
             node.AppendChild(GameName);
             node.AppendChild(Id);
             node.AppendChild(Categories);
@@ -141,9 +130,37 @@ namespace GameLogger
         private void DownloadImages(Game game,XmlDocument doc,XmlNode node)
         {
             string url = game.Image.SuperUrl.ToString().Trim();
-            string url1 = game.Images[7].SuperUrl.ToString().Trim();
-            string url2 = game.Images[8].SuperUrl.ToString().Trim();
-            string url3 = game.Images[9].SuperUrl.ToString().Trim();
+            string url1;
+            string url2;
+            string url3; 
+            try
+            {
+                 url1 = game.Images[7].SuperUrl.ToString().Trim();
+            }
+            catch(ArgumentOutOfRangeException)
+            {
+                 url1 = game.Images[1].SuperUrl.ToString().Trim();
+            }
+            try
+            {
+                url2 = game.Images[8].SuperUrl.ToString().Trim();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                url2 = game.Images[2].SuperUrl.ToString().Trim();
+            }
+            try
+            {
+                url3 = game.Images[9].SuperUrl.ToString().Trim();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                url3 = game.Images[3].SuperUrl.ToString().Trim();
+            }
+
+            //string url1 = game.Images[7].SuperUrl.ToString().Trim();
+            //string url2 = game.Images[8].SuperUrl.ToString().Trim();
+            //string url3 = game.Images[9].SuperUrl.ToString().Trim();
 
             var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
             var complete = System.IO.Path.Combine(systemPath, @"GameLogger\Images");
@@ -153,7 +170,6 @@ namespace GameLogger
             var filepath1 = System.IO.Path.Combine(complete, game.Id + "_1.png");
             var filepath2 = System.IO.Path.Combine(complete, game.Id + "_2.png");
             var filepath3 = System.IO.Path.Combine(complete, game.Id + "_3.png");
-
 
             WebClient client = new WebClient();
 
@@ -169,7 +185,6 @@ namespace GameLogger
             client.Headers["User-Agent"] = "josedparSTONE";
             client.DownloadFile(new Uri(url3), filepath3);
 
-
             XmlNode ImgPath = doc.CreateElement("ImageCover");
             XmlNode ImgScreen1 = doc.CreateElement("ScreenShot_1");
             XmlNode ImgScreen2 = doc.CreateElement("ScreenShot_2");
@@ -184,10 +199,6 @@ namespace GameLogger
             node.AppendChild(ImgScreen1);
             node.AppendChild(ImgScreen2);
             node.AppendChild(ImgScreen3);
-            
-
-
-
         }
 
         public string GetGenre(List<Genre> list)
@@ -212,8 +223,7 @@ namespace GameLogger
             string y = "";
             int count = 0;
             foreach (var x in list)
-            {
-                
+            {               
                 if (y == "")
                 {
                     y += x.Name;
@@ -228,7 +238,6 @@ namespace GameLogger
                     {
                         y += ", " + x.Name;
                     }
-
                 }
                 count++;
             }
@@ -280,13 +289,8 @@ namespace GameLogger
             foreach (XmlNode xn in xnList)
             {
                 string gameName = xn["Game_Name"].InnerText;
-                //gameListImg.Items.Add(gameName);
-                GameList.Add(gameName);
-                //gameImg.Add(new BitmapImage(new Uri(@"C:\Users\Dillon\Source\Repos\CapstoneProject\GameLogger\GameLogger\Properties\placeholder.png")));
-                
-                
+                GameList.Add(gameName); 
                 gameListImg.ItemsSource = GameList;
-                //gameListImg.ItemsSource = gameImg;
             }                     
          }
 
@@ -294,6 +298,11 @@ namespace GameLogger
         {
             From1 wind = new From1();
             wind.Show();
+        }
+
+        private void Menu_Click_Exit(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
 
         private void Menu_Click_Remove(object sender, RoutedEventArgs e)
@@ -310,10 +319,8 @@ namespace GameLogger
                 if(!(GameList.Contains(xn["Game_Name"].InnerText)))
                 {
                     string gameName = xn["Game_Name"].InnerText;
-                    //gameListImg.Items.Add(gameName);
                     GameList.Add(gameName);
                     gameListImg.ItemsSource = GameList;
-
                 }
                 
             }
@@ -325,8 +332,6 @@ namespace GameLogger
                 {
                     GameList.Remove(GameList[i].ToString());
                     gameListImg.ItemsSource = GameList;
-
-
                 }
             }
         }
@@ -343,8 +348,6 @@ namespace GameLogger
             var complete = System.IO.Path.Combine(systemPath, "GameLogger");
             var filepath = System.IO.Path.Combine(complete, "game_list.xml");
             File.Delete(filepath);
-
-
         }
 
         
@@ -356,11 +359,8 @@ namespace GameLogger
             var filepath = System.IO.Path.Combine(complete, "game_list.xml");
         }
 
-        private void gameListImg_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        private void GameListImg_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            //Form2 View = new Form2();
-            //View.Show();
-            //View.TopMost = true;
         }
 
         private void ListViewItem_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -424,10 +424,8 @@ namespace GameLogger
                         View.SetLabel8(Status);
                         
                         break;
-                    }
-                        
-                }
-                //View.BackgroundImage = GameLogger.Properties.Resources.preview_Black_Background_Metal_Hole_Small_2048x2048;
+                    }                       
+                }               
                 View.Show();
                 View.TopMost = true;
                 View.BringToFront();
