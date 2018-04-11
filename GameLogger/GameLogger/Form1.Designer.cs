@@ -42,7 +42,7 @@
             this.GameName.Location = new System.Drawing.Point(85, 133);
             this.GameName.Margin = new System.Windows.Forms.Padding(5);
             this.GameName.Name = "GameName";
-            this.GameName.Size = new System.Drawing.Size(175, 26);
+            this.GameName.Size = new System.Drawing.Size(260, 26);
             this.GameName.TabIndex = 0;
             this.GameName.Text = "Enter Game ";
             this.GameName.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
@@ -85,7 +85,7 @@
             "Dropped"});
             this.comboBox1.Location = new System.Drawing.Point(85, 187);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(175, 28);
+            this.comboBox1.Size = new System.Drawing.Size(197, 28);
             this.comboBox1.TabIndex = 3;
             this.comboBox1.Text = "Categories";
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);

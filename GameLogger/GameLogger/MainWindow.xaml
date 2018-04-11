@@ -14,8 +14,8 @@
         <Menu x:Name="MenuBar" Height="23" VerticalAlignment="Top" Grid.ColumnSpan="2">
             <MenuItem Header="File">
                 <MenuItem Header="Add Game" Click="Menu_Click_Add"></MenuItem>
-                <MenuItem Header="Refersh Gamelist" Click="Menu_Click_Remove" ></MenuItem>
                 <MenuItem Header="Remove Game" Click="Menu_Click_Remove1"></MenuItem>
+                <MenuItem Header="Refersh Gamelist" Click="Menu_Click_Remove"></MenuItem>
                 <MenuItem Header="Exit" Click="Menu_Click_Exit"></MenuItem>
             </MenuItem>
         </Menu>

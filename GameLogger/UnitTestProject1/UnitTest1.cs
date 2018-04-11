@@ -42,7 +42,7 @@ namespace UnitTestProject1
             var testXML = System.IO.Path.Combine(complete, "TestFile.xml");
             System.IO.File.WriteAllText(OGXML, string.Empty);
             File.AppendAllText(OGXML, String.Format("<GameList>" + Environment.NewLine + "</GameList>"));
-            test.AddToFile("skyrim");
+            test.AddToFile("skyrim", "Playing ");
             //test.AddToFile("persona 4 golden");
 
             var originalFile = GetFileHash(OGXML);
@@ -61,7 +61,7 @@ namespace UnitTestProject1
             var testXML = System.IO.Path.Combine(complete, "TestFile1.xml");
             System.IO.File.WriteAllText(OGXML, string.Empty);
             File.AppendAllText(OGXML, String.Format("<GameList>" + Environment.NewLine + "</GameList>"));
-            test.AddToFile("persona 4 golden");
+            test.AddToFile("persona 4 golden", "Playing ");
 
             var originalFile = GetFileHash(OGXML);
             var testFile = GetFileHash(testXML);
@@ -79,8 +79,8 @@ namespace UnitTestProject1
             var testXML = System.IO.Path.Combine(complete, "TestFile2.xml");
             System.IO.File.WriteAllText(OGXML, string.Empty);
             File.AppendAllText(OGXML, String.Format("<GameList>" + Environment.NewLine + "</GameList>"));
-            test.AddToFile("skyrim");
-            test.AddToFile("persona 4 golden");
+            test.AddToFile("skyrim", "Playing ");
+            test.AddToFile("persona 4 golden", "Playing ");
 
             var originalFile = GetFileHash(OGXML);
             var testFile = GetFileHash(testXML);

@@ -119,12 +119,6 @@ namespace GameLogger
 
             doc.DocumentElement.AppendChild(node);
             doc.Save(filepath);
-            RoutedEventArgs routedEventArgs = new RoutedEventArgs();
-            Menu_Click_Add(null, routedEventArgs);
-            gameListImg.ItemsSource = GameList;
-            gameListImg.Items.Refresh();
-
-
         }
 
         private void DownloadImages(Game game,XmlDocument doc,XmlNode node)
