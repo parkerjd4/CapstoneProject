@@ -56,7 +56,8 @@ namespace GameLogger
                     var result = client.SearchForGames(Search).ToList();
                     int id = result.FirstOrDefault().Id;
                     var r1 = client.GetGame(id);
-                    DialogResult dialogResult = MessageBox.Show("Is this the correct game, " + r1.Name.ToString() + "?", "Correct Game?", MessageBoxButtons.YesNo);
+                    DialogResult dialogResult = MessageBox.Show("Is this the correct game, " + 
+                        r1.Name.ToString() + "?", "Correct Game?", MessageBoxButtons.YesNo);
 
                     if(dialogResult == DialogResult.Yes)
                     {
@@ -74,6 +75,7 @@ namespace GameLogger
                         {
                             string cat = comboBox1.SelectedItem.ToString();
                             win.AddToFile(Search, cat);
+                            Close();
                         }
                         else
                         {
@@ -93,7 +95,7 @@ namespace GameLogger
             catch (ArgumentNullException)
             {
                 MessageBox.Show("Not a vaild game.");
-            }
+            }   
         }
 
 

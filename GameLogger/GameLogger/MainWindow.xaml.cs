@@ -130,9 +130,37 @@ namespace GameLogger
         private void DownloadImages(Game game,XmlDocument doc,XmlNode node)
         {
             string url = game.Image.SuperUrl.ToString().Trim();
-            string url1 = game.Images[7].SuperUrl.ToString().Trim();
-            string url2 = game.Images[8].SuperUrl.ToString().Trim();
-            string url3 = game.Images[9].SuperUrl.ToString().Trim();
+            string url1;
+            string url2;
+            string url3; 
+            try
+            {
+                 url1 = game.Images[7].SuperUrl.ToString().Trim();
+            }
+            catch(ArgumentOutOfRangeException)
+            {
+                 url1 = game.Images[1].SuperUrl.ToString().Trim();
+            }
+            try
+            {
+                url2 = game.Images[8].SuperUrl.ToString().Trim();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                url2 = game.Images[2].SuperUrl.ToString().Trim();
+            }
+            try
+            {
+                url3 = game.Images[9].SuperUrl.ToString().Trim();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                url3 = game.Images[3].SuperUrl.ToString().Trim();
+            }
+
+            //string url1 = game.Images[7].SuperUrl.ToString().Trim();
+            //string url2 = game.Images[8].SuperUrl.ToString().Trim();
+            //string url3 = game.Images[9].SuperUrl.ToString().Trim();
 
             var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
             var complete = System.IO.Path.Combine(systemPath, @"GameLogger\Images");
@@ -270,6 +298,11 @@ namespace GameLogger
         {
             From1 wind = new From1();
             wind.Show();
+        }
+
+        private void Menu_Click_Exit(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
 
         private void Menu_Click_Remove(object sender, RoutedEventArgs e)
