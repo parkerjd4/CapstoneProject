@@ -34,12 +34,9 @@ namespace GameLogger
     /// </summary>
     public partial class MainWindow : Window 
     {
-
         public ObservableCollection<ImageSource> gameImg = new ObservableCollection<ImageSource>();
         public ObservableCollection<String> GameList { get; set; }
         public string APIURL = "?api_key=23896f4f00ce753ef98a3c79c42c3d4e226dded0";
-
-
 
         public MainWindow()
         {
@@ -59,7 +56,6 @@ namespace GameLogger
                 File.AppendAllText(filepath, String.Format("<GameList>" + Environment.NewLine + "</GameList>"));
 
             }
-
             LoadFile(filepath);
         }
 
@@ -84,7 +80,6 @@ namespace GameLogger
                     return;
                 }
             }
-
 
             XmlNode GameName = doc.CreateElement("Game_Name");
             XmlNode Id = doc.CreateElement("Id");
@@ -151,10 +146,6 @@ namespace GameLogger
             {
                 url3 = game.Images[3].SuperUrl.ToString().Trim();
             }
-
-            //string url1 = game.Images[7].SuperUrl.ToString().Trim();
-            //string url2 = game.Images[8].SuperUrl.ToString().Trim();
-            //string url3 = game.Images[9].SuperUrl.ToString().Trim();
 
             var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
             var complete = System.IO.Path.Combine(systemPath, @"GameLogger\Images");
@@ -327,7 +318,9 @@ namespace GameLogger
                     GameList.Remove(GameList[i].ToString());
                     gameListImg.ItemsSource = GameList;
                 }
+                gameListImg.ItemsSource = GameList;
             }
+            
         }
         private void Menu_Click_Remove1(object sender, RoutedEventArgs e)
         {
@@ -343,8 +336,6 @@ namespace GameLogger
             var filepath = System.IO.Path.Combine(complete, "game_list.xml");
             File.Delete(filepath);
         }
-
-        
 
         public void CheckxmlFiles()
         {

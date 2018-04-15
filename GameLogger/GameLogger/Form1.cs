@@ -36,6 +36,7 @@ namespace GameLogger
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            this.AcceptButton = button1; 
         }
 
         private void Button1_Click(object sender, EventArgs e)
