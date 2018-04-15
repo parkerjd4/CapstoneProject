@@ -19,12 +19,9 @@ namespace GameLogger
         public RemoveGame()
         {
             InitializeComponent();
+            
         }
 
-        private void TextBox1_Enter(object sender, EventArgs e)
-        {
-            Button1_Click(sender, e);
-        }
 
         private void Button1_Click(object sender, EventArgs e)
         {
