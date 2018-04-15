@@ -65,6 +65,10 @@ namespace GameLogger
             }
             catch(ArgumentOutOfRangeException)
             {
+                linkLabel1.Text = "Missing Game";
+                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                pictureBox1.Image = GameLogger.Properties.Resources.question_mark;
+                label4.Text = "Missing Game";
 
             }
             try
@@ -83,6 +87,10 @@ namespace GameLogger
             }
             catch (ArgumentOutOfRangeException)
             {
+                linkLabel2.Text = "Missing Game";
+                pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+                pictureBox2.Image = GameLogger.Properties.Resources.question_mark;
+                label5.Text = "Missing Game";
 
             }
             try
@@ -101,6 +109,10 @@ namespace GameLogger
             }
             catch (ArgumentOutOfRangeException)
             {
+                linkLabel3.Text = "Missing Game";
+                pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+                pictureBox3.Image = GameLogger.Properties.Resources.question_mark;
+                label6.Text = "Missing Game";
 
             }
             try
@@ -119,7 +131,10 @@ namespace GameLogger
             }
             catch (ArgumentOutOfRangeException)
             {
-
+                linkLabel4.Text = "Missing Game";
+                pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+                pictureBox4.Image = GameLogger.Properties.Resources.question_mark;
+                label7.Text = "Missing Game";
             }
 
         }
@@ -127,19 +142,40 @@ namespace GameLogger
         private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             TopMost = false;
-            linkLabel1.LinkVisited = true;
-            System.Diagnostics.Process.Start(GameName1);
+            try
+            {
+                linkLabel1.LinkVisited = true;
+                System.Diagnostics.Process.Start(GameName1);
+            }
+            catch (InvalidOperationException)
+            {
+
+            }
 
         }
 
         private void PictureBox2_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(GameName2);
+            try
+            {
+                System.Diagnostics.Process.Start(GameName2);
+            }
+            catch (InvalidOperationException)
+            {
+
+            }
         }
 
         private void PictureBox1_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(GameName1);
+            try
+            {
+                System.Diagnostics.Process.Start(GameName1);
+            }
+            catch (InvalidOperationException)
+            {
+
+            }
         }
 
         private void Label7_Click(object sender, EventArgs e)
@@ -148,30 +184,65 @@ namespace GameLogger
 
         private void LinkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            linkLabel2.LinkVisited = true;
-            System.Diagnostics.Process.Start(GameName2);
+            try
+            {
+                linkLabel2.LinkVisited = true;
+                System.Diagnostics.Process.Start(GameName2);
+            }
+            catch (InvalidOperationException)
+            {
+
+            }
         }
 
         private void LinkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            linkLabel3.LinkVisited = true;
-            System.Diagnostics.Process.Start(GameName3);
+            try
+            {
+                linkLabel3.LinkVisited = true;
+                System.Diagnostics.Process.Start(GameName3);
+            }
+            catch (InvalidOperationException)
+            {
+
+            }
         }
 
         private void LinkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            linkLabel4.LinkVisited = true;
-            System.Diagnostics.Process.Start(GameName4);
+            try
+            {
+                linkLabel4.LinkVisited = true;
+                System.Diagnostics.Process.Start(GameName4);
+            }
+            catch(InvalidOperationException)
+            {
+
+            }
         }
 
         private void PictureBox3_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(GameName3);
+            try
+            {
+                System.Diagnostics.Process.Start(GameName3);
+            }
+            catch(InvalidOperationException)
+            {
+
+            }       
         }
 
         private void PictureBox4_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(GameName4);
+            try
+            {
+                System.Diagnostics.Process.Start(GameName4);
+            }
+            catch (InvalidOperationException)
+            {
+
+            }
         }
     }
 }
