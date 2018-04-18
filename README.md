@@ -25,3 +25,13 @@
 ## Refresh Application 
 1. Click File 
 2. Click Refresh Gamelist 
+
+## Add Games 
+1. Click File 
+2. Click Add Game 
+3. Follow the instructions on the screen 
+
+## Remove Games 
+1. Click File 
+2. Click Remove Game 
+3. Follow the instructions on the screen
