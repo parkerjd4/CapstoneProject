@@ -57,11 +57,15 @@ namespace GameLogger
                 GameName1 = Game1.SiteDetailUrl.ToString();
                 string url = Game1.Image.MediumUrl.ToString().Trim();               
                 var filepath = System.IO.Path.Combine(complete, Game1.Id + ".png");
-                client.Headers["User-Agent"] = "josedpar";
-                client.DownloadFile(new Uri(url), filepath);
+                if(!(File.Exists(filepath)))
+                {
+                    client.Headers["User-Agent"] = "josedpar";
+                    client.DownloadFile(new Uri(url), filepath);
+                }
                 pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
                 pictureBox1.Image = System.Drawing.Image.FromFile(filepath);
                 label4.Text = Game1.Deck.ToString();
+
             }
             catch(ArgumentOutOfRangeException)
             {
@@ -79,8 +83,11 @@ namespace GameLogger
                 GameName2 = Game2.SiteDetailUrl.ToString();
                 string url1 = Game2.Image.MediumUrl.ToString().Trim();
                 var filepath1 = System.IO.Path.Combine(complete, Game2.Id + ".png");
-                client.Headers["User-Agent"] = "josedpar123";
-                client.DownloadFile(new Uri(url1), filepath1);
+                if (!(File.Exists(filepath1)))
+                {
+                    client.Headers["User-Agent"] = "josedpar123";
+                    client.DownloadFile(new Uri(url1), filepath1);
+                }
                 pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
                 pictureBox2.Image = System.Drawing.Image.FromFile(filepath1);
                 label5.Text = Game2.Deck.ToString();
@@ -101,8 +108,11 @@ namespace GameLogger
                 GameName3 = Game3.SiteDetailUrl.ToString();
                 string url2 = Game3.Image.MediumUrl.ToString().Trim();
                 var filepath2 = System.IO.Path.Combine(complete, Game3.Id + ".png");
-                client.Headers["User-Agent"] = "josedparCAP";
-                client.DownloadFile(new Uri(url2), filepath2);
+                if (!(File.Exists(filepath2)))
+                {
+                    client.Headers["User-Agent"] = "josedparCAP";
+                    client.DownloadFile(new Uri(url2), filepath2);
+                }
                 pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
                 pictureBox3.Image = System.Drawing.Image.FromFile(filepath2);
                 label6.Text = Game3.Deck.ToString();
@@ -123,8 +133,11 @@ namespace GameLogger
                 GameName4 = Game4.SiteDetailUrl.ToString();
                 string url3 = Game4.Image.MediumUrl.ToString().Trim();
                 var filepath3 = System.IO.Path.Combine(complete, Game4.Id + ".png");
-                client.Headers["User-Agent"] = "josedparSTONE";
-                client.DownloadFile(new Uri(url3), filepath3);
+                if (!(File.Exists(filepath3)))
+                {
+                    client.Headers["User-Agent"] = "josedparSTONE";
+                    client.DownloadFile(new Uri(url3), filepath3);
+                }
                 pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
                 pictureBox4.Image = System.Drawing.Image.FromFile(filepath3);
                 label7.Text = Game4.Deck.ToString();

@@ -128,7 +128,8 @@ namespace GameLogger
             }
             catch(ArgumentOutOfRangeException)
             {
-                 url1 = game.Images[1].SuperUrl.ToString().Trim();
+                
+                url1 = game.Images[1].SuperUrl.ToString().Trim();
             }
             try
             {
