@@ -6419,6 +6419,9 @@
         D///+AAAAAAf///8AAAAAD////8AAAAA/////8AAAAP/////8AAAD//////+AAD///8=
 </value>
   </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Remove Game</value>
   </data>

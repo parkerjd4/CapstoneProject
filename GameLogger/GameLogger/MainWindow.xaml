@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GameLogger"
         mc:Ignorable="d"
-        Title="GameLogger" Height="547.972" Width="802.928">
+        Title="GameLogger" Height="622.972" Width="919.928" WindowStartupLocation="CenterScreen">
     <Grid x:Name="gridView">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="18*"/>
@@ -25,7 +25,7 @@
               Name="gameListImg" 
               ItemsSource="{Binding ElementName=UI, Path=GameList}"
               Margin="0,23,0,0" Grid.ColumnSpan="2"
-              VerticalContentAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" IsSynchronizedWithCurrentItem="True" >
+              VerticalContentAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" IsSynchronizedWithCurrentItem="True" FontSize="14" >
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid Columns="4"/>
