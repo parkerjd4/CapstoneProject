@@ -30,8 +30,7 @@ namespace GameLogger
         string Search; 
         public From1()
         {
-            InitializeComponent();
-            
+            InitializeComponent();           
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -100,7 +99,6 @@ namespace GameLogger
             }   
         }
 
-
         private void TextBox1_TextChanged(object sender, EventArgs e)
         {
             string value = ((System.Windows.Forms.TextBox)sender).Text;
@@ -111,16 +109,13 @@ namespace GameLogger
         {
         }
 
-        private void Button2_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
+        private void Button2_Click(object sender, EventArgs e) => Close();
 
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Label1_Click(object sender, EventArgs e)
         {
 
         }

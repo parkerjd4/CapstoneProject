@@ -36,7 +36,6 @@ namespace GameLogger
     {
         public ObservableCollection<ImageSource> gameImg = new ObservableCollection<ImageSource>();
         public ObservableCollection<String> GameList { get; set; }
-        public string APIURL = "?api_key=23896f4f00ce753ef98a3c79c42c3d4e226dded0";
 
         public MainWindow()
         {
@@ -54,7 +53,6 @@ namespace GameLogger
             {
                 File.Create(filepath).Close();
                 File.AppendAllText(filepath, String.Format("<GameList>" + Environment.NewLine + "</GameList>"));
-
             }
             LoadFile(filepath);
         }
@@ -266,8 +264,7 @@ namespace GameLogger
 
 
         public void LoadFile(string path)
-        {
-             
+        {             
             XmlDocument doc = new XmlDocument();
             doc.Load(path);
             XmlNodeList xnList = doc.SelectNodes("/GameList/Game");
@@ -286,10 +283,7 @@ namespace GameLogger
             wind.Show();
         }
 
-        private void Menu_Click_Exit(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
+        private void Menu_Click_Exit(object sender, RoutedEventArgs e) => Close();
 
         private void Menu_Click_Remove(object sender, RoutedEventArgs e)
         {
@@ -420,10 +414,8 @@ namespace GameLogger
             }
         }
 
-
         private void UniformGrid_SourceUpdated(object sender, DataTransferEventArgs e)
         {
-
         }
     }
 }

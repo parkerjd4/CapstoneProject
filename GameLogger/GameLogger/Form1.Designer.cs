@@ -100,7 +100,7 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Please enter the title of the video game that \r\nyou wish to add and chose a categ" +
     "ory that \r\ndescribes your status with that game. ";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.label1.Click += new System.EventHandler(this.Label1_Click);
             // 
             // From1
             // 

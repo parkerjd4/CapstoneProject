@@ -123,7 +123,6 @@ namespace GameLogger
                 pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
                 pictureBox3.Image = GameLogger.Properties.Resources.question_mark;
                 label6.Text = "Missing Game";
-
             }
             try
             {
@@ -149,7 +148,6 @@ namespace GameLogger
                 pictureBox4.Image = GameLogger.Properties.Resources.question_mark;
                 label7.Text = "Missing Game";
             }
-
         }
 
         private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -162,9 +160,7 @@ namespace GameLogger
             }
             catch (InvalidOperationException)
             {
-
             }
-
         }
 
         private void PictureBox2_Click(object sender, EventArgs e)
@@ -175,7 +171,6 @@ namespace GameLogger
             }
             catch (InvalidOperationException)
             {
-
             }
         }
 
@@ -187,7 +182,6 @@ namespace GameLogger
             }
             catch (InvalidOperationException)
             {
-
             }
         }
 
@@ -204,7 +198,6 @@ namespace GameLogger
             }
             catch (InvalidOperationException)
             {
-
             }
         }
 
@@ -217,7 +210,6 @@ namespace GameLogger
             }
             catch (InvalidOperationException)
             {
-
             }
         }
 
@@ -229,8 +221,7 @@ namespace GameLogger
                 System.Diagnostics.Process.Start(GameName4);
             }
             catch(InvalidOperationException)
-            {
-
+            {          
             }
         }
 
@@ -242,7 +233,6 @@ namespace GameLogger
             }
             catch(InvalidOperationException)
             {
-
             }       
         }
 
@@ -254,7 +244,6 @@ namespace GameLogger
             }
             catch (InvalidOperationException)
             {
-
             }
         }
     }

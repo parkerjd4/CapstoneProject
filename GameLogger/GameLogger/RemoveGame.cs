@@ -18,14 +18,11 @@ namespace GameLogger
     {
         public RemoveGame()
         {
-            InitializeComponent();
-            
+            InitializeComponent();            
         }
-
 
         private void Button1_Click(object sender, EventArgs e)
         {
-
             try
             {
                 var client = new GiantBombRestClient("23896f4f00ce753ef98a3c79c42c3d4e226dded0");
@@ -44,7 +41,6 @@ namespace GameLogger
 
                 if (dialogResult == DialogResult.Yes)
                 {
-
                     foreach (XmlNode x in xnList)
                     {
                         if (x["Game_Name"].InnerText.Equals(Game.Name.ToString()))
@@ -82,9 +78,8 @@ namespace GameLogger
 
         private void Button2_Click(object sender, EventArgs e) => Close();
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Label1_Click(object sender, EventArgs e)
         {
-
         }
     }
 }

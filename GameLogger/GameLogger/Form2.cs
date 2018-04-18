@@ -17,7 +17,6 @@ namespace GameLogger
 {
     public partial class Form2 : Form
     {
-
         public string[] imglist;
         public int count = 0;
         public string Status;
@@ -210,10 +209,7 @@ namespace GameLogger
             Edit.SetComboBox1(name, list);
         }
 
-        private void Button1_Click_1(object sender, EventArgs e)
-        {
-            Close();
-        }
+        private void Button1_Click_1(object sender, EventArgs e) => Close();
 
         private void Button2_Click(object sender, EventArgs e)
         {           
