@@ -15,7 +15,6 @@ namespace UnitTestProject1
         {
             var client = new GiantBombRestClient("23896f4f00ce753ef98a3c79c42c3d4e226dded0");
             var result = client.SearchForGames(text).ToList();
-
             var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
             var complete = System.IO.Path.Combine(systemPath, "GameLogger");
             var filepath = System.IO.Path.Combine(complete, "OGFile.xml");
@@ -23,8 +22,6 @@ namespace UnitTestProject1
             doc.Load(filepath);
             XmlNode node = doc.CreateNode(XmlNodeType.Element, "Game", null);
             var Game = client.GetGame(result.First().Id);
-
-
 
             XmlNode GameName = doc.CreateElement("Game_Name");
             XmlNode Id = doc.CreateElement("Id");
@@ -91,10 +88,6 @@ namespace UnitTestProject1
             {
                 url3 = game.Images[3].SuperUrl.ToString().Trim();
             }
-
-            //string url1 = game.Images[7].SuperUrl.ToString().Trim();
-            //string url2 = game.Images[8].SuperUrl.ToString().Trim();
-            //string url3 = game.Images[9].SuperUrl.ToString().Trim();
 
             var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
             var complete = System.IO.Path.Combine(systemPath, @"GameLogger\Images");
@@ -211,7 +204,5 @@ namespace UnitTestProject1
             }
             return y;
         }
-
-
     }
 }

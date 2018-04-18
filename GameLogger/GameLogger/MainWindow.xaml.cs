@@ -156,9 +156,11 @@ namespace GameLogger
             var filepath3 = System.IO.Path.Combine(complete, game.Id + "_3.png");
 
             WebClient client = new WebClient();
-
-            client.Headers["User-Agent"] = "josedpar";
-            client.DownloadFile(new Uri(url), filepath);
+            if (!(File.Exists(filepath)))
+            {
+                client.Headers["User-Agent"] = "josedpar";
+                client.DownloadFile(new Uri(url), filepath);
+            }
 
             client.Headers["User-Agent"] = "josedpar123";
             client.DownloadFile(new Uri(url1), filepath1);
