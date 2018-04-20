@@ -11,11 +11,10 @@ namespace UnitTestProject1
 {
     class Class1
     {
-        public void AddToFile(string text)
+        public void AddToFile(string text, string cat)
         {
             var client = new GiantBombRestClient("23896f4f00ce753ef98a3c79c42c3d4e226dded0");
             var result = client.SearchForGames(text).ToList();
-
             var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
             var complete = System.IO.Path.Combine(systemPath, "GameLogger");
             var filepath = System.IO.Path.Combine(complete, "OGFile.xml");
@@ -26,6 +25,7 @@ namespace UnitTestProject1
 
             XmlNode GameName = doc.CreateElement("Game_Name");
             XmlNode Id = doc.CreateElement("Id");
+            XmlNode Categories = doc.CreateElement("Status");
             XmlNode Description = doc.CreateElement("Description");
             XmlNode ReleaseDate = doc.CreateElement("Release_Date");
             XmlNode Platforms = doc.CreateElement("Platforms");
@@ -34,8 +34,8 @@ namespace UnitTestProject1
             XmlNode Developers = doc.CreateElement("Developers");
 
             GameName.InnerText = Game.Name.ToString();
-
             Id.InnerText = Game.Id.ToString();
+            Categories.InnerText = cat;
             Description.InnerText = Game.Deck.ToString();
             ReleaseDate.InnerText = Game.OriginalReleaseDate.ToString();
             Genre.InnerText = GetGenre(Game.Genres.ToList());
@@ -43,9 +43,9 @@ namespace UnitTestProject1
             Publishers.InnerText = GetPublishers(Game.Publishers.ToList());
             Developers.InnerText = GetDevelopers(Game.Developers.ToList());
 
-
             node.AppendChild(GameName);
             node.AppendChild(Id);
+            node.AppendChild(Categories);
             node.AppendChild(Description);
             node.AppendChild(Genre);
             node.AppendChild(Platforms);
@@ -61,9 +61,33 @@ namespace UnitTestProject1
         private void DownloadImages(Game game, XmlDocument doc, XmlNode node)
         {
             string url = game.Image.SuperUrl.ToString().Trim();
-            string url1 = game.Images[7].SuperUrl.ToString().Trim();
-            string url2 = game.Images[8].SuperUrl.ToString().Trim();
-            string url3 = game.Images[9].SuperUrl.ToString().Trim();
+            string url1;
+            string url2;
+            string url3;
+            try
+            {
+                url1 = game.Images[7].SuperUrl.ToString().Trim();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                url1 = game.Images[1].SuperUrl.ToString().Trim();
+            }
+            try
+            {
+                url2 = game.Images[8].SuperUrl.ToString().Trim();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                url2 = game.Images[2].SuperUrl.ToString().Trim();
+            }
+            try
+            {
+                url3 = game.Images[9].SuperUrl.ToString().Trim();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                url3 = game.Images[3].SuperUrl.ToString().Trim();
+            }
 
             var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
             var complete = System.IO.Path.Combine(systemPath, @"GameLogger\Images");
@@ -73,7 +97,6 @@ namespace UnitTestProject1
             var filepath1 = System.IO.Path.Combine(complete, game.Id + "_1.png");
             var filepath2 = System.IO.Path.Combine(complete, game.Id + "_2.png");
             var filepath3 = System.IO.Path.Combine(complete, game.Id + "_3.png");
-
 
             WebClient client = new WebClient();
 
@@ -89,7 +112,6 @@ namespace UnitTestProject1
             client.Headers["User-Agent"] = "josedparSTONE";
             client.DownloadFile(new Uri(url3), filepath3);
 
-
             XmlNode ImgPath = doc.CreateElement("ImageCover");
             XmlNode ImgScreen1 = doc.CreateElement("ScreenShot_1");
             XmlNode ImgScreen2 = doc.CreateElement("ScreenShot_2");
@@ -104,8 +126,6 @@ namespace UnitTestProject1
             node.AppendChild(ImgScreen1);
             node.AppendChild(ImgScreen2);
             node.AppendChild(ImgScreen3);
-
-
         }
 
         public string GetGenre(List<Genre> list)
@@ -131,7 +151,6 @@ namespace UnitTestProject1
             int count = 0;
             foreach (var x in list)
             {
-
                 if (y == "")
                 {
                     y += x.Name;
@@ -140,13 +159,12 @@ namespace UnitTestProject1
                 {
                     if (count % 2 == 0)
                     {
-                        y += Environment.NewLine + "                  " + x.Name;
+                        y += Environment.NewLine + "                 " + x.Name;
                     }
                     else
                     {
                         y += ", " + x.Name;
                     }
-
                 }
                 count++;
             }
@@ -186,7 +204,5 @@ namespace UnitTestProject1
             }
             return y;
         }
-
-
     }
 }

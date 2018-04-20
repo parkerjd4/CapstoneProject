@@ -34,12 +34,8 @@ namespace GameLogger
     /// </summary>
     public partial class MainWindow : Window 
     {
-
         public ObservableCollection<ImageSource> gameImg = new ObservableCollection<ImageSource>();
         public ObservableCollection<String> GameList { get; set; }
-        public string APIURL = "?api_key=23896f4f00ce753ef98a3c79c42c3d4e226dded0";
-
-
 
         public MainWindow()
         {
@@ -57,9 +53,7 @@ namespace GameLogger
             {
                 File.Create(filepath).Close();
                 File.AppendAllText(filepath, String.Format("<GameList>" + Environment.NewLine + "</GameList>"));
-
             }
-
             LoadFile(filepath);
         }
 
@@ -84,7 +78,6 @@ namespace GameLogger
                     return;
                 }
             }
-
 
             XmlNode GameName = doc.CreateElement("Game_Name");
             XmlNode Id = doc.CreateElement("Id");
@@ -119,12 +112,6 @@ namespace GameLogger
 
             doc.DocumentElement.AppendChild(node);
             doc.Save(filepath);
-            RoutedEventArgs routedEventArgs = new RoutedEventArgs();
-            Menu_Click_Add(null, routedEventArgs);
-            gameListImg.ItemsSource = GameList;
-            gameListImg.Items.Refresh();
-
-
         }
 
         private void DownloadImages(Game game,XmlDocument doc,XmlNode node)
@@ -139,7 +126,8 @@ namespace GameLogger
             }
             catch(ArgumentOutOfRangeException)
             {
-                 url1 = game.Images[1].SuperUrl.ToString().Trim();
+                
+                url1 = game.Images[1].SuperUrl.ToString().Trim();
             }
             try
             {
@@ -158,10 +146,6 @@ namespace GameLogger
                 url3 = game.Images[3].SuperUrl.ToString().Trim();
             }
 
-            //string url1 = game.Images[7].SuperUrl.ToString().Trim();
-            //string url2 = game.Images[8].SuperUrl.ToString().Trim();
-            //string url3 = game.Images[9].SuperUrl.ToString().Trim();
-
             var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
             var complete = System.IO.Path.Combine(systemPath, @"GameLogger\Images");
             System.IO.Directory.CreateDirectory(complete);
@@ -172,9 +156,11 @@ namespace GameLogger
             var filepath3 = System.IO.Path.Combine(complete, game.Id + "_3.png");
 
             WebClient client = new WebClient();
-
-            client.Headers["User-Agent"] = "josedpar";
-            client.DownloadFile(new Uri(url), filepath);
+            if (!(File.Exists(filepath)))
+            {
+                client.Headers["User-Agent"] = "josedpar";
+                client.DownloadFile(new Uri(url), filepath);
+            }
 
             client.Headers["User-Agent"] = "josedpar123";
             client.DownloadFile(new Uri(url1), filepath1);
@@ -280,8 +266,7 @@ namespace GameLogger
 
 
         public void LoadFile(string path)
-        {
-             
+        {             
             XmlDocument doc = new XmlDocument();
             doc.Load(path);
             XmlNodeList xnList = doc.SelectNodes("/GameList/Game");
@@ -300,10 +285,7 @@ namespace GameLogger
             wind.Show();
         }
 
-        private void Menu_Click_Exit(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
+        private void Menu_Click_Exit(object sender, RoutedEventArgs e) => Close();
 
         private void Menu_Click_Remove(object sender, RoutedEventArgs e)
         {
@@ -333,7 +315,9 @@ namespace GameLogger
                     GameList.Remove(GameList[i].ToString());
                     gameListImg.ItemsSource = GameList;
                 }
+                gameListImg.ItemsSource = GameList;
             }
+            
         }
         private void Menu_Click_Remove1(object sender, RoutedEventArgs e)
         {
@@ -349,8 +333,6 @@ namespace GameLogger
             var filepath = System.IO.Path.Combine(complete, "game_list.xml");
             File.Delete(filepath);
         }
-
-        
 
         public void CheckxmlFiles()
         {
@@ -434,10 +416,8 @@ namespace GameLogger
             }
         }
 
-
         private void UniformGrid_SourceUpdated(object sender, DataTransferEventArgs e)
         {
-
         }
     }
 }

@@ -17,7 +17,6 @@ namespace GameLogger
 {
     public partial class Form2 : Form
     {
-
         public string[] imglist;
         public int count = 0;
         public string Status;
@@ -197,13 +196,20 @@ namespace GameLogger
             list[2] = "Completed";
             list[3] = "On Hold";
             list[4] = "Dropped";
+            if((label1.Text.Substring(label1.Text.Length - GameName.Length)).Length >= 20)
+            {
+                System.Drawing.Size Small = new System.Drawing.Size(Edit.Width+50, Edit.Height);
+                Edit.Size = Small; 
+                if((label1.Text.Substring(label1.Text.Length - GameName.Length)).Length >= 30)
+                {
+                    System.Drawing.Size Larger = new System.Drawing.Size(Edit.Width + 45, Edit.Height);
+                    Edit.Size = Larger;
+                }
+            }                                    
             Edit.SetComboBox1(name, list);
         }
 
-        private void Button1_Click_1(object sender, EventArgs e)
-        {
-            Close();
-        }
+        private void Button1_Click_1(object sender, EventArgs e) => Close();
 
         private void Button2_Click(object sender, EventArgs e)
         {           
