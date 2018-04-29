@@ -2,7 +2,15 @@
 
 
 ## Setup Instructions
-
+1. Click GameLogger.zip
+2. Download GameLogger.zip 
+3. Extarct Folder to Desktop 
+4. Naviatge to the inside of the GameLogger folder 
+5. Double click Setup.exe 
+6. Follow on screen instructions 
+ 
+ OR 
+ 
 1. Click Clone or Download 
 2. Click Open in Visual Studio 
 3. Click Build 
@@ -31,8 +39,10 @@
 1. Click File 
 2. Click Add Game 
 3. Follow the instructions on the screen 
+![](Images/AddGames.png)
 
 ## Remove Games 
 1. Click File 
 2. Click Remove Game 
 3. Follow the instructions on the screen
+![](Images/RemoveGames.png)
