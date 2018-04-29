@@ -1,5 +1,7 @@
 # CapstoneProject
-![](Images/MainWindow.png)
+Gamelogger is an application that allows users to add their gaming collection to this application. Gamelogger will allow users to add/remove games form its listview. The user can also click on a cell in the listview that contains a game and it will pop up a window that has information on that game. This window will also have a button that allows the users to look at similar games. 
+
+![](Images/MainWindow.png) ![](Images/GameView.png) ![](Images/RecommendGames.png) 
 
 ## Setup Instructions
 1. Click GameLogger.zip
