@@ -1,5 +1,5 @@
 # CapstoneProject
-
+![](Images/MainWindow.png)
 
 ## Setup Instructions
 1. Click GameLogger.zip
@@ -18,6 +18,7 @@
 5. Click Next three times 
 6. Click Finish 
 7. File explorer appeaers, double click setup.exe
+8. Follow on screen instructions 
 8. Right click and drag to the desktop and click Create shortcuts here 
 
 
