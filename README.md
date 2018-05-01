@@ -51,5 +51,5 @@ Gamelogger is an application that allows users to add their gaming collection to
 ![](Images/RemoveGames.png)
 
 
-Link to [Project Proposal](https://github.com/parkerjd4/CapstoneProject/blob/master/ProjectProposal.md)
+Link to [Project Proposal](https://github.com/parkerjd4/CapstoneProject/blob/master/ProjectProposal.md)\
 Link to [Final Technical Report](https://github.com/parkerjd4/CapstoneProject/blob/master/Final%20Technical%20Report)
