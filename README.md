@@ -50,6 +50,11 @@ Gamelogger is an application that allows users to add their gaming collection to
 3. Follow the instructions on the screen
 ![](Images/RemoveGames.png)
 
+## How to set up a development environment
+1. Click Clone or Download 
+2. Click Open in Visual Studio 
+3. Change Code 
+
 ## How to Contribute
 1. Click Clone or Download 
 2. Click Open in Visual Studio 
