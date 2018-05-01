@@ -61,7 +61,8 @@ Gamelogger is an application that allows users to add their gaming collection to
 8. Click Branches 
 9. Right Click the branch you are working in 
 10. Click Push 
+
 Link to [Project Proposal](https://github.com/parkerjd4/CapstoneProject/blob/master/ProjectProposal.md)\
-Link to [Final Technical Report](https://github.com/parkerjd4/CapstoneProject/blob/master/Final%20Technical%20Report)\
+Link to [Final Technical Report](https://github.com/parkerjd4/CapstoneProject/blob/master/Final%20Technical%20Report)
 
 
