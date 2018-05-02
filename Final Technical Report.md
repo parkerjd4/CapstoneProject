@@ -1,9 +1,10 @@
 Game Logger\
 Joseph Dillon Parker\
 Due: 5/6/2018
+# Table of Contents
+1. [Abstract][1]
 
-
-## Abstract
+# Abstract
 
 This project’s main goal was to create an Windows application to log peoples game collection. There are four main task that are needed to achieve this goal. The first task would be having a GUI to hold a list of games that the user will add. The GUI will have a listview to hold all the names of the games that the user will add. The second task would be to have buttons for the users to add and remove games form the listview and the xml file that holds the information. The menus for adding and removing games will appear in another window. When adding games, the user will have to enter the name of the game and select a status form the combo box. The remove games will just require the name of the game. The third task would be having a xml file that holds tags like name of game, release date, developers, publishers, platforms, genres, status, description, and images. The xml file will help with displaying the information of the game that the user clicks on within the listview. The fourth task would be able to recommend games based on the game that you are viewing. A window will pop up with a TableLayoutPanel that holds four games. The one task that was out of this projects scope was being able to accomplish would to be able to play the game using my application. All the main tasks were completed, but the visuals of the project are not great.  The methods that was used to complete this project was Visual Studio 2017 for development, the language was C#, and the database was Giant Bomb. 
 Keywords: 
@@ -11,7 +12,7 @@ Keywords:
 	
 	
 
-## Introduction and Project Overview
+# Introduction and Project Overview
 This project will address the problem of being able to organize game collections and allows users to customize the collection within a desktop application in a windows environment. This project will allow users to add PC games and consoles games. Many users would like the ability to look at their collection and gain more information about the games or get recommendations for the game to further expand their gaming repertoire. The customers of Game Logger would be mainly focused on gamers that want to keep a collection of their games on their computers and possibly learn about different games based on the kinds of games they play. An issue would be the lack of knowledge of Visual Studio 2017 and C#. This was solved my researching those topics and messing up and learning from those mistakes. Another issue that affect this project would be trying to make it stand out from other solutions but also capturing the great features that the other solutions offer. 
 Some of the other alternative solutions are LaunchBox and EmulationStation.  LaunchBox is what this project looked at for inspiration and what it sought to improve upon. The major strengths that both LaunchBox and EmulationStation has are the visual aspects for GUI and the ability to play the games that you add to your collection. They also have different options for different kinds of views and ways to display your game collection. The main weakness that both LaunchBox and EmulationStation have is the lack of a menu that recommends games based on the game that the users has stored in their application. 
 This project tried to capitalize on the lack of the ability to recommend games and view different kinds of information. It could not compete with the visuals and the ability to customize the users game collection to their preferences. The main reason users would try Game logger would be to see different kinds of information and seeing other games that match that user’s preferences. It could also be appealing to someone that just wants a very minimalist view.  Another source of value would be the size of the program is relatively smaller than the other solutions, so it would be great for someone that needs to conserve space on their hard drive. 
