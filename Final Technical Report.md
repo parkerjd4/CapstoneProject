@@ -21,9 +21,9 @@ Adding games will happen when the user clicks File->Add Games and a menu will ap
 ## Design 
 The design of the projects can be organized by breaking it into two parts, the database connection and the Windows application. The windows application is composed of many forms, windows, tables, and views. The database is a api form Giant Bomb which allows the application to go and fetch the xml tags that the windows application needs to display the information for the user to see.\
 The Giant bomb was easy to install enough to install, all that is needed to type this command in the package manager console “Install-Package GiantBomb.Api”.() The GiantBomb-CSharp github page has the instructions on how to connect to the api. The Giant Bomb documentation of the api will give further information on how to accuses specific fields. () Here is an example of using the api to locate Fallout 4.\
-“var client = new GiantBombRestClient("your-api-key");\
-var result = client.SearchForGames(“Fallout 4”).ToList();\
-var Game = client.GetGame(result.First().Id);”\
+`<var client = new GiantBombRestClient("your-api-key");>`\
+`<var result = client.SearchForGames(“Fallout 4”).ToList();>`\
+`<var Game = client.GetGame(result.First().Id);”>`\
 After getting the “Game” variable it can be used to acquire the tags of the xml file. The Giant Bomb api is used anywhere that the application would need to find a game or information about the game like for example searching for the games and after finding the game it would then be used to get the information that is necessary. It is also used to recommend games based on the “Game” variable.\ 
 The windows application side of had six forms that adds, removes, edit the status, recommending games. It also includes making an image larger when the user clicks on the image. The application has one MainWindow.xaml, which is the main window that the user will be interacting with, because of the file drop down menu has access to the other forms. 
 (ImageDropDown)
