@@ -60,6 +60,10 @@ The main things that was tested was operations that grabbed information form the
 		<td>Did Implement</td>
 	</tr>
 		<tr> 
+		<td>Refresh Listview</td>
+		<td>Did Implement</td>
+	</tr>
+		<tr> 
 		<td>Having a Categories</td>
 		<td>Did Implement</td>
 	</tr>
