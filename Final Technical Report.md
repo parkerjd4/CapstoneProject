@@ -1,6 +1,6 @@
-Game Logger\
+<div style="text-align:center"> Game Logger\
 Joseph Dillon Parker\
-Due: 5/6/2018
+Due: 5/6/2018 </div>
 
 ### Table of Contents 
 1. [Abstract](#abstract)
