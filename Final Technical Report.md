@@ -6,7 +6,6 @@ Due: 5/6/2018
 1. [Abstract](#abstract)
 2. [Introduction and Project Overview](#introduction-and-project-overview)
 3. [Design, Development, and Test ](#design,-development,-and-test)
-1.  s
 4. [Results](#results)
 5. [Conclusions and Future Work](#conclusions-and-future-work)
 # Abstract
