@@ -39,6 +39,46 @@ The main things that was tested was operations that grabbed information form the
 		<td>Planned to implement</td>
 		<td>Actual Results</td>
 	</tr>
+		<tr> 
+		<td>Add Games</td>
+		<td>Actual Results</td>
+	</tr>
+		<tr> 
+		<td>Remove Games</td>
+		<td>Actual Results</td>
+	</tr>
+		<tr> 
+		<td>Planned to implement</td>
+		<td>Actual Results</td>
+	</tr>
+		<tr> 
+		<td>Game View</td>
+		<td>Actual Results</td>
+	</tr>
+		<tr> 
+		<td>Recommending Games</td>
+		<td>Actual Results</td>
+	</tr>
+		<tr> 
+		<td>Having a Categories</td>
+		<td>Actual Results</td>
+	</tr>
+		<tr> 
+		<td>Sorting by Categories</td>
+		<td>Actual Results</td>
+	</tr>
+		<tr> 
+		<td>ESRB Ratings</td>
+		<td>Actual Results</td>
+	</tr>
+		<tr> 
+		<td>Playing the games</td>
+		<td>Actual Results</td>
+	</tr>
+	<tr> 
+		<td>List view cell has both game cover and name</td>
+		<td>Actual Results</td>
+	</tr>
 </table>
 	
 		
