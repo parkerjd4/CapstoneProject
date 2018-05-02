@@ -29,7 +29,7 @@ Adding games will happen when the user clicks File->Add Games and a menu will ap
 # Design, Development, and Test 
 ## Design 
 The design of the projects can be organized by breaking it into two parts, the database connection and the Windows application. The windows application is composed of many forms, windows, tables, and views. The database is a api form Giant Bomb which allows the application to go and fetch the xml tags that the windows application needs to display the information for the user to see.\
-The Giant bomb was easy to install enough to install, all that is needed to type this command in the package manager console “Install-Package GiantBomb.Api”.() The GiantBomb-CSharp github page has the instructions on how to connect to the api. The Giant Bomb documentation of the api will give further information on how to accuses specific fields. () Here is an example of using the api to locate Fallout 4.\
+The Giant bomb was easy to install enough to install, all that is needed to type this command in the package manager console `Install-Package GiantBomb.Api`.() The GiantBomb-CSharp github page has the instructions on how to connect to the api. The Giant Bomb documentation of the api will give further information on how to accuses specific fields. () Here is an example of using the api to locate Fallout 4.\
 `var client = new GiantBombRestClient("your-api-key");`\
 `var result = client.SearchForGames(“Fallout 4”).ToList();`\
 `var Game = client.GetGame(result.First().Id);”`\
