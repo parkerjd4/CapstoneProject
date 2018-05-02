@@ -41,45 +41,45 @@ The main things that was tested was operations that grabbed information form the
 	</tr>
 		<tr> 
 		<td>Add Games</td>
-		<td>Actual Results</td>
+		<td>Did Implement</td>
 	</tr>
 		<tr> 
 		<td>Remove Games</td>
-		<td>Actual Results</td>
+		<td>Did Implement</td>
 	</tr>
 		<tr> 
 		<td>Planned to implement</td>
-		<td>Actual Results</td>
+		<td>Did Implement</td>
 	</tr>
 		<tr> 
 		<td>Game View</td>
-		<td>Actual Results</td>
+		<td>Did Implement</td>
 	</tr>
 		<tr> 
 		<td>Recommending Games</td>
-		<td>Actual Results</td>
+		<td>Did Implement</td>
 	</tr>
 		<tr> 
 		<td>Having a Categories</td>
-		<td>Actual Results</td>
+		<td>Did Implement</td>
 	</tr>
 		<tr> 
 		<td>Sorting by Categories</td>
-		<td>Actual Results</td>
+		<td>Didn’t Implement</td>
 	</tr>
 		<tr> 
 		<td>ESRB Ratings</td>
-		<td>Actual Results</td>
+		<td>Didn’t Implement</td>
 	</tr>
 		<tr> 
 		<td>Playing the games</td>
-		<td>Actual Results</td>
+		<td>Didn’t Implement</td>
 	</tr>
 	<tr> 
 		<td>List view cell has both game cover and name</td>
-		<td>Actual Results</td>
+		<td>Didn’t Implement</td>
 	</tr>
 </table>
 	
-		
+Most of the planned features did make it in to the final product, but of course it is missing some of the features that would improve the overall quality of the application. Adding and remove games was a simple process of just editing the xml with XmlDocument and XmlNodeList. The game view is when the user clicks on a cell in the listview that has a game and it will pop-up with information on the game corresponding to the tags in the xml file. Recommending the games took a little longer because entercoutering a lot of bugs with the images. The application would be saying that the images were already downloaded, so the solution was to check before downloading the images. Another problem was the file names was the same for some of the images, just had to change some of them to different names.  One of the problems that was encountered and took a very long time to fix would be the listview refreshing. Adding and removing games form the listview would not result in it being removed from the listview but only to the xml file. The solution to this problem was to use ItemsSource of the listview and databind an array to the listview. After doing this it would not work, but after adding to the drop-down menu of the application a button that would refresh the listview it worked. The problem was more in likely to do with methods and the listview being in different threads. ESRB ratings was troubling because the giantbomb api would sometimes not have them or it would be in PEGI which is the Europe game rating system. Did not want to use this because of the inconsistency and not having the correct ESRB rating. Playing the games in the application did not get impletment because it would have taken a long time to tie in support. Having the user know the file path of the emulator and then having to keep that information would have added more work onto a busy schedule. Also, the most popular emulator, RetroArch, would be very difficult because it would also require the user to know the core that he/she wants to run. 		
 
