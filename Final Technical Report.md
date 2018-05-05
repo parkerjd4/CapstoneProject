@@ -41,14 +41,14 @@ This project tried to capitalize on the lack of the ability to recommend games a
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I started with building the basic main window and designing the basic structure of the file drop down menu. After developing the main window, the process of adding and removing games could start. I created the add games form first and then started on the remove games form. Adding games had the risk areas of XML file editing and connecting to the Giant Bomb api. Both of those are needed for the rest of the application to function. The XML file included:
 <br/>
  <figure>
-  <img src="https://github.com/parkerjd4/CapstoneProject/blob/master/Images/Gamelist.png" alt="XML File" style="display: block;margin-left: auto;margin-right: auto;">
+  <img src="https://github.com/parkerjd4/CapstoneProject/blob/master/Images/Gamelist.png" alt="XML File"></img>
   <figcaption>Figure 1</figcaption>
 </figure>
 <br/>
 When editing and looking at the XML the application needs XMLDocument and XMLNodeList. [5] [6] The XMLDocument is needed to load the XML file so that it can be edited. XMLNodeList is needed to loop though the XML file tags, this is used to create and look at information of the XML file. After completing the adding and removing games forms, the games need a container to hold the name of the games on the main window. The container is a listview because it was very easy to just add the name of the game to it. Another reason to use listview would be that it can add items dynamically. The next step after that would be making it where a form pops up with the user clicks on a list view cell.
 <br/>
  <figure>
-  <img src="https://github.com/parkerjd4/CapstoneProject/blob/master/Images/GameView.png" alt="Game View" style="display: block;margin-left: auto;margin-right: auto;">
+  <img src="https://github.com/parkerjd4/CapstoneProject/blob/master/Images/GameView.png" alt="Game View"></img>
   <figcaption>Figure 2</figcaption>
 </figure>
 <br/>
