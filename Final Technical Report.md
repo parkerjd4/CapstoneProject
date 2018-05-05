@@ -36,20 +36,36 @@ This project tried to capitalize on the lack of the ability to recommend games a
 `var Game = client.GetGame(result.First().Id);`\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; After getting the “Game” variable it can be used to acquire the tags of the XML file. The Giant Bomb api is used anywhere that the application would need to find a game or information about the game like for example searching for the games and after finding the game it would then be used to get the information that is necessary. It is also used to recommend games based on the “Game” variable.<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The windows application side of had four forms that adds, removes, edit the status, recommending games. It also includes making an image larger when the user clicks on the image. The application has one MainWindow.xaml, which is the main window that the user will be interacting with, because of the file drop down menu has access to the other forms.<br/>
+<br/>
+ <figure>
+  <img src="https://github.com/parkerjd4/CapstoneProject/blob/master/Images/DropDownMenu.png" alt="XML File"></img>
+  <figcaption>Figure 1</figcaption>
+</figure>
+<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Adding games will happen when the user clicks File->Add Games and a menu will appear for that user to enter a games name and select a status for the game. The status has five items which are playing, plan to play, completed, on hold, and dropped. Removing games will happen when the user clicks File->Remove Games and will just require the name of the game. Both adding and removing games will edit a XML file that will contain all the information for that game. When adding or removing games from the listview the user will need to click File->Refresh GameList to change the contents of the listview. The information of the game will appear when the user clicks on the game within the listview. It will make a window appear with the all the information that is in the XML file, this window is called the game view. This window will also allow the user to change the status of the game to something else using another menu. All the user needs to do to change the status is click on the status. After this it will pop-up with a menu that lets the users to choose a new status. The game view window will also hold the recommend games button to allow the user to see four other games that are similar to that game. Recommend games window will be a table that will hold three columns. The columns are the name of the game, game cover image, and a description of the game.
+
+
+
+
+
+
+
+
+
+
 ## Development 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I started with building the basic main window and designing the basic structure of the file drop down menu. After developing the main window, the process of adding and removing games could start. I created the add games form first and then started on the remove games form. Adding games had the risk areas of XML file editing and connecting to the Giant Bomb api. Both of those are needed for the rest of the application to function. The XML file included:
 <br/>
  <figure>
   <img src="https://github.com/parkerjd4/CapstoneProject/blob/master/Images/Gamelist.png" alt="XML File"></img>
-  <figcaption>Figure 1</figcaption>
+  <figcaption>Figure 2</figcaption>
 </figure>
 <br/>
 When editing and looking at the XML the application needs XMLDocument and XMLNodeList. [5] [6] The XMLDocument is needed to load the XML file so that it can be edited. XMLNodeList is needed to loop though the XML file tags, this is used to create and look at information of the XML file. After completing the adding and removing games forms, the games need a container to hold the name of the games on the main window. The container is a listview because it was very easy to just add the name of the game to it. Another reason to use listview would be that it can add items dynamically. The next step after that would be making it where a form pops up with the user clicks on a list view cell.
 <br/>
  <figure>
   <img src="https://github.com/parkerjd4/CapstoneProject/blob/master/Images/GameView.png" alt="Game View"></img>
-  <figcaption>Figure 2</figcaption>
+  <figcaption>Figure 3</figcaption>
 </figure>
 <br/>
 The form is the GameView form and it displays the XML tags and the four images. After this form was developed a button was added to recommend games to user based on that game. The recommend games form has a TableLayoutPanel that stores four games as rows with three tags as columns. [3] The tags are the name, image of game cover, and a short description of the game. One the risk areas of this part would have to be if the game does not have four games that are similar to that game. This problem was fixed by adding “Missing Game” to the name and description. The image field has a question mark instead of just being blank.  
