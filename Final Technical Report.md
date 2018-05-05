@@ -107,10 +107,10 @@ This project tried to capitalize on the lack of the ability to recommend games a
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If work was to be continued on this project it would include improving the visuals and being able to play the games in the application. Improving the visuals would require learning more about creating a custom cell for listview and how to tie it into my listview. To be able to play the games I would have to decide on what emulators I would support and how to incorporate them into the application.\
 
 # References 
-[1] kamranayub, Aug 18, 2017.’ A .NET GiantBomb API built on top of RestSharp Portable’. GitHub. https://github.com/kamranayub/GiantBomb-CSharp
-[2] Giant Bomb, 2018. ‘Documentation’. Giant Bomb. https://www.giantbomb.com/api/
-[3] Microsoft, 2018, ‘TableLayoutPanel.Controls Property’. Microsoft.   https://msdn.microsoft.com/en-us/library/system.windows.forms.tablelayoutpanel.controls(v=vs.110).aspx 
-[4] Microsoft, 2018, ‘ListView Properties’. Microsoft. https://msdn.microsoft.com/en-us/library/system.windows.forms.listview_properties(v=vs.110).aspx
-[5] Microsoft, 2018, ‘XmlDocument Class’. Microsoft. https://msdn.microsoft.com/en-us/library/system.XML.XMLdocument(v=vs.110).aspx 
-[6] Microsoft, 2018, ‘XmlNodeList Class’. Microsoft. https://msdn.microsoft.com/en-us/library/system.XML.XMLnodelist(v=vs.110).aspx 
-[7] Microsoft, 2018, ‘Assert.AreEqual Method’. Microsoft. https://msdn.microsoft.com/en-us/library/microsoft.visualstudio.testtools.unittesting.assert.areequal.aspx 
+[1] kamranayub, Aug 18, 2017.’ A .NET GiantBomb API built on top of RestSharp Portable’. GitHub. https://github.com/kamranayub/GiantBomb-CSharp\
+[2] Giant Bomb, 2018. ‘Documentation’. Giant Bomb. https://www.giantbomb.com/api/\
+[3] Microsoft, 2018, ‘TableLayoutPanel.Controls Property’. Microsoft.   https://msdn.microsoft.com/en-us/library/system.windows.forms.tablelayoutpanel.controls(v=vs.110).aspx\
+[4] Microsoft, 2018, ‘ListView Properties’. Microsoft. https://msdn.microsoft.com/en-us/library/system.windows.forms.listview_properties(v=vs.110).aspx\
+[5] Microsoft, 2018, ‘XmlDocument Class’. Microsoft. https://msdn.microsoft.com/en-us/library/system.XML.XMLdocument(v=vs.110).aspx\
+[6] Microsoft, 2018, ‘XmlNodeList Class’. Microsoft. https://msdn.microsoft.com/en-us/library/system.XML.XMLnodelist(v=vs.110).aspx\
+[7] Microsoft, 2018, ‘Assert.AreEqual Method’. Microsoft. https://msdn.microsoft.com/en-us/library/microsoft.visualstudio.testtools.unittesting.assert.areequal.aspx\
