@@ -5,7 +5,7 @@
 ### Table of Contents 
 1. [Abstract](#abstract)
 2. [Introduction and Project Overview](#introduction-and-project-overview)
-3. [Design, Development, and Test ](#design,-development,-and-test)
+3. [Design, Development, and Test](#design,-development,-and-test)
    * [Design](#design) 
    * [Development](#development)
    * [Testing](#testing)
