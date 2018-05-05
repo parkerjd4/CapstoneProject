@@ -84,8 +84,23 @@ The form is the GameView form and it displays the XML tags and the four images. 
 
 
 ## Testing
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The main things that was tested were operations that grabbed information from the Giant Bomb api and methods that added to the XML. There are three methods that check the XML files and the other four test methods test grabbing developers, genre, platforms, and publishers. The reasoning those need to be test is that all those fields are list and the application turns them into a string with a “ ,” in-between each object. To those methods I needed to just run the methods and compare the output to the correct output using `Assert.AreEqual() `. [7] Checking if the XML files are created the correct way you need to use the test files that are on this GitHub folder. It checks the XML file by adding two different games to another XML file and having a XML file that looks like it should. Doing this was a trouble area but was easily solved by just comparing the hashes of the files.\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The main things that was tested were operations that grabbed information from the Giant Bomb api and methods that added to the XML. There are three methods that check the XML files and the other four test methods test grabbing developers, genre, platforms, and publishers. The reasoning those need to be test is that all those fields are list and the application turns them into a string with a “ ,” in-between each object. To those methods I needed to just run the methods and compare the output to the correct output using `Assert.AreEqual() `. [7] Checking if the XML files are created the correct way you need to use the test files that are on this GitHub folder. It checks the XML file by adding two different games to another XML file and having a XML file that looks like it should. Doing this was a trouble area but was easily solved by just comparing the hashes of the files.
+<br/>
+ <figure>
+  <img src="https://github.com/parkerjd4/CapstoneProject/blob/master/Images/Testing.png" alt="Testing"></img>
+  <figcaption>Figure 4</figcaption>
+</figure>
+<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The UI of Game logger was not tested due to the fact that I did not have access to Visual Studio 2017 Enterprise on my laptop. UI testing framework was only on Visual Studio 2017 Enterprise and not Visual Studio 2017 Community, which is the version I have. I also do not think that it would have worked anyway because the UI testing used timing of the clicks and if that action happens, my application could take longer depending on the internet so this could cause it to fail when it really was working. 
+
+
+
+
+
+
+
+
+
 
 
 # Results 
