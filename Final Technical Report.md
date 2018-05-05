@@ -1,6 +1,6 @@
-# Game Logger
-# Joseph Dillon Parker
-# Due: 5/6/2018 
+## Game Logger
+## Joseph Dillon Parker
+## Due: 5/6/2018 
 
 ### Table of Contents 
 1. [Abstract](#abstract)
