@@ -40,16 +40,16 @@ This project tried to capitalize on the lack of the ability to recommend games a
   <img src="https://github.com/parkerjd4/CapstoneProject/blob/master/Images/DropDownMenu.png" alt="Menu Drop Menu" style="display: block;margin-left: auto;margin-right: auto;">
   <figcaption>Figure 1</figcaption>
 </figure> 
-<br>
+</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Adding games will happen when the user clicks File->Add Games and a menu will appear for that user to enter a games name and select a status for the game. The status has five items which are playing, plan to play, completed, on hold, and dropped. Removing games will happen when the user clicks File->Remove Games and will just require the name of the game. Both adding and removing games will edit a XML file that will contain all the information for that game. When adding or removing games from the listview the user will need to click File->Refresh GameList to change the contents of the listview. The information of the game will appear when the user clicks on the game within the listview. It will make a window appear with the all the information that is in the XML file, this window is called the game view. This window will also allow the user to change the status of the game to something else using another menu. All the user needs to do to change the status is click on the status. After this it will pop-up with a menu that lets the users to choose a new status. The game view window will also hold the recommend games button to allow the user to see four other games that are similar to that game. Recommend games window will be a table that will hold three columns. The columns are the name of the game, game cover image, and a description of the game.
 # Development 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I started with building the basic main window and designing the basic structure of the file drop down menu. After developing the main window, the process of adding and removing games could start. I created the add games form first and then started on the remove games form. Adding games had the risk areas of XML file editing and connecting to the Giant Bomb api. Both of those are needed for the rest of the application to function. The XML file included:
-<br> 
+</br> 
  <figure>
   <img src="https://github.com/parkerjd4/CapstoneProject/blob/master/Images/Gamelist.png" alt="XML File" style="display: block;margin-left: auto;margin-right: auto;">
   <figcaption>Figure 2</figcaption>
 </figure> 
-<br>
+</br>
 When editing and looking at the XML the application needs XMLDocument and XMLNodeList. [5] [6] The XMLDocument is needed to load the XML file so that it can be edited. XMLNodeList is needed to loop though the XML file tags, this is used to create and look at information of the XML file. After completing the adding and removing games forms, the games need a container to hold the name of the games on the main window. The container is a listview because it was very easy to just add the name of the game to it. Another reason to use listview would be that it can add items dynamically. The next step after that would be making it where a form pops up with the user clicks on a list view cell. <br> 
  <figure>
   <img src="https://github.com/parkerjd4/CapstoneProject/blob/master/Images/GameView.png" alt="Game View" style="display: block;margin-left: auto;margin-right: auto;">
